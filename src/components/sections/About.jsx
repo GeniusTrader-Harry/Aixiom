@@ -1,0 +1,47 @@
+import { motion } from 'framer-motion'
+import { siteConfig } from '../../utils/constants'
+import Section from '../ui/Section'
+
+export default function About() {
+  return (
+    <Section id="about" background="gray">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        {/* Image/Visual */}
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="relative"
+        >
+          <div className="relative w-full h-96 bg-gradient-to-br from-primary-300 to-primary-500 rounded-2xl shadow-xl flex items-center justify-center">
+            <div className="text-white text-center p-8">
+              <div className="text-8xl mb-4">💼</div>
+              <p className="text-2xl font-semibold">Excellence in Everything</p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Text Content */}
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            {siteConfig.about.title}
+          </h2>
+          <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+            {siteConfig.about.description}
+          </p>
+          <div className="bg-primary-50 border-l-4 border-primary-600 p-6 rounded-r-lg">
+            <p className="text-gray-700 italic">
+              {siteConfig.about.mission}
+            </p>
+          </div>
+        </motion.div>
+      </div>
+    </Section>
+  )
+}

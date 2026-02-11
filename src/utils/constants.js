@@ -8,7 +8,7 @@ export const siteConfig = {
       { name: "Home", href: "#hero" },
       { name: "Courses", href: "#courses" },
       { name: "1v1 Mentoring", href: "#mentoring" },
-      { name: "Abount", href: "#about" },
+      { name: "About", href: "#about" },
       { name: "Contact", href: "#contact" }
     ]
   },

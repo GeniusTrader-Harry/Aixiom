@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { FaBars, FaTimes } from 'react-icons/fa'
 import { siteConfig } from '../../utils/constants'
-import Button from '../ui/Button'
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -60,9 +59,7 @@ export default function Header() {
                 {link.name}
               </a>
             ))}
-            <Button href="#contact" size="sm">
-              Get Started
-            </Button>
+          
           </nav>
 
           {/* Mobile Menu Button */}
@@ -94,9 +91,7 @@ export default function Header() {
                 {link.name}
               </a>
             ))}
-            <Button href="#contact" size="sm" className="w-full">
-              Get Started
-            </Button>
+          
           </motion.nav>
         )}
       </div>

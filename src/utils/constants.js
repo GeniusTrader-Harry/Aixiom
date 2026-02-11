@@ -6,9 +6,9 @@ export const siteConfig = {
   nav: {
     links: [
       { name: "Home", href: "#hero" },
-      { name: "Features", href: "#features" },
-      { name: "Services", href: "#services" },
-      { name: "About", href: "#about" },
+      { name: "Courses", href: "#courses" },
+      { name: "1v1 Mentoring", href: "#mentoring" },
+      { name: "Abount", href: "#about" },
       { name: "Contact", href: "#contact" }
     ]
   },

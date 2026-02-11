@@ -15,7 +15,7 @@ export default function Features() {
     <Section id="features" background="gray">
       <div className="text-center mb-16">
         <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-          Why Choose Aixiom?
+          Why Choose Aixiom Education?
         </h2>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
           We deliver exceptional value through innovation, reliability, and dedication to your success.

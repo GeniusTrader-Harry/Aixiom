@@ -1,5 +1,5 @@
 export const siteConfig = {
-  siteName: "Aixiom",
+  siteName: "Aixiom Education",
   tagline: "Transform Your Business",
   description: "Innovative solutions for modern challenges",
 
@@ -14,7 +14,7 @@ export const siteConfig = {
   },
 
   hero: {
-    title: "Transform Your Business with Aixiom",
+    title: "Transform Your Business with Aixiom Education",
     subtitle: "We provide innovative solutions that drive growth, efficiency, and success in the digital age.",
     ctaPrimary: "Get Started",
     ctaSecondary: "Learn More"
@@ -76,14 +76,14 @@ export const siteConfig = {
   ],
 
   about: {
-    title: "About Aixiom",
+    title: "About Aixiom Education",
     description: "We are a team of passionate professionals dedicated to helping businesses thrive in the digital era. With years of experience and a commitment to excellence, we deliver solutions that make a real difference.",
     mission: "Our mission is to empower businesses with innovative technology solutions that drive growth, efficiency, and long-term success."
   },
 
   cta: {
     title: "Ready to Transform Your Business?",
-    description: "Join hundreds of companies that trust Aixiom for their digital transformation needs.",
+    description: "Join hundreds of companies that trust Aixiom Education for their digital transformation needs.",
     buttonText: "Get Started Today"
   },
 

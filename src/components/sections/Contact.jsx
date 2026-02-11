@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa'
+import { FaEnvelope, FaInstagram, FaTiktok } from 'react-icons/fa'
 import { siteConfig } from '../../utils/constants'
 import Section from '../ui/Section'
 import Button from '../ui/Button'
@@ -15,7 +15,6 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Simulate form submission
     setStatus('submitting')
     setTimeout(() => {
       setStatus('success')
@@ -67,21 +66,25 @@ export default function Contact() {
 
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0 w-12 h-12 bg-primary-100 text-primary-600 rounded-lg flex items-center justify-center">
-                  <FaPhone className="text-xl" />
+                  <FaInstagram className="text-xl" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-1">Phone</h4>
-                  <p className="text-gray-600">{siteConfig.contact.phone}</p>
+                  <h4 className="font-semibold text-gray-900 mb-1">Instagram</h4>
+                  <a href={siteConfig.social.instagram} target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline">
+                    @aixiomedu
+                  </a>
                 </div>
               </div>
 
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0 w-12 h-12 bg-primary-100 text-primary-600 rounded-lg flex items-center justify-center">
-                  <FaMapMarkerAlt className="text-xl" />
+                  <FaTiktok className="text-xl" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-1">Address</h4>
-                  <p className="text-gray-600">{siteConfig.contact.address}</p>
+                  <h4 className="font-semibold text-gray-900 mb-1">TikTok</h4>
+                  <a href={siteConfig.social.tiktok} target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline">
+                    @aixiomedu
+                  </a>
                 </div>
               </div>
             </div>
@@ -139,7 +142,7 @@ export default function Contact() {
                   required
                   rows="5"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all resize-none"
-                  placeholder="Tell us about your project..."
+                  placeholder="Tell us what subjects you need help with..."
                 ></textarea>
               </div>
 
@@ -154,7 +157,7 @@ export default function Contact() {
 
               {status === 'success' && (
                 <div className="text-green-600 text-center font-medium">
-                  ✓ Message sent successfully!
+                  Message sent successfully!
                 </div>
               )}
             </form>

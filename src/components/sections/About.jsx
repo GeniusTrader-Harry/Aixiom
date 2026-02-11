@@ -16,8 +16,8 @@ export default function About() {
         >
           <div className="relative w-full h-96 bg-gradient-to-br from-primary-300 to-primary-500 rounded-2xl shadow-xl flex items-center justify-center">
             <div className="text-white text-center p-8">
-              <div className="text-8xl mb-4">💼</div>
-              <p className="text-2xl font-semibold">Excellence in Everything</p>
+              <div className="text-8xl mb-4">🎓</div>
+              <p className="text-2xl font-semibold">Your Success, Our Priority</p>
             </div>
           </div>
         </motion.div>

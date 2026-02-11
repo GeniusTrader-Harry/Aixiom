@@ -1,101 +1,91 @@
 export const siteConfig = {
   siteName: "Aixiom Education",
-  tagline: "Transform Your Business",
-  description: "Innovative solutions for modern challenges",
+  tagline: "Ace Your A-Levels",
+  description: "Personalised tutoring in Finance, Economics, and more — designed to help you achieve top grades.",
 
   nav: {
     links: [
-      { name: "Home", href: "#hero" },
-      { name: "Courses", href: "#courses" },
-      { name: "1v1 Mentoring", href: "#mentoring" },
-      { name: "About", href: "#about" },
-      { name: "Contact", href: "#contact" }
+      { name: "Home", href: "/", type: "route" },
+      { name: "Courses", href: "/courses", type: "route" },
+      { name: "1v1 Mentoring", href: "/mentoring", type: "route" },
+      { name: "About", href: "#about", type: "scroll" },
+      { name: "Contact", href: "#contact", type: "scroll" }
     ]
   },
 
   hero: {
-    title: "Transform Your Business with Aixiom Education",
-    subtitle: "We provide innovative solutions that drive growth, efficiency, and success in the digital age.",
-    ctaPrimary: "Get Started",
+    title: "Ace Your A-Levels with Expert Support",
+    subtitle: "Personalised tutoring in Finance, Economics, and more — designed to help you achieve top grades.",
+    ctaPrimary: "Browse Courses",
     ctaSecondary: "Learn More"
   },
 
   features: [
     {
       id: 1,
-      icon: "FaRocket",
-      title: "Fast & Reliable",
-      description: "Lightning-fast solutions that deliver results when you need them most."
+      icon: "FaUserGraduate",
+      title: "Expert Tutors",
+      description: "Qualified tutors who know the A-Level syllabus inside out and are passionate about helping you succeed."
     },
     {
       id: 2,
-      icon: "FaShieldAlt",
-      title: "Secure & Safe",
-      description: "Enterprise-grade security to protect your business and customers."
+      icon: "FaLaptop",
+      title: "Flexible Learning",
+      description: "Study at your own pace, online, from anywhere — fitting around your school schedule and commitments."
     },
     {
       id: 3,
-      icon: "FaUsers",
-      title: "Expert Support",
-      description: "Dedicated team of experts ready to help you succeed 24/7."
+      icon: "FaClipboardCheck",
+      title: "Exam-Focused",
+      description: "Everything we do is geared towards getting you the grades you need, with proven revision and exam strategies."
     },
     {
       id: 4,
-      icon: "FaChartLine",
-      title: "Scalable Growth",
-      description: "Solutions that grow with your business, from startup to enterprise."
+      icon: "FaPoundSign",
+      title: "Affordable & Accessible",
+      description: "Quality education that doesn't break the bank. Transparent pricing with no hidden costs."
     }
   ],
 
   services: [
     {
       id: 1,
-      title: "Digital Strategy",
-      description: "Comprehensive digital transformation strategies tailored to your business goals.",
-      icon: "FaLightbulb"
+      title: "A-Level Courses",
+      description: "Structured learning content covering key A-Level subjects including Finance, Economics, and Business Studies.",
+      icon: "FaBookOpen"
     },
     {
       id: 2,
-      title: "Technology Solutions",
-      description: "Cutting-edge technology implementations that drive efficiency and innovation.",
-      icon: "FaCode"
+      title: "1v1 Mentoring",
+      description: "Personalised one-on-one sessions tailored to your strengths, weaknesses, and learning goals.",
+      icon: "FaUserGraduate"
     },
     {
       id: 3,
-      title: "Analytics & Insights",
-      description: "Data-driven insights that help you make informed business decisions.",
-      icon: "FaChartBar"
+      title: "Exam Preparation",
+      description: "Past paper practice, revision strategies, and exam technique coaching to maximise your grades.",
+      icon: "FaClipboardList"
     }
-  ],
-
-  stats: [
-    { id: 1, value: "1000+", label: "Happy Clients", icon: "FaSmile" },
-    { id: 2, value: "99%", label: "Satisfaction Rate", icon: "FaStar" },
-    { id: 3, value: "50+", label: "Team Members", icon: "FaUsers" },
-    { id: 4, value: "5+", label: "Years Experience", icon: "FaTrophy" }
   ],
 
   about: {
     title: "About Aixiom Education",
-    description: "We are a team of passionate professionals dedicated to helping businesses thrive in the digital era. With years of experience and a commitment to excellence, we deliver solutions that make a real difference.",
-    mission: "Our mission is to empower businesses with innovative technology solutions that drive growth, efficiency, and long-term success."
+    description: "Aixiom Education was founded with a simple goal — to make high-quality A-Level tutoring accessible to every student. We specialise in finance-related subjects and believe that with the right support, every student can achieve the grades they deserve. Whether you're aiming for top marks or just need help getting unstuck, we're here for you.",
+    mission: "Our mission is to empower A-Level students with the knowledge, confidence, and exam skills they need to succeed."
   },
 
   cta: {
-    title: "Ready to Transform Your Business?",
-    description: "Join hundreds of companies that trust Aixiom Education for their digital transformation needs.",
+    title: "Ready to Smash Your A-Levels?",
+    description: "Join Aixiom Education and get the support you need to achieve your best grades.",
     buttonText: "Get Started Today"
   },
 
   contact: {
-    email: "hello@aixiom.com",
-    phone: "+1 (555) 123-4567",
-    address: "123 Business Street, Tech City, TC 12345"
+    email: "hello@aixiomedu.com"
   },
 
   social: {
-    twitter: "https://twitter.com/aixiom",
-    linkedin: "https://linkedin.com/company/aixiom",
-    github: "https://github.com/aixiom"
+    instagram: "https://instagram.com/aixiomedu",
+    tiktok: "https://tiktok.com/@aixiomedu"
   }
 }

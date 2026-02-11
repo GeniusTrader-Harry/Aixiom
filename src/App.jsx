@@ -1,23 +1,20 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Layout from './components/layout/Layout'
-import Hero from './components/sections/Hero'
-import Features from './components/sections/Features'
-import Services from './components/sections/Services'
-import Stats from './components/sections/Stats'
-import About from './components/sections/About'
-import CTA from './components/sections/CTA'
-import Contact from './components/sections/Contact'
+import HomePage from './pages/HomePage'
+import CoursesPage from './pages/CoursesPage'
+import MentoringPage from './pages/MentoringPage'
 
 function App() {
   return (
-    <Layout>
-      <Hero />
-      <Features />
-      <Services />
-      <Stats />
-      <About />
-      <CTA />
-      <Contact />
-    </Layout>
+    <BrowserRouter>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/courses" element={<CoursesPage />} />
+          <Route path="/mentoring" element={<MentoringPage />} />
+        </Routes>
+      </Layout>
+    </BrowserRouter>
   )
 }
 

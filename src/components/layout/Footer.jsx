@@ -1,4 +1,5 @@
-import { FaTwitter, FaLinkedin, FaGithub } from 'react-icons/fa'
+import { FaInstagram, FaTiktok } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 import { siteConfig } from '../../utils/constants'
 
 export default function Footer() {
@@ -18,28 +19,20 @@ export default function Footer() {
             </p>
             <div className="flex space-x-4">
               <a
-                href={siteConfig.social.twitter}
+                href={siteConfig.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-primary-400 transition-colors text-xl"
               >
-                <FaTwitter />
+                <FaInstagram />
               </a>
               <a
-                href={siteConfig.social.linkedin}
+                href={siteConfig.social.tiktok}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-primary-400 transition-colors text-xl"
               >
-                <FaLinkedin />
-              </a>
-              <a
-                href={siteConfig.social.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-primary-400 transition-colors text-xl"
-              >
-                <FaGithub />
+                <FaTiktok />
               </a>
             </div>
           </div>
@@ -50,12 +43,21 @@ export default function Footer() {
             <ul className="space-y-2">
               {siteConfig.nav.links.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-gray-400 hover:text-primary-400 transition-colors"
-                  >
-                    {link.name}
-                  </a>
+                  {link.type === 'route' ? (
+                    <Link
+                      to={link.href}
+                      className="text-gray-400 hover:text-primary-400 transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      className="text-gray-400 hover:text-primary-400 transition-colors"
+                    >
+                      {link.name}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
@@ -66,8 +68,16 @@ export default function Footer() {
             <h4 className="text-white font-semibold mb-4">Contact</h4>
             <ul className="space-y-2 text-gray-400">
               <li>{siteConfig.contact.email}</li>
-              <li>{siteConfig.contact.phone}</li>
-              <li className="text-sm">{siteConfig.contact.address}</li>
+              <li>
+                <a href={siteConfig.social.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-primary-400 transition-colors">
+                  Instagram
+                </a>
+              </li>
+              <li>
+                <a href={siteConfig.social.tiktok} target="_blank" rel="noopener noreferrer" className="hover:text-primary-400 transition-colors">
+                  TikTok
+                </a>
+              </li>
             </ul>
           </div>
         </div>

@@ -1,9 +1,12 @@
 import { motion } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 import { siteConfig } from '../../utils/constants'
 import Button from '../ui/Button'
 import Section from '../ui/Section'
 
 export default function Hero() {
+  const navigate = useNavigate()
+
   return (
     <Section id="hero" className="pt-32 pb-20 min-h-screen flex items-center">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -20,10 +23,10 @@ export default function Hero() {
             {siteConfig.hero.subtitle}
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button href="#contact" size="lg">
+            <Button onClick={() => navigate('/courses')} size="lg">
               {siteConfig.hero.ctaPrimary}
             </Button>
-            <Button href="#features" variant="secondary" size="lg">
+            <Button href="#about" variant="secondary" size="lg">
               {siteConfig.hero.ctaSecondary}
             </Button>
           </div>
@@ -50,9 +53,9 @@ export default function Hero() {
                 }}
                 className="text-8xl mb-4"
               >
-                🚀
+                🎓
               </motion.div>
-              <p className="text-2xl font-semibold">Your Success Starts Here</p>
+              <p className="text-2xl font-semibold">Your Grades, Our Mission</p>
             </div>
           </div>
         </motion.div>

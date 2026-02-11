@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { FaBars, FaTimes } from 'react-icons/fa'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { siteConfig } from '../../utils/constants'
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const navigate = useNavigate()
+  const location = useLocation()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,11 +18,24 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const scrollToSection = (href) => {
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-      setIsMobileMenuOpen(false)
+  const handleNavClick = (link) => {
+    setIsMobileMenuOpen(false)
+
+    if (link.type === 'route') {
+      navigate(link.href)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    } else {
+      // Scroll links — if we're not on the homepage, navigate there first
+      if (location.pathname !== '/') {
+        navigate('/')
+        setTimeout(() => {
+          const element = document.querySelector(link.href)
+          if (element) element.scrollIntoView({ behavior: 'smooth' })
+        }, 100)
+      } else {
+        const element = document.querySelector(link.href)
+        if (element) element.scrollIntoView({ behavior: 'smooth' })
+      }
     }
   }
 
@@ -32,17 +48,14 @@ export default function Header() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <motion.a
-            href="#hero"
-            className="text-2xl font-bold text-primary-600"
-            onClick={(e) => {
-              e.preventDefault()
-              scrollToSection('#hero')
-            }}
-            whileHover={{ scale: 1.05 }}
-          >
-            {siteConfig.siteName}
-          </motion.a>
+          <Link to="/">
+            <motion.span
+              className="text-2xl font-bold text-primary-600 cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+            >
+              {siteConfig.siteName}
+            </motion.span>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
@@ -52,14 +65,13 @@ export default function Header() {
                 href={link.href}
                 onClick={(e) => {
                   e.preventDefault()
-                  scrollToSection(link.href)
+                  handleNavClick(link)
                 }}
                 className="text-gray-700 hover:text-primary-600 transition-colors font-medium"
               >
                 {link.name}
               </a>
             ))}
-          
           </nav>
 
           {/* Mobile Menu Button */}
@@ -84,14 +96,13 @@ export default function Header() {
                 href={link.href}
                 onClick={(e) => {
                   e.preventDefault()
-                  scrollToSection(link.href)
+                  handleNavClick(link)
                 }}
                 className="block text-gray-700 hover:text-primary-600 transition-colors font-medium py-2"
               >
                 {link.name}
               </a>
             ))}
-          
           </motion.nav>
         )}
       </div>

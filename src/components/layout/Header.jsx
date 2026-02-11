@@ -78,6 +78,8 @@ export default function Header() {
           <button
             className="md:hidden text-gray-700 text-2xl"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Menu"
+            aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
           </button>

@@ -6,9 +6,9 @@ export const siteConfig = {
   nav: {
     links: [
       { name: "Home", href: "/", type: "route" },
+      { name: "About", href: "#about", type: "scroll" },
       { name: "Courses", href: "/courses", type: "route" },
       { name: "1v1 Mentoring", href: "/mentoring", type: "route" },
-      { name: "About", href: "#about", type: "scroll" },
       { name: "Contact", href: "#contact", type: "scroll" }
     ]
   },

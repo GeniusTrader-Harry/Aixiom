@@ -1,4 +1,4 @@
-import { FaBookOpen, FaUserGraduate, FaClipboardList } from 'react-icons/fa'
+import { FaBookOpen, FaUserGraduate, FaClipboardList, FaGlobe, FaAward, FaLanguage, FaComments } from 'react-icons/fa'
 import { siteConfig } from '../../utils/constants'
 import Section from '../ui/Section'
 import Card from '../ui/Card'
@@ -6,7 +6,11 @@ import Card from '../ui/Card'
 const iconMap = {
   FaBookOpen: FaBookOpen,
   FaUserGraduate: FaUserGraduate,
-  FaClipboardList: FaClipboardList
+  FaClipboardList: FaClipboardList,
+  FaGlobe: FaGlobe,
+  FaAward: FaAward,
+  FaLanguage: FaLanguage,
+  FaComments: FaComments
 }
 
 export default function Services() {

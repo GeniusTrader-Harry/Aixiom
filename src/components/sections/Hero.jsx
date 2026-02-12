@@ -19,9 +19,14 @@ export default function Hero() {
           <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
             {siteConfig.hero.title}
           </h1>
-          <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+          <p className="text-xl text-gray-600 mb-4 leading-relaxed">
             {siteConfig.hero.subtitle}
           </p>
+          {siteConfig.hero.subtitle2 && (
+            <p className="text-2xl font-semibold text-primary-600 mb-8 leading-relaxed">
+              {siteConfig.hero.subtitle2}
+            </p>
+          )}
           <div className="flex flex-col sm:flex-row gap-4">
             <Button onClick={() => navigate('/courses')} size="lg">
               {siteConfig.hero.ctaPrimary}

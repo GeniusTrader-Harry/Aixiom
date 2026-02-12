@@ -14,8 +14,9 @@ export const siteConfig = {
   },
 
   hero: {
-    title: "Want to get into the colleges of your dream? CHOOSE AIXIOM or GEt 100% REFUND",
+    title: "CHOOSE Aixiom",
     subtitle: "Personalised tutoring in Finance, Economics, and more — designed to help you achieve top grades.",
+    subtitle2: "We Will Get You Into Your Dream Uni Or We Don't Make Money",
     ctaPrimary: "Browse Courses",
     ctaSecondary: "Learn More"
   },
@@ -65,6 +66,30 @@ export const siteConfig = {
       title: "Exam Preparation",
       description: "Past paper practice, revision strategies, and exam technique coaching to maximise your grades.",
       icon: "FaClipboardList"
+    },
+    {
+      id: 4,
+      title: "IGCSE Courses",
+      description: "Comprehensive support for IGCSE students across key subjects, with structured lessons and exam practice.",
+      icon: "FaGlobe"
+    },
+    {
+      id: 5,
+      title: "AP Courses",
+      description: "Expert guidance for Advanced Placement exams, covering content review, practice tests, and scoring strategies.",
+      icon: "FaAward"
+    },
+    {
+      id: 6,
+      title: "IELTS",
+      description: "Targeted preparation for all four IELTS components — Listening, Reading, Writing, and Speaking.",
+      icon: "FaLanguage"
+    },
+    {
+      id: 7,
+      title: "PF Debate",
+      description: "Public Forum debate coaching covering case construction, rebuttal strategy, and speaking skills.",
+      icon: "FaComments"
     }
   ],
 

@@ -14,7 +14,7 @@ export const siteConfig = {
   },
 
   hero: {
-    title: "Transform Your Business with Aixiom Education",
+    title: "Want to get into the colleges of your dream? CHOOSE AIXIOM or 100% Refund",
     subtitle: "We provide innovative solutions that drive growth, efficiency, and success in the digital age.",
     ctaPrimary: "Get Started",
     ctaSecondary: "Learn More"

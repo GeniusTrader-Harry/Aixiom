@@ -34,10 +34,10 @@ export default function Contact() {
     <Section id="contact" background="gray">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Get In Touch
           </h2>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-gray-400">
             Have a question? We'd love to hear from you.
           </p>
         </div>
@@ -50,39 +50,39 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">
+            <h3 className="text-2xl font-bold text-white mb-6">
               Contact Information
             </h3>
             <div className="space-y-6">
               <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-primary-100 text-primary-600 rounded-lg flex items-center justify-center">
+                <div className="flex-shrink-0 w-12 h-12 bg-white/10 text-white rounded-lg flex items-center justify-center">
                   <FaEnvelope className="text-xl" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-1">Email</h4>
-                  <p className="text-gray-600">{siteConfig.contact.email}</p>
+                  <h4 className="font-semibold text-white mb-1">Email</h4>
+                  <p className="text-gray-400">{siteConfig.contact.email}</p>
                 </div>
               </div>
 
               <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-primary-100 text-primary-600 rounded-lg flex items-center justify-center">
+                <div className="flex-shrink-0 w-12 h-12 bg-white/10 text-white rounded-lg flex items-center justify-center">
                   <FaInstagram className="text-xl" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-1">Instagram</h4>
-                  <a href={siteConfig.social.instagram} target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline">
+                  <h4 className="font-semibold text-white mb-1">Instagram</h4>
+                  <a href={siteConfig.social.instagram} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
                     @aixiomedu
                   </a>
                 </div>
               </div>
 
               <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-primary-100 text-primary-600 rounded-lg flex items-center justify-center">
+                <div className="flex-shrink-0 w-12 h-12 bg-white/10 text-white rounded-lg flex items-center justify-center">
                   <FaTiktok className="text-xl" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-1">TikTok</h4>
-                  <a href={siteConfig.social.tiktok} target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline">
+                  <h4 className="font-semibold text-white mb-1">TikTok</h4>
+                  <a href={siteConfig.social.tiktok} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
                     @aixiomedu
                   </a>
                 </div>
@@ -99,7 +99,7 @@ export default function Contact() {
           >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                   Name
                 </label>
                 <input
@@ -109,13 +109,13 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                  className="w-full px-4 py-3 bg-gray-900 border border-gray-700 text-white rounded-lg focus:ring-2 focus:ring-white focus:border-transparent transition-all placeholder-gray-500"
                   placeholder="Your name"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
                   Email
                 </label>
                 <input
@@ -125,13 +125,13 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                  className="w-full px-4 py-3 bg-gray-900 border border-gray-700 text-white rounded-lg focus:ring-2 focus:ring-white focus:border-transparent transition-all placeholder-gray-500"
                   placeholder="your@email.com"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
                   Message
                 </label>
                 <textarea
@@ -141,7 +141,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   rows="5"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all resize-none"
+                  className="w-full px-4 py-3 bg-gray-900 border border-gray-700 text-white rounded-lg focus:ring-2 focus:ring-white focus:border-transparent transition-all resize-none placeholder-gray-500"
                   placeholder="Tell us what subjects you need help with..."
                 ></textarea>
               </div>
@@ -156,7 +156,7 @@ export default function Contact() {
               </Button>
 
               {status === 'success' && (
-                <div className="text-green-600 text-center font-medium">
+                <div className="text-green-400 text-center font-medium">
                   Message sent successfully!
                 </div>
               )}

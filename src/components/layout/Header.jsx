@@ -42,7 +42,7 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-md py-4' : 'bg-transparent py-6'
+        isScrolled ? 'bg-black/95 backdrop-blur-sm shadow-lg shadow-black/20 py-4' : 'bg-transparent py-6'
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -50,7 +50,7 @@ export default function Header() {
           {/* Logo */}
           <Link to="/">
             <motion.span
-              className="text-2xl font-bold text-primary-600 cursor-pointer"
+              className="text-2xl font-bold text-white cursor-pointer"
               whileHover={{ scale: 1.05 }}
             >
               {siteConfig.siteName}
@@ -67,7 +67,7 @@ export default function Header() {
                   e.preventDefault()
                   handleNavClick(link)
                 }}
-                className="text-gray-700 hover:text-primary-600 transition-colors font-medium"
+                className="text-gray-300 hover:text-white transition-colors font-medium"
               >
                 {link.name}
               </a>
@@ -76,7 +76,7 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-gray-700 text-2xl"
+            className="md:hidden text-gray-300 text-2xl"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Menu"
             aria-expanded={isMobileMenuOpen}
@@ -100,7 +100,7 @@ export default function Header() {
                   e.preventDefault()
                   handleNavClick(link)
                 }}
-                className="block text-gray-700 hover:text-primary-600 transition-colors font-medium py-2"
+                className="block text-gray-300 hover:text-white transition-colors font-medium py-2"
               >
                 {link.name}
               </a>

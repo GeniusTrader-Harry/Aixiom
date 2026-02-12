@@ -5,9 +5,10 @@ export default function Section({
   background = 'white'
 }) {
   const backgrounds = {
-    white: 'bg-white',
-    gray: 'bg-gray-50',
-    primary: 'bg-primary-50'
+    white: 'bg-black',
+    gray: 'bg-gray-950',
+    primary: 'bg-gray-900',
+    dark: 'bg-black'
   }
 
   return (

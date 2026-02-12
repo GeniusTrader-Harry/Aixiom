@@ -14,7 +14,7 @@ export default function About() {
           transition={{ duration: 0.8 }}
           className="relative"
         >
-          <div className="relative w-full h-96 bg-gradient-to-br from-primary-300 to-primary-500 rounded-2xl shadow-xl flex items-center justify-center">
+          <div className="relative w-full h-96 bg-gradient-to-br from-gray-800 to-black rounded-2xl shadow-xl border border-gray-800 flex items-center justify-center">
             <div className="text-white text-center p-8">
               <div className="text-8xl mb-4">🎓</div>
               <p className="text-2xl font-semibold">Your Success, Our Priority</p>
@@ -29,14 +29,14 @@ export default function About() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             {siteConfig.about.title}
           </h2>
-          <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+          <p className="text-lg text-gray-400 mb-6 leading-relaxed">
             {siteConfig.about.description}
           </p>
-          <div className="bg-primary-50 border-l-4 border-primary-600 p-6 rounded-r-lg">
-            <p className="text-gray-700 italic">
+          <div className="bg-gray-900 border-l-4 border-white p-6 rounded-r-lg">
+            <p className="text-gray-300 italic">
               {siteConfig.about.mission}
             </p>
           </div>

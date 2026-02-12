@@ -4,6 +4,8 @@ export default function Button({
   children,
   variant = 'primary',
   size = 'md',
+  type = 'button',
+  disabled = false,
   onClick,
   href,
   className = ''
@@ -24,8 +26,6 @@ export default function Button({
 
   const classes = `${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`
 
-  const Component = motion.button
-
   if (href) {
     return (
       <motion.a
@@ -40,13 +40,15 @@ export default function Button({
   }
 
   return (
-    <Component
+    <motion.button
+      type={type}
+      disabled={disabled}
       onClick={onClick}
       className={classes}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
     >
       {children}
-    </Component>
+    </motion.button>
   )
 }

@@ -14,9 +14,9 @@ export const siteConfig = {
   },
 
   hero: {
-    title: "Want to get into the colleges of your dream? CHOOSE AIXIOM or 100% Refund",
-    subtitle: "We provide innovative solutions that drive growth, efficiency, and success in the digital age.",
-    ctaPrimary: "Get Started",
+    title: "Want to get into the colleges of your dream? CHOOSE AIXIOM or GEt 100% REFUND",
+    subtitle: "Personalised tutoring in Finance, Economics, and more — designed to help you achieve top grades.",
+    ctaPrimary: "Browse Courses",
     ctaSecondary: "Learn More"
   },
 

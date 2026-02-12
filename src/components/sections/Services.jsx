@@ -1,12 +1,12 @@
-import { FaLightbulb, FaCode, FaChartBar } from 'react-icons/fa'
+import { FaBookOpen, FaUserGraduate, FaClipboardList } from 'react-icons/fa'
 import { siteConfig } from '../../utils/constants'
 import Section from '../ui/Section'
 import Card from '../ui/Card'
 
 const iconMap = {
-  FaLightbulb: FaLightbulb,
-  FaCode: FaCode,
-  FaChartBar: FaChartBar
+  FaBookOpen: FaBookOpen,
+  FaUserGraduate: FaUserGraduate,
+  FaClipboardList: FaClipboardList
 }
 
 export default function Services() {
@@ -14,10 +14,10 @@ export default function Services() {
     <Section id="services" background="white">
       <div className="text-center mb-16">
         <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-          Our Services
+          What We Offer
         </h2>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          Comprehensive solutions designed to meet your unique business needs.
+          Everything you need to succeed in your A-Levels, all in one place.
         </p>
       </div>
 

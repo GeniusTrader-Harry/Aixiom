@@ -1,13 +1,13 @@
-import { FaRocket, FaShieldAlt, FaUsers, FaChartLine } from 'react-icons/fa'
+import { FaUserGraduate, FaLaptop, FaClipboardCheck, FaPoundSign } from 'react-icons/fa'
 import { siteConfig } from '../../utils/constants'
 import Section from '../ui/Section'
 import Card from '../ui/Card'
 
 const iconMap = {
-  FaRocket: FaRocket,
-  FaShieldAlt: FaShieldAlt,
-  FaUsers: FaUsers,
-  FaChartLine: FaChartLine
+  FaUserGraduate: FaUserGraduate,
+  FaLaptop: FaLaptop,
+  FaClipboardCheck: FaClipboardCheck,
+  FaPoundSign: FaPoundSign
 }
 
 export default function Features() {
@@ -18,7 +18,7 @@ export default function Features() {
           Why Choose Aixiom Education?
         </h2>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          We deliver exceptional value through innovation, reliability, and dedication to your success.
+          We're here to give you every advantage when it comes to your A-Level results.
         </p>
       </div>
 

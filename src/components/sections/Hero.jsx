@@ -57,11 +57,11 @@ export default function Hero() {
           </div>
 
           {/* Right: Main avatar */}
-          <div className="flex-shrink-0 w-72 h-72 md:w-96 md:h-96 lg:w-[440px] lg:h-[440px] rounded-full overflow-hidden drop-shadow-2xl">
+          <div className="flex-shrink-0 w-64 h-80 md:w-80 md:h-[400px] lg:w-96 lg:h-[480px]">
             <img
               src="/avatar-main.jpg"
               alt="AiXiom Education"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover rounded-2xl drop-shadow-2xl mix-blend-multiply"
             />
           </div>
         </div>

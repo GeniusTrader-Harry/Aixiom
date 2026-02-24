@@ -2,7 +2,6 @@ import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import { siteConfig } from '../../utils/constants'
 import Button from '../ui/Button'
-import RazorbillLogo from '../ui/RazorbillLogo'
 
 export default function Hero() {
   const navigate = useNavigate()
@@ -57,9 +56,13 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right: Razorbill logo */}
+          {/* Right: Main avatar */}
           <div className="flex-shrink-0 w-64 h-80 md:w-80 md:h-[400px] lg:w-96 lg:h-[480px]">
-            <RazorbillLogo className="w-full h-full drop-shadow-2xl" />
+            <img
+              src="/avatar-main.jpg"
+              alt="AiXiom Education"
+              className="w-full h-full object-cover rounded-2xl drop-shadow-2xl"
+            />
           </div>
         </div>
       </div>

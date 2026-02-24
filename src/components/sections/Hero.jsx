@@ -61,7 +61,7 @@ export default function Hero() {
             <img
               src="/avatar-main.jpg"
               alt="AiXiom Education"
-              className="w-full h-full object-cover rounded-2xl drop-shadow-2xl"
+              className="w-full h-full object-cover rounded-2xl drop-shadow-2xl mix-blend-multiply"
             />
           </div>
         </div>

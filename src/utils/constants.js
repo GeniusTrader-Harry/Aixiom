@@ -6,7 +6,7 @@ export const siteConfig = {
   nav: {
     links: [
       { name: "Home", href: "/", type: "route" },
-      { name: "About", href: "#about", type: "scroll" },
+      { name: "About", href: "/about", type: "route" },
       { name: "Courses", href: "/courses", type: "route" },
       { name: "AiXiom Academy", href: "/mentoring", type: "route" },
       { name: "Contact", href: "#contact", type: "scroll" }

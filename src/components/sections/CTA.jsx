@@ -3,7 +3,7 @@ import { siteConfig } from '../../utils/constants'
 import Button from '../ui/Button'
 import Section from '../ui/Section'
 
-export default function CTA() {
+export default function CTA({ contactHref = '#contact' }) {
   return (
     <Section background="white">
       <motion.div
@@ -20,7 +20,7 @@ export default function CTA() {
           {siteConfig.cta.description}
         </p>
         <Button
-          href="#contact"
+          href={contactHref}
           variant="secondary"
           size="lg"
           className="bg-white text-black hover:bg-gray-200 border-0"

@@ -131,7 +131,7 @@ export default function AboutPage() {
         </motion.div>
       </Section>
 
-      <CTA />
+      <CTA contactHref="/#contact" />
     </div>
   )
 }

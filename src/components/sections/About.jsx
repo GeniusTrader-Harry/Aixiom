@@ -6,12 +6,12 @@ const team = [
   {
     name: 'Harry Zhu',
     image: '/avatar-harry.jpg',
-    role: 'Co-Founder & Lead Tutor',
+    role: 'Head Mentor',
   },
   {
     name: 'Cooper Wu',
     image: '/avatar-cooper.jpg',
-    role: 'Co-Founder & Lead Tutor',
+    role: 'Head Mentor',
   },
 ]
 

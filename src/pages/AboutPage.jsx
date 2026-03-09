@@ -6,13 +6,13 @@ const team = [
   {
     name: 'Harry Zhu',
     image: '/avatar-harry.jpg',
-    role: 'Co-Founder & Lead Tutor',
+    role: 'Head Mentor',
     bio: 'Harry is passionate about making top-quality education accessible to every student. With deep expertise in Finance and Economics, he brings a results-driven approach to every tutoring session.',
   },
   {
     name: 'Cooper Wu',
     image: '/avatar-cooper.jpg',
-    role: 'Co-Founder & Lead Tutor',
+    role: 'Head Mentor',
     bio: 'Cooper combines academic excellence with a genuine care for student success. His structured, exam-focused teaching style has helped students consistently achieve their target grades.',
   },
 ]

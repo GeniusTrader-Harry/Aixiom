@@ -9,6 +9,7 @@ export const siteConfig = {
       { name: "About Us", href: "/about", type: "route" },
       { name: "Courses", href: "/courses", type: "route" },
       { name: "AiXiom Academy", href: "/mentoring", type: "route" },
+      { name: "Articles", href: "#articles", type: "scroll" },
       { name: "Contact", href: "#contact", type: "scroll" }
     ]
   },

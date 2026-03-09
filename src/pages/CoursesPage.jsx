@@ -1,36 +1,43 @@
 import { motion } from 'framer-motion'
-import { FaBookOpen, FaChartLine, FaBriefcase, FaCalculator } from 'react-icons/fa'
+import { FaBookOpen, FaGlobe, FaAward, FaLanguage, FaComments } from 'react-icons/fa'
 import Section from '../components/ui/Section'
 import Card from '../components/ui/Card'
 
 const courses = [
   {
     id: 1,
-    title: "Finance",
-    icon: FaChartLine,
-    description: "Master financial concepts, markets, and instruments. Covers personal finance, corporate finance, and financial markets as required by the A-Level syllabus.",
-    topics: ["Financial markets", "Investment appraisal", "Sources of finance", "Financial planning"]
+    title: "A-Level Courses",
+    icon: FaBookOpen,
+    description: "Structured learning content covering key A-Level subjects including Finance, Economics, and Business Studies.",
+    topics: ["Finance", "Economics", "Business Studies", "Accounting"]
   },
   {
     id: 2,
-    title: "Economics",
-    icon: FaBookOpen,
-    description: "Develop a strong understanding of micro and macroeconomics. From supply and demand to fiscal policy, we cover everything you need.",
-    topics: ["Microeconomics", "Macroeconomics", "International trade", "Economic policy"]
+    title: "IGCSE Courses",
+    icon: FaGlobe,
+    description: "Comprehensive support for IGCSE students across key subjects, with structured lessons and exam practice.",
+    topics: ["Core subject coverage", "Past paper practice", "Exam technique", "Revision resources"]
   },
   {
     id: 3,
-    title: "Business Studies",
-    icon: FaBriefcase,
-    description: "Learn how businesses operate, grow, and compete. Covers marketing, operations, HR, and strategic decision-making.",
-    topics: ["Marketing strategies", "Operations management", "Human resources", "Business strategy"]
+    title: "AP Courses",
+    icon: FaAward,
+    description: "Expert guidance for Advanced Placement exams, covering content review, practice tests, and scoring strategies.",
+    topics: ["Content review", "Practice tests", "Scoring strategies", "Exam preparation"]
   },
   {
     id: 4,
-    title: "Accounting",
-    icon: FaCalculator,
-    description: "Build confidence with financial statements, ratios, and management accounting. Step-by-step guidance through every topic.",
-    topics: ["Financial statements", "Ratio analysis", "Budgeting", "Cost accounting"]
+    title: "IELTS",
+    icon: FaLanguage,
+    description: "Targeted preparation for all four IELTS components — Listening, Reading, Writing, and Speaking.",
+    topics: ["Listening", "Reading", "Writing", "Speaking"]
+  },
+  {
+    id: 5,
+    title: "PF Debate",
+    icon: FaComments,
+    description: "Public Forum debate coaching covering case construction, rebuttal strategy, and speaking skills.",
+    topics: ["Case construction", "Rebuttal strategy", "Crossfire technique", "Speaking skills"]
   }
 ]
 

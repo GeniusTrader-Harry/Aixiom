@@ -9,7 +9,7 @@ export const siteConfig = {
       { name: "About Us", href: "/about", type: "route" },
       { name: "Courses", href: "/courses", type: "route" },
       { name: "AiXiom Academy", href: "/mentoring", type: "route" },
-      { name: "Articles", href: "#articles", type: "scroll" },
+      { name: "Articles", href: "/articles", type: "route" },
       { name: "Contact", href: "#contact", type: "scroll" }
     ]
   },
@@ -112,3 +112,30 @@ export const siteConfig = {
     tiktok: "https://tiktok.com/@aixiomedu"
   }
 }
+
+export const articles = [
+  {
+    id: 1,
+    title: "How To Build A Strong University Application",
+    date: "2026-03-09",
+    category: "Applications",
+    summary: "A practical checklist for personal statements, super-curriculars, references, and interview prep.",
+    readTime: "6 min read"
+  },
+  {
+    id: 2,
+    title: "A-Level Revision System That Actually Works",
+    date: "2026-03-02",
+    category: "Study Skills",
+    summary: "Use weekly planning, active recall, and timed past papers to raise grades consistently.",
+    readTime: "5 min read"
+  },
+  {
+    id: 3,
+    title: "What Top Universities Look For Beyond Grades",
+    date: "2026-02-20",
+    category: "Admissions",
+    summary: "How admissions teams evaluate academic curiosity, writing quality, and evidence of initiative.",
+    readTime: "7 min read"
+  }
+]

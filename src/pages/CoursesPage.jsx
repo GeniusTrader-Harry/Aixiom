@@ -8,8 +8,8 @@ const courses = [
     id: 1,
     title: "A-Level Courses",
     icon: FaBookOpen,
-    description: "Structured learning content covering key A-Level subjects including Finance, Economics, and Business Studies.",
-    topics: ["Finance", "Economics", "Business Studies", "Accounting"]
+    description: "Structured learning content covering key A-Level subjects with expert tutors and exam-focused strategies.",
+    topics: ["Economics", "Mathematics", "Further Mathematics", "Sociology", "Physics"]
   },
   {
     id: 2,

@@ -7,6 +7,7 @@ const team = [
     name: 'Harry Zhu',
     image: '/avatar-harry.jpg',
     role: 'Head Mentor',
+    linkedin: 'https://www.linkedin.com/in/wenhao-zhu-167599373/',
   },
   {
     name: 'Cooper Wu',

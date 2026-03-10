@@ -8,6 +8,7 @@ const team = [
     image: '/avatar-harry.jpg',
     role: 'Head Mentor',
     bio: 'Harry is passionate about making top-quality education accessible to every student. With deep expertise in Finance and Economics, he brings a results-driven approach to every tutoring session.',
+    linkedin: 'https://www.linkedin.com/in/wenhao-zhu-167599373/',
   },
   {
     name: 'Cooper Wu',

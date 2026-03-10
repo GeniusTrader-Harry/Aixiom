@@ -116,26 +116,46 @@ export const siteConfig = {
 export const articles = [
   {
     id: 1,
-    title: "How To Build A Strong University Application",
-    date: "2026-03-09",
-    category: "Applications",
-    summary: "A practical checklist for personal statements, super-curriculars, references, and interview prep.",
-    readTime: "6 min read"
-  },
-  {
-    id: 2,
-    title: "A-Level Revision System That Actually Works",
-    date: "2026-03-02",
-    category: "Study Skills",
-    summary: "Use weekly planning, active recall, and timed past papers to raise grades consistently.",
-    readTime: "5 min read"
-  },
-  {
-    id: 3,
-    title: "What Top Universities Look For Beyond Grades",
-    date: "2026-02-20",
-    category: "Admissions",
-    summary: "How admissions teams evaluate academic curiosity, writing quality, and evidence of initiative.",
-    readTime: "7 min read"
+    title: "What Are The Best Universities in Austrian Economics?",
+    date: "2026-03-10",
+    category: "University Guidance",
+    summary: "A practical guide to universities and colleges in the USA and UK for students interested in Austrian Economics.",
+    readTime: "18 min read",
+    content: `What are the best universities and colleges in Austrian Economics?
+A list of universities and colleges for prospective students interested in Austrian Economics.
+
+Economics of the Austrian school, as asserted by Professor Boettke at George Mason University, is an expanding industry, but it is by no means currently a mainstream school of thought or widely recognized in academia. Its distinctive practice of regarding economics as praxeology and emphasis on individual choices and actions make Austrian economics stand apart from mainstream economics.
+
+Austrian-friendly economics programs are rare to find, and most lists available online are outdated. This article provides a practical list of universities and colleges to consider, with a focus on institutions in the USA and UK.
+
+USA
+
+New York University
+NYU is a top US university located in New York City, with strong economics training and important Austrian-economics links through scholars such as Mario Rizzo and David Harper, and the legacy of Israel Kirzner and Ludwig von Mises.
+
+Hillsdale College
+Hillsdale is a highly selective liberal arts college with strong Austrian-economics coverage, including courses in Austrian economics and history of economic thought, plus access to Mises archival materials.
+
+Grove City College
+Grove City College has a rich Austrian-economics tradition, including historical links to Hans Sennholz and alumni such as Peter J. Boettke. It is known for intellectual rigor and strong economics culture.
+
+George Mason University
+GMU is one of the strongest research universities for Austrian economics, with support from the Mercatus Center and scholars such as Peter Boettke, Christopher Coyne, and Virgil Storr. It also offers excellent broader economics training.
+
+Loyola University New Orleans
+Loyola New Orleans has notable Austrian-libertarian strength through Professor Walter Block and related research opportunities for undergraduates.
+
+UK
+
+London School of Economics
+LSE has deep historical ties to Austrian economics through F. A. Hayek and remains a strong option for rigorous economics education with exposure to related traditions.
+
+King's College London
+King's has a Department of Political Economy and interdisciplinary economics teaching that includes history of economic thought and engagement with Austrian-adjacent traditions.
+
+Notes for applicants
+Many universities may have one or two Austrian-leaning scholars without offering a full Austrian-focused faculty culture. Prospective students should review faculty profiles and course structures carefully before applying.
+
+Additional institutions with Austrian-economics presence include programs such as The Citadel, Wofford College, Hampden-Sydney College, San Jose State University, Oklahoma State University, Texas Tech University, Baylor University, Florida State University, Durham University, and others.`
   }
 ]

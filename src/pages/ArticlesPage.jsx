@@ -26,14 +26,11 @@ export default function ArticlesPage() {
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             Insights on A-Levels, admissions, and study strategy.
           </p>
-          <p className="text-sm text-gray-500 mt-4">
-            To add new articles, edit the `articles` array in `src/utils/constants.js`.
-          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-8">
           {articles.map((article, index) => (
-            <Card key={article.id} delay={index * 0.1} className="p-7 h-full flex flex-col">
+            <Card key={article.id} delay={index * 0.1} className="p-7 h-full flex flex-col max-w-4xl mx-auto w-full">
               <div className="flex items-center justify-between text-sm text-gray-400 mb-4">
                 <span>{article.category}</span>
                 <span>{article.readTime}</span>
@@ -42,6 +39,12 @@ export default function ArticlesPage() {
               <h2 className="text-2xl font-bold text-white mb-3 leading-tight">{article.title}</h2>
 
               <p className="text-gray-400 leading-relaxed mb-6 flex-grow">{article.summary}</p>
+
+              {article.content && (
+                <div className="text-gray-300 leading-relaxed whitespace-pre-line mb-6">
+                  {article.content}
+                </div>
+              )}
 
               <p className="text-sm text-gray-500">{formatDate(article.date)}</p>
             </Card>

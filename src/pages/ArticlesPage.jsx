@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import Section from '../components/ui/Section'
 import Card from '../components/ui/Card'
 import { articles } from '../utils/constants'
@@ -28,26 +29,25 @@ export default function ArticlesPage() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {articles.map((article, index) => (
-            <Card key={article.id} delay={index * 0.1} className="p-7 h-full flex flex-col max-w-4xl mx-auto w-full">
-              <div className="flex items-center justify-between text-sm text-gray-400 mb-4">
-                <span>{article.category}</span>
-                <span>{article.readTime}</span>
-              </div>
-
-              <h2 className="text-2xl font-bold text-white mb-3 leading-tight">{article.title}</h2>
-
-              <p className="text-gray-400 leading-relaxed mb-6 flex-grow">{article.summary}</p>
-
-              {article.content && (
-                <div className="text-gray-300 leading-relaxed whitespace-pre-line mb-6">
-                  {article.content}
+            <Link key={article.id} to={`/articles/${article.id}`} className="block h-full">
+              <Card delay={index * 0.1} className="p-7 h-full flex flex-col hover:border-white transition-colors cursor-pointer">
+                <div className="flex items-center justify-between text-sm text-gray-400 mb-4">
+                  <span>{article.category}</span>
+                  <span>{article.readTime}</span>
                 </div>
-              )}
 
-              <p className="text-sm text-gray-500">{formatDate(article.date)}</p>
-            </Card>
+                <h2 className="text-2xl font-bold text-white mb-3 leading-tight">{article.title}</h2>
+
+                <p className="text-gray-400 leading-relaxed mb-6 flex-grow">{article.summary}</p>
+
+                <div className="flex items-center justify-between">
+                  <p className="text-sm text-gray-500">{formatDate(article.date)}</p>
+                  <span className="text-white font-medium text-sm">Read More →</span>
+                </div>
+              </Card>
+            </Link>
           ))}
         </div>
       </Section>

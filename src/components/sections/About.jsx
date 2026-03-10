@@ -12,6 +12,7 @@ const team = [
     name: 'Cooper Wu',
     image: '/avatar-cooper.jpg',
     role: 'Head Mentor',
+    linkedin: 'https://www.linkedin.com/in/yuzhelun-cooper-wu-7022b1377/',
   },
 ]
 
@@ -86,6 +87,16 @@ export default function About() {
               </div>
               <p className="text-xl font-semibold text-white">{member.name}</p>
               <p className="text-sm text-gray-400 mt-1">{member.role}</p>
+              {member.linkedin && (
+                <a
+                  href={member.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 inline-block text-white hover:text-gray-300 transition-colors font-medium underline text-sm"
+                >
+                  Check His LinkedIn
+                </a>
+              )}
             </motion.div>
           ))}
         </div>

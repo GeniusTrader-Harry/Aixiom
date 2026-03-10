@@ -14,6 +14,7 @@ const team = [
     image: '/avatar-cooper.jpg',
     role: 'Head Mentor',
     bio: 'Cooper combines academic excellence with a genuine care for student success. His structured, exam-focused teaching style has helped students consistently achieve their target grades.',
+    linkedin: 'https://www.linkedin.com/in/yuzhelun-cooper-wu-7022b1377/',
   },
 ]
 
@@ -125,6 +126,16 @@ export default function AboutPage() {
                 <p className="text-2xl font-bold text-white mb-1">{member.name}</p>
                 <p className="text-sm text-gray-400 mb-4">{member.role}</p>
                 <p className="text-gray-400 leading-relaxed">{member.bio}</p>
+                {member.linkedin && (
+                  <a
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-block text-white hover:text-gray-300 transition-colors font-medium underline"
+                  >
+                    Check His LinkedIn
+                  </a>
+                )}
               </motion.div>
             ))}
           </div>

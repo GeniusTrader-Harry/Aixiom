@@ -58,31 +58,47 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            {siteConfig.nav.links.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => {
-                  e.preventDefault()
-                  handleNavClick(link)
-                }}
-                className="text-gray-300 hover:text-white transition-colors font-medium"
-              >
-                {link.name}
-              </a>
-            ))}
-          </nav>
+          <div className="hidden md:flex items-center space-x-4">
+            <nav className="flex items-center space-x-8">
+              {siteConfig.nav.links.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    handleNavClick(link)
+                  }}
+                  className="text-gray-300 hover:text-white transition-colors font-medium"
+                >
+                  {link.name}
+                </a>
+              ))}
+            </nav>
+            <Link
+              to="/ai-chat"
+              className="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold rounded-lg bg-white text-black hover:bg-gray-200 transition-colors"
+            >
+              AI Chat
+            </Link>
+          </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-gray-300 text-2xl"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Menu"
-            aria-expanded={isMobileMenuOpen}
-          >
-            {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
-          </button>
+          {/* Mobile Actions */}
+          <div className="md:hidden flex items-center gap-3">
+            <Link
+              to="/ai-chat"
+              className="inline-flex items-center justify-center px-3 py-1.5 text-xs font-semibold rounded-lg bg-white text-black hover:bg-gray-200 transition-colors"
+            >
+              AI Chat
+            </Link>
+            <button
+              className="text-gray-300 text-2xl"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Menu"
+              aria-expanded={isMobileMenuOpen}
+            >
+              {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
@@ -92,6 +108,13 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             className="md:hidden mt-4 pb-4 space-y-3"
           >
+            <Link
+              to="/ai-chat"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="block text-white bg-white/10 border border-white/20 rounded-lg px-4 py-2 font-semibold"
+            >
+              AI Chat
+            </Link>
             {siteConfig.nav.links.map((link) => (
               <a
                 key={link.name}

@@ -7,6 +7,7 @@ import MentoringPage from './pages/MentoringPage'
 import ArticlesPage from './pages/ArticlesPage'
 import ArticleDetailPage from './pages/ArticleDetailPage'
 import NotFoundPage from './pages/NotFoundPage'
+import AiChatPage from './pages/AiChatPage'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/mentoring" element={<MentoringPage />} />
           <Route path="/articles" element={<ArticlesPage />} />
           <Route path="/articles/:id" element={<ArticleDetailPage />} />
+          <Route path="/ai-chat" element={<AiChatPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Layout>

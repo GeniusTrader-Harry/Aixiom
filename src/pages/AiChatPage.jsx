@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { sendEconomicsChatMessage } from '../utils/chatApi'
@@ -16,14 +16,15 @@ const INITIAL_MESSAGE = {
   id: 'assistant-welcome',
   role: 'assistant',
   content:
-    'Hi, I am your CIE A Level Economics AI tutor. Ask me about theory, diagrams, essays, calculations, or exam technique.',
+    'Hi, I am your CIE A Level Economics AI tutor. Ask me about theory, diagrams, essays, calculations, or exam technique. You can also upload an image of a question or diagram.',
 }
 
-function createMessage(role, content) {
+function createMessage(role, content, imageData = null) {
   return {
     id: `${role}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
     role,
     content,
+    ...(imageData ? { imageData } : {}),
   }
 }
 
@@ -51,8 +52,13 @@ export default function AiChatPage() {
   const [inputValue, setInputValue] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
+  const [selectedImage, setSelectedImage] = useState(null)
+  const fileInputRef = useRef(null)
 
-  const canSend = useMemo(() => inputValue.trim().length > 0 && !isLoading, [inputValue, isLoading])
+  const canSend = useMemo(
+    () => (inputValue.trim().length > 0 || selectedImage !== null) && !isLoading,
+    [inputValue, selectedImage, isLoading],
+  )
 
   useEffect(() => {
     localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(messages))
@@ -83,17 +89,32 @@ export default function AiChatPage() {
   const clearChat = () => {
     setMessages([INITIAL_MESSAGE])
     setError('')
+    setSelectedImage(null)
   }
 
-  const sendMessage = async (rawText) => {
+  const handleImageSelect = (event) => {
+    const file = event.target.files?.[0]
+    if (!file) return
+    const reader = new FileReader()
+    reader.onload = (e) => {
+      const dataUrl = e.target.result
+      const base64 = dataUrl.split(',')[1]
+      setSelectedImage({ base64, mimeType: file.type, previewUrl: dataUrl })
+    }
+    reader.readAsDataURL(file)
+    event.target.value = ''
+  }
+
+  const sendMessage = async (rawText, image = selectedImage) => {
     const text = rawText.trim()
-    if (!text || isLoading) return
+    if ((!text && !image) || isLoading) return
 
     setError('')
-    const userMessage = createMessage('user', text)
+    const userMessage = createMessage('user', text, image)
     const nextMessages = [...messages, userMessage]
     setMessages(nextMessages)
     setInputValue('')
+    setSelectedImage(null)
     setIsLoading(true)
 
     try {
@@ -167,7 +188,7 @@ export default function AiChatPage() {
                   <button
                     key={prompt}
                     type="button"
-                    onClick={() => sendMessage(prompt)}
+                    onClick={() => sendMessage(prompt, null)}
                     disabled={isLoading}
                     className="px-3 py-2 text-sm rounded-lg border border-gray-700 text-gray-300 hover:text-white hover:border-gray-500 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
@@ -189,6 +210,13 @@ export default function AiChatPage() {
                           : 'bg-gray-900 border border-gray-800 text-gray-100'
                       }`}
                     >
+                      {message.imageData && (
+                        <img
+                          src={`data:${message.imageData.mimeType};base64,${message.imageData.base64}`}
+                          alt="Uploaded"
+                          className="max-w-full rounded-lg mb-2 max-h-64 object-contain"
+                        />
+                      )}
                       {message.content}
                     </div>
                   </div>
@@ -208,27 +236,65 @@ export default function AiChatPage() {
               <label htmlFor="economics-chat-input" className="sr-only">
                 Ask your economics question
               </label>
+
+              {selectedImage && (
+                <div className="mb-3 relative inline-block">
+                  <img
+                    src={selectedImage.previewUrl}
+                    alt="Selected"
+                    className="max-h-32 rounded-lg border border-gray-700 object-contain"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setSelectedImage(null)}
+                    className="absolute -top-2 -right-2 bg-gray-700 hover:bg-gray-600 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs"
+                  >
+                    ✕
+                  </button>
+                </div>
+              )}
+
               <div className="flex flex-col sm:flex-row gap-3">
-                <textarea
-                  id="economics-chat-input"
-                  rows={3}
-                  value={inputValue}
-                  onChange={(event) => setInputValue(event.target.value)}
-                  placeholder="Ask anything about CIE A Level Economics..."
-                  className="w-full resize-none rounded-xl bg-black border border-gray-700 focus:border-white focus:outline-none text-gray-100 px-4 py-3"
-                  onKeyDown={(event) => {
-                    if (event.key === 'Enter' && !event.shiftKey) {
-                      event.preventDefault()
-                      if (canSend) {
-                        sendMessage(inputValue)
+                <div className="flex-1 flex flex-col gap-2">
+                  <textarea
+                    id="economics-chat-input"
+                    rows={3}
+                    value={inputValue}
+                    onChange={(event) => setInputValue(event.target.value)}
+                    placeholder="Ask anything about CIE A Level Economics..."
+                    className="w-full resize-none rounded-xl bg-black border border-gray-700 focus:border-white focus:outline-none text-gray-100 px-4 py-3"
+                    onKeyDown={(event) => {
+                      if (event.key === 'Enter' && !event.shiftKey) {
+                        event.preventDefault()
+                        if (canSend) {
+                          sendMessage(inputValue)
+                        }
                       }
-                    }
-                  }}
-                />
+                    }}
+                  />
+                  <div className="flex items-center gap-2">
+                    <input
+                      ref={fileInputRef}
+                      type="file"
+                      accept="image/*"
+                      onChange={handleImageSelect}
+                      className="hidden"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => fileInputRef.current?.click()}
+                      disabled={isLoading}
+                      className="px-3 py-1.5 text-sm rounded-lg border border-gray-700 text-gray-400 hover:text-white hover:border-gray-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      + Image
+                    </button>
+                    <span className="text-xs text-gray-600">Upload a question or diagram</span>
+                  </div>
+                </div>
                 <button
                   type="submit"
                   disabled={!canSend}
-                  className="sm:self-end sm:h-fit px-6 py-3 rounded-xl bg-white text-black font-semibold hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="sm:self-start sm:mt-0 px-6 py-3 rounded-xl bg-white text-black font-semibold hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   Send
                 </button>

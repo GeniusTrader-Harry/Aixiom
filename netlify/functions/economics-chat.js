@@ -33,10 +33,12 @@ exports.handler = async (event) => {
 
     const contents = messages
       .filter((m) => m.role === 'user' || m.role === 'assistant')
-      .map((m) => ({
-        role: m.role === 'assistant' ? 'model' : 'user',
-        parts: [{ text: m.content }],
-      }))
+      .map((m) => {
+        const parts = []
+        if (m.content) parts.push({ text: m.content })
+        if (m.imageData) parts.push({ inline_data: { mime_type: m.imageData.mimeType, data: m.imageData.base64 } })
+        return { role: m.role === 'assistant' ? 'model' : 'user', parts }
+      })
 
     const requestBody = {
       contents,

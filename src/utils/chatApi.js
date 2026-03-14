@@ -28,7 +28,11 @@ function buildMessages(chatHistory, examMode) {
     ...(examMode ? [{ role: 'system', content: EXAM_MODE_PROMPT }] : []),
     ...chatHistory
       .filter((item) => item.role === 'user' || item.role === 'assistant')
-      .map((item) => ({ role: item.role, content: item.content })),
+      .map((item) => ({
+        role: item.role,
+        content: item.content,
+        ...(item.imageData ? { imageData: item.imageData } : {}),
+      })),
   ]
 }
 

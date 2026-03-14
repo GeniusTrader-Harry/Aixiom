@@ -1,5 +1,4 @@
-const DEFAULT_MODEL = process.env.OPENROUTER_MODEL || 'openai/gpt-4o-mini'
-const OPENROUTER_URL = process.env.OPENROUTER_API_URL || 'https://openrouter.ai/api/v1/chat/completions'
+const DEFAULT_MODEL = process.env.GOOGLE_AI_MODEL || 'gemini-2.0-flash'
 
 exports.handler = async (event) => {
   if (event.httpMethod !== 'POST') {
@@ -9,7 +8,7 @@ exports.handler = async (event) => {
     }
   }
 
-  if (!process.env.OPENROUTER_API_KEY) {
+  if (!process.env.GOOGLE_AI_API_KEY) {
     return {
       statusCode: 500,
       body: JSON.stringify({ error: 'Server AI key is not configured.' }),
@@ -27,19 +26,33 @@ exports.handler = async (event) => {
       }
     }
 
-    const response = await fetch(OPENROUTER_URL, {
+    // Extract system messages and conversation messages
+    const systemParts = messages
+      .filter((m) => m.role === 'system')
+      .map((m) => ({ text: m.content }))
+
+    const contents = messages
+      .filter((m) => m.role === 'user' || m.role === 'assistant')
+      .map((m) => ({
+        role: m.role === 'assistant' ? 'model' : 'user',
+        parts: [{ text: m.content }],
+      }))
+
+    const requestBody = {
+      contents,
+      generationConfig: { temperature: 0.4 },
+    }
+
+    if (systemParts.length > 0) {
+      requestBody.system_instruction = { parts: systemParts }
+    }
+
+    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${DEFAULT_MODEL}:generateContent?key=${process.env.GOOGLE_AI_API_KEY}`
+
+    const response = await fetch(apiUrl, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
-        'HTTP-Referer': process.env.PUBLIC_SITE_URL || 'https://aixiom.education',
-        'X-Title': 'AiXiom Economics Chat',
-      },
-      body: JSON.stringify({
-        model: DEFAULT_MODEL,
-        messages,
-        temperature: 0.4,
-      }),
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(requestBody),
     })
 
     const data = await response.json()
@@ -51,7 +64,7 @@ exports.handler = async (event) => {
       }
     }
 
-    const reply = data?.choices?.[0]?.message?.content
+    const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text
     if (!reply) {
       return {
         statusCode: 502,

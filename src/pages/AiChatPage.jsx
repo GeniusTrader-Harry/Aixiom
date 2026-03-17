@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { sendEconomicsChatMessage } from '../utils/chatApi'
+import MathText from '../components/ui/MathText'
 
 const CHAT_STORAGE_KEY = 'aixiom_cie_econ_chat_v1'
 const CHAT_SETTINGS_KEY = 'aixiom_cie_econ_chat_settings_v1'
@@ -204,9 +205,9 @@ export default function AiChatPage() {
                 return (
                   <div key={message.id} className={`flex ${isUser ? 'justify-end' : 'justify-start'}`}>
                     <div
-                      className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm md:text-base leading-relaxed whitespace-pre-wrap ${
+                      className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm md:text-base leading-relaxed ${
                         isUser
-                          ? 'bg-white text-black'
+                          ? 'bg-white text-black whitespace-pre-wrap'
                           : 'bg-gray-900 border border-gray-800 text-gray-100'
                       }`}
                     >
@@ -217,7 +218,7 @@ export default function AiChatPage() {
                           className="max-w-full rounded-lg mb-2 max-h-64 object-contain"
                         />
                       )}
-                      {message.content}
+                      {isUser ? message.content : <MathText>{message.content}</MathText>}
                     </div>
                   </div>
                 )

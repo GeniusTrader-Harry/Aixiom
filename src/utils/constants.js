@@ -1,6 +1,5 @@
 export const siteConfig = {
   siteName: "AiXiom Education",
-  tagline: "Ace Your A-Levels",
   description: "Personalised tutoring in Finance, Economics, and more — designed to help you achieve top grades.",
 
   nav: {

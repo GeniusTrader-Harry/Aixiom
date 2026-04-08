@@ -104,7 +104,7 @@ export const siteConfig = {
   },
 
   contact: {
-    email: "hello@aixiomedu.com"
+    email: "aixiom@outlook.com"
   },
 
   social: {

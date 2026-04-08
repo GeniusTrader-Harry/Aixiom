@@ -14,8 +14,8 @@ export const siteConfig = {
   },
 
   hero: {
-    title: "CHOOSE AiXiom",
-    subtitle: "Personalised tutoring in Economics and more — designed to help you achieve top grades.",
+    title: "AiXiom Education",
+    subtitle: "Delivering education that matters in the age of AI — built to keep you ahead of the curve.",
     subtitle2: "We Will Get You Into Your Dream Uni Or We Don't Make Money",
     ctaPrimary: "Browse Courses",
     ctaSecondary: "Learn More"

@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FaUserGraduate, FaFileAlt, FaComments, FaUniversity } from 'react-icons/fa'
-import { useNavigate } from 'react-router-dom'
 import Button from '../ui/Button'
 
 const regions = {
@@ -40,7 +39,6 @@ const regions = {
 }
 
 export default function Academy() {
-  const navigate = useNavigate()
   const [activeRegion, setActiveRegion] = useState('hkuk')
   const region = regions[activeRegion]
 
@@ -121,7 +119,11 @@ export default function Academy() {
 
             {/* CTA */}
             <div className="text-center">
-              <Button onClick={() => navigate('/aixiomeducation')} size="lg">
+              <Button
+                href="https://calendly.com/wucooper464/30min-intro-session?month=2026-04"
+                target="_blank"
+                size="lg"
+              >
                 {region.ctaText}
               </Button>
             </div>

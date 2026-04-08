@@ -249,7 +249,11 @@ export default function MentoringPage() {
             <p className="text-lg text-gray-400 mb-6">
               Not sure if AiXiom Academy is right for you? Try a free introductory session — no commitment, no pressure.
             </p>
-            <Button href="#contact" size="lg">
+            <Button
+              href="https://calendly.com/wucooper464/30min-intro-session?month=2026-04"
+              target="_blank"
+              size="lg"
+            >
               Book Now
             </Button>
           </div>

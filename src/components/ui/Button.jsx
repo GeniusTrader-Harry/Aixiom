@@ -8,6 +8,8 @@ export default function Button({
   disabled = false,
   onClick,
   href,
+  target,
+  rel,
   className = ''
 }) {
   const baseStyles = 'inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2'
@@ -30,6 +32,8 @@ export default function Button({
     return (
       <motion.a
         href={href}
+        target={target}
+        rel={rel ?? (target === '_blank' ? 'noopener noreferrer' : undefined)}
         className={classes}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}

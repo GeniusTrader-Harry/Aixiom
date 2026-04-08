@@ -28,9 +28,6 @@ export default function Hero() {
               <h1 className="text-6xl md:text-8xl font-bold text-white mb-6 leading-tight tracking-tight">
                 {siteConfig.hero.title}
               </h1>
-              <p className="text-xl text-gray-300 mb-4 leading-relaxed">
-                {siteConfig.hero.subtitle}
-              </p>
               {siteConfig.hero.subtitle2 && (
                 <p className="text-2xl font-semibold text-white mb-10 leading-relaxed">
                   {siteConfig.hero.subtitle2}

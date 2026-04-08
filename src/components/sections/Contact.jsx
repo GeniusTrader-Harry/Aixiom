@@ -16,11 +16,22 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault()
     setStatus('submitting')
-    setTimeout(() => {
-      setStatus('success')
-      setFormData({ name: '', email: '', message: '' })
-      setTimeout(() => setStatus(''), 3000)
-    }, 1000)
+
+    const body = new URLSearchParams({
+      'form-name': 'contact',
+      ...formData,
+    }).toString()
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body,
+    })
+      .then(() => {
+        setStatus('success')
+        setFormData({ name: '', email: '', message: '' })
+      })
+      .catch(() => setStatus('error'))
   }
 
   const handleChange = (e) => {
@@ -97,7 +108,13 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form
+              onSubmit={handleSubmit}
+              name="contact"
+              data-netlify="true"
+              className="space-y-6"
+            >
+              <input type="hidden" name="form-name" value="contact" />
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                   Name
@@ -158,6 +175,11 @@ export default function Contact() {
               {status === 'success' && (
                 <div className="text-green-400 text-center font-medium">
                   Message sent successfully!
+                </div>
+              )}
+              {status === 'error' && (
+                <div className="text-red-400 text-center font-medium">
+                  Something went wrong. Please email us directly at {siteConfig.contact.email}
                 </div>
               )}
             </form>

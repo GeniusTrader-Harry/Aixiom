@@ -54,21 +54,6 @@ export default function AboutPage() {
           </p>
         </motion.div>
 
-        {/* Mission Statement */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-20"
-        >
-          <div className="bg-gray-900 border-l-4 border-white p-8 rounded-r-2xl max-w-4xl mx-auto">
-            <p className="text-2xl text-gray-200 italic text-center leading-relaxed">
-              "{siteConfig.about.mission}"
-            </p>
-          </div>
-        </motion.div>
-
         {/* Our Values */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

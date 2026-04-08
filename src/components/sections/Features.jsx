@@ -18,7 +18,7 @@ export default function Features() {
           Why Choose AiXiom Education?
         </h2>
         <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-          We're here to give you every advantage when it comes to your A-Level results.
+          We're here to give you every advantage — whether you're aiming for top exam results or applying to UK and US universities.
         </p>
       </div>
 

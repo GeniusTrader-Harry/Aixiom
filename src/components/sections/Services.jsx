@@ -19,7 +19,7 @@ export default function Services() {
           What We Offer
         </h2>
         <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-          A-Level tutoring, university admissions prep, and more — everything you need to get ahead.
+          Subject tutoring, UK and US university admissions prep, and more — everything you need to get ahead.
         </p>
       </div>
 

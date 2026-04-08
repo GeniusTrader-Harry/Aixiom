@@ -51,11 +51,6 @@ export default function About() {
           <p className="text-lg text-gray-400 mb-6 leading-relaxed">
             {siteConfig.about.description}
           </p>
-          <div className="bg-gray-900 border-l-4 border-white p-6 rounded-r-lg">
-            <p className="text-gray-300 italic">
-              {siteConfig.about.mission}
-            </p>
-          </div>
         </motion.div>
       </div>
 

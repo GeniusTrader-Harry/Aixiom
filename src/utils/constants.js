@@ -92,8 +92,7 @@ export const siteConfig = {
 
   about: {
     title: "About AiXiom Education",
-    description: "AiXiom Education still delivers the traditional foundations students rely on — 1-on-1 mentoring, structured recorded courses, and exam-focused tutoring across subjects like Economics. But we're built for a world that's changing fast. As automation reshapes the job market, we refuse to spend our students' time on skills AI can already replace. Instead, our core focus is AI literacy: teaching you how to learn alongside AI, how to use it as a thinking partner, and how to build the judgment, creativity, and adaptability that keep human work valuable. We're here to prepare students not just for their next exam, but for a career landscape no one can fully predict.",
-    mission: "Our mission is to empower A-Level students with the knowledge, confidence, and exam skills they need to succeed — or we don't make money."
+    description: "AiXiom Education still delivers the traditional foundations students rely on — 1-on-1 mentoring, structured recorded courses, and exam-focused tutoring across subjects like Economics. But we're built for a world that's changing fast. As automation reshapes the job market, we refuse to spend our students' time on skills AI can already replace. Instead, our core focus is AI literacy: teaching you how to learn alongside AI, how to use it as a thinking partner, and how to build the judgment, creativity, and adaptability that keep human work valuable. We're here to prepare students not just for their next exam, but for a career landscape no one can fully predict."
   },
 
   cta: {

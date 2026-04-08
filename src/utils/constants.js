@@ -1,6 +1,6 @@
 export const siteConfig = {
   siteName: "AiXiom Education",
-  description: "Personalised tutoring in Finance, Economics, and more — designed to help you achieve top grades.",
+  description: "Personalised tutoring in Economics and more — designed to help you achieve top grades.",
 
   nav: {
     links: [
@@ -15,7 +15,7 @@ export const siteConfig = {
 
   hero: {
     title: "CHOOSE AiXiom",
-    subtitle: "Personalised tutoring in Finance, Economics, and more — designed to help you achieve top grades.",
+    subtitle: "Personalised tutoring in Economics and more — designed to help you achieve top grades.",
     subtitle2: "We Will Get You Into Your Dream Uni Or We Don't Make Money",
     ctaPrimary: "Browse Courses",
     ctaSecondary: "Learn More"
@@ -52,7 +52,7 @@ export const siteConfig = {
     {
       id: 1,
       title: "A-Level Courses",
-      description: "Structured learning content covering key A-Level subjects including Finance, Economics, and Business Studies.",
+      description: "Structured learning content covering key A-Level subjects including Economics and Business Studies.",
       icon: "FaBookOpen"
     },
     {
@@ -92,7 +92,7 @@ export const siteConfig = {
 
   about: {
     title: "About AiXiom Education",
-    description: "AiXiom Education still delivers the traditional foundations students rely on — 1-on-1 mentoring, structured recorded courses, and exam-focused tutoring across subjects like Finance and Economics. But we're built for a world that's changing fast. As automation reshapes the job market, we refuse to spend our students' time on skills AI can already replace. Instead, our core focus is AI literacy: teaching you how to learn alongside AI, how to use it as a thinking partner, and how to build the judgment, creativity, and adaptability that keep human work valuable. We're here to prepare students not just for their next exam, but for a career landscape no one can fully predict.",
+    description: "AiXiom Education still delivers the traditional foundations students rely on — 1-on-1 mentoring, structured recorded courses, and exam-focused tutoring across subjects like Economics. But we're built for a world that's changing fast. As automation reshapes the job market, we refuse to spend our students' time on skills AI can already replace. Instead, our core focus is AI literacy: teaching you how to learn alongside AI, how to use it as a thinking partner, and how to build the judgment, creativity, and adaptability that keep human work valuable. We're here to prepare students not just for their next exam, but for a career landscape no one can fully predict.",
     mission: "Our mission is to empower A-Level students with the knowledge, confidence, and exam skills they need to succeed — or we don't make money."
   },
 

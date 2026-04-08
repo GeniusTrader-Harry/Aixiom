@@ -21,9 +21,8 @@ export default function CTA({ contactHref = '#contact' }) {
         </p>
         <Button
           href={contactHref}
-          variant="secondary"
+          variant="primary"
           size="lg"
-          className="bg-white text-black hover:bg-gray-200 border-0"
         >
           {siteConfig.cta.buttonText}
         </Button>

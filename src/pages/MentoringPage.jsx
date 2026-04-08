@@ -149,7 +149,6 @@ export default function MentoringPage() {
             <Button
               href="#contact"
               size="lg"
-              className="bg-white text-black hover:bg-gray-200 border-0"
             >
               Book Now
             </Button>

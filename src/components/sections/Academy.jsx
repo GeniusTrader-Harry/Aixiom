@@ -14,11 +14,11 @@ const regions = {
       { icon: FaUniversity, label: 'Russell Group Strategy' },
     ],
     description:
-      'AiXiom Academy is our elite 1-on-1 mentoring programme built for students applying to UK universities — including Oxbridge, Russell Group, and top Hong Kong institutions. We don't do group sessions. We don't do generic advice. Every session is tailored to you — your goals, your application, your future.',
+      "AiXiom Academy is our elite 1-on-1 mentoring programme built for students applying to UK universities — including Oxbridge, Russell Group, and top Hong Kong institutions. We don't do group sessions. We don't do generic advice. Every session is tailored to you — your goals, your application, your future.",
     description2:
-      'Our mentors have been through the UCAS process themselves, with successful applications to Oxford, Cambridge, LSE, Imperial, and other leading UK universities. They know what admissions tutors are looking for, and they'll work with you to craft a compelling personal statement and ace your interview.',
+      "Our mentors have been through the UCAS process themselves, with successful applications to Oxford, Cambridge, LSE, Imperial, and other leading UK universities. They know what admissions tutors are looking for, and they'll work with you to craft a compelling personal statement and ace your interview.",
     description3:
-      'Whether you're sitting A-Levels, the IB, or the DSE — AiXiom Academy covers personal statement writing, Oxbridge admissions tests, interview technique, subject choice, and university shortlisting. This is strategic, personalised mentorship designed to get you into your dream UK university.',
+      "Whether you're sitting A-Levels, the IB, or the DSE — AiXiom Academy covers personal statement writing, Oxbridge admissions tests, interview technique, subject choice, and university shortlisting. This is strategic, personalised mentorship designed to get you into your dream UK university.",
     ctaText: 'Book Your Free Intro Session',
   },
   us: {
@@ -30,9 +30,9 @@ const regions = {
       { icon: FaUniversity, label: 'Ivy League Strategy' },
     ],
     description:
-      'AiXiom Academy is our elite 1-on-1 mentoring programme built for students applying to US colleges — from Ivy League schools to top liberal arts colleges. We don't do group sessions. We don't do generic advice. Every session is tailored to you — your profile, your essays, your college list.',
+      "AiXiom Academy is our elite 1-on-1 mentoring programme built for students applying to US colleges — from Ivy League schools to top liberal arts colleges. We don't do group sessions. We don't do generic advice. Every session is tailored to you — your profile, your essays, your college list.",
     description2:
-      'Our mentors have navigated the US college admissions process at Harvard, Princeton, Columbia, and other top institutions. They understand what admissions officers are looking for, and they'll help you build a standout application — from your Common App essays to your extracurricular narrative.',
+      "Our mentors have navigated the US college admissions process at Harvard, Princeton, Columbia, and other top institutions. They understand what admissions officers are looking for, and they'll help you build a standout application — from your Common App essays to your extracurricular narrative.",
     description3:
       'From crafting compelling Common App and supplemental essays to building your extracurricular profile, choosing the right college list, and preparing for alumni interviews — AiXiom Academy covers every angle of the US college application journey. This is strategic, personalised mentorship designed to get you accepted.',
     ctaText: 'Book Your Free Intro Session',

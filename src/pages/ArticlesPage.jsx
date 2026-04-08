@@ -25,7 +25,7 @@ export default function ArticlesPage() {
         >
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Articles</h1>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Insights on A-Levels, admissions, and study strategy.
+            Insights on admissions and study strategy.
           </p>
         </motion.div>
 

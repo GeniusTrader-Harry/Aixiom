@@ -50,6 +50,12 @@ export default function ArticleDetailPage() {
             <span>{article.readTime}</span>
             <span>•</span>
             <span>{formatDate(article.date)}</span>
+            {article.author && (
+              <>
+                <span>•</span>
+                <span>By {article.author}</span>
+              </>
+            )}
           </div>
 
           <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight">

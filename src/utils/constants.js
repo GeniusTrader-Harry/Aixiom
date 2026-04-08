@@ -116,6 +116,7 @@ export const articles = [
     id: 1,
     title: "What Are The Best Universities in Austrian Economics?",
     date: "2026-03-10",
+    author: "Cooper Wu",
     category: "University Guidance",
     summary: "A practical guide to universities and colleges in the USA and UK for students interested in Austrian Economics.",
     readTime: "18 min read",

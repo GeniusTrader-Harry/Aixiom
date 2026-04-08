@@ -121,7 +121,7 @@ export default function Academy() {
 
             {/* CTA */}
             <div className="text-center">
-              <Button onClick={() => navigate('/mentoring')} size="lg">
+              <Button onClick={() => navigate('/aixiomeducation')} size="lg">
                 {region.ctaText}
               </Button>
             </div>

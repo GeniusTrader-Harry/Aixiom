@@ -17,7 +17,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/courses" element={<CoursesPage />} />
-          <Route path="/mentoring" element={<MentoringPage />} />
+          <Route path="/aixiomeducation" element={<MentoringPage />} />
           <Route path="/articles" element={<ArticlesPage />} />
           <Route path="/articles/:id" element={<ArticleDetailPage />} />
           <Route path="/ai-chat" element={<AiChatPage />} />

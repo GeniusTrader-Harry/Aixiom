@@ -95,9 +95,6 @@ export default function MentoringPage() {
           className="text-center mb-10"
         >
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">AiXiom Academy</h1>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Elite 1-on-1 mentoring for students serious about getting into their dream university.
-          </p>
         </motion.div>
 
         {/* Region Tabs */}

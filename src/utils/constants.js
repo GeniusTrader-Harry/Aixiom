@@ -85,16 +85,16 @@ export const siteConfig = {
   academy: {
     title: "AiXiom Academy",
     tagline: "Your Personal Edge in the College Race",
-    description: "AiXiom Academy is our elite 1-on-1 mentoring programme built specifically for students who are serious about getting into their dream university. We don't do group sessions. We don't do generic advice. Every session is tailored to you — your goals, your application, your future.",
-    description2: "Our mentors have navigated the admissions process at top universities around the world, from Oxbridge and the Russell Group to the Ivy League and beyond. They know what admissions officers are looking for, and they'll work with you personally to make sure your application stands out from the crowd.",
-    description3: "From crafting a compelling personal statement to preparing for interviews, building your extracurricular profile, and choosing the right courses — AiXiom Academy covers every angle of the college application journey. This isn't tutoring. This is strategic, personalised mentorship designed to get you where you want to be.",
+    description: "AiXiom Academy is our elite 1-on-1 mentoring programme built for students applying to UK or US universities. We don't do group sessions. We don't do generic advice. Every session is tailored to you — your goals, your application, your future.",
+    description2: "Our mentors have navigated the admissions process at top universities — from Oxbridge and the Russell Group to the Ivy League and beyond. They know what admissions tutors and officers are looking for, and they'll work with you personally to make sure your application stands out.",
+    description3: "From crafting a compelling personal statement or Common App essay to preparing for interviews, building your extracurricular profile, and shortlisting universities — AiXiom Academy covers every angle of the application journey. This is strategic, personalised mentorship designed to get you where you want to be.",
     ctaText: "Book Your Free Intro Session"
   },
 
   about: {
     title: "About AiXiom Education",
-    description: "AiXiom Education was founded with a simple goal — to make high-quality A-Level tutoring accessible to every student. We specialise in finance-related subjects and believe that with the right support, every student can achieve the grades they deserve. Whether you're aiming for top marks or just need help getting unstuck, we're here for you.",
-    mission: "Our mission is to empower A-Level students with the knowledge, confidence, and exam skills they need to succeed."
+    description: "AiXiom Education was founded with a simple goal — to make high-quality A-Level tutoring accessible to every student. We specialise in A-Level subjects and believe that with the right support, every student can achieve the grades they deserve. Whether you're aiming for top marks or just need help getting unstuck, we're here for you.",
+    mission: "Our mission is to empower A-Level students with the knowledge, confidence, and exam skills they need to succeed — or we don't make money."
   },
 
   cta: {

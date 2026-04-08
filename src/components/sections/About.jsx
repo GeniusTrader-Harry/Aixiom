@@ -95,7 +95,7 @@ export default function About() {
                   rel="noopener noreferrer"
                   className="mt-3 inline-block text-white hover:text-gray-300 transition-colors font-medium underline text-sm"
                 >
-                  Check His LinkedIn
+                  View LinkedIn
                 </a>
               )}
             </motion.div>

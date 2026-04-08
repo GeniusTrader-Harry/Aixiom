@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { siteConfig } from '../utils/constants'
 import Section from '../components/ui/Section'
 import CTA from '../components/sections/CTA'
 
@@ -49,7 +50,7 @@ export default function AboutPage() {
             About Us
           </h1>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            AiXiom Education was founded with a simple goal — to make high-quality A-Level tutoring accessible to every student. We specialise in finance-related subjects and believe that with the right support, every student can achieve the grades they deserve.
+            {siteConfig.about.description}
           </p>
         </motion.div>
 
@@ -63,7 +64,7 @@ export default function AboutPage() {
         >
           <div className="bg-gray-900 border-l-4 border-white p-8 rounded-r-2xl max-w-4xl mx-auto">
             <p className="text-2xl text-gray-200 italic text-center leading-relaxed">
-              "Our mission is to empower A-Level students with the knowledge, confidence, and exam skills they need to succeed — or we don't make money."
+              "{siteConfig.about.mission}"
             </p>
           </div>
         </motion.div>
@@ -134,7 +135,7 @@ export default function AboutPage() {
                     rel="noopener noreferrer"
                     className="mt-4 inline-block text-white hover:text-gray-300 transition-colors font-medium underline"
                   >
-                    Check His LinkedIn
+                    View LinkedIn
                   </a>
                 )}
               </motion.div>

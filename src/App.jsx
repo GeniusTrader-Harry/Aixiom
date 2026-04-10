@@ -8,9 +8,11 @@ import ArticlesPage from './pages/ArticlesPage'
 import ArticleDetailPage from './pages/ArticleDetailPage'
 import NotFoundPage from './pages/NotFoundPage'
 import AiChatPage from './pages/AiChatPage'
+import { LanguageProvider } from './context/LanguageContext'
 
 function App() {
   return (
+    <LanguageProvider>
     <BrowserRouter>
       <Layout>
         <Routes>
@@ -25,6 +27,7 @@ function App() {
         </Routes>
       </Layout>
     </BrowserRouter>
+    </LanguageProvider>
   )
 }
 

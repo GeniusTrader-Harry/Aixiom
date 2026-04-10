@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom'
 import Section from '../components/ui/Section'
 import Card from '../components/ui/Card'
 import { articles } from '../utils/constants'
+import { useLanguage } from '../context/LanguageContext'
+import { translations } from '../utils/translations'
 
-function formatDate(isoDate) {
+function formatDate(isoDate, lang) {
   const date = new Date(isoDate)
-  return date.toLocaleDateString('en-GB', {
+  return date.toLocaleDateString(lang === 'zh' ? 'zh-CN' : 'en-GB', {
     day: '2-digit',
     month: 'short',
     year: 'numeric'
@@ -14,6 +16,9 @@ function formatDate(isoDate) {
 }
 
 export default function ArticlesPage() {
+  const { lang } = useLanguage()
+  const t = translations[lang].articlesPage
+
   return (
     <div className="pt-24">
       <Section background="gray">
@@ -23,9 +28,9 @@ export default function ArticlesPage() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Articles</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{t.heading}</h1>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Insights on admissions and study strategy.
+            {t.subheading}
           </p>
         </motion.div>
 
@@ -43,8 +48,8 @@ export default function ArticlesPage() {
                 <p className="text-gray-400 leading-relaxed mb-6 flex-grow">{article.summary}</p>
 
                 <div className="flex items-center justify-between">
-                  <p className="text-sm text-gray-500">{formatDate(article.date)}</p>
-                  <span className="text-white font-medium text-sm">Read More →</span>
+                  <p className="text-sm text-gray-500">{formatDate(article.date, lang)}</p>
+                  <span className="text-white font-medium text-sm">{t.readMore} →</span>
                 </div>
               </Card>
             </Link>

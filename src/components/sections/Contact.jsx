@@ -4,6 +4,8 @@ import { FaEnvelope, FaInstagram, FaTiktok } from 'react-icons/fa'
 import { siteConfig } from '../../utils/constants'
 import Section from '../ui/Section'
 import Button from '../ui/Button'
+import { useLanguage } from '../../context/LanguageContext'
+import { translations } from '../../utils/translations'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -12,6 +14,8 @@ export default function Contact() {
     message: ''
   })
   const [status, setStatus] = useState('')
+  const { lang } = useLanguage()
+  const t = translations[lang].contact
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -46,10 +50,10 @@ export default function Contact() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Get In Touch
+            {t.heading}
           </h2>
           <p className="text-xl text-gray-400">
-            Have a question? We'd love to hear from you.
+            {t.subheading}
           </p>
         </div>
 
@@ -62,7 +66,7 @@ export default function Contact() {
             transition={{ duration: 0.8 }}
           >
             <h3 className="text-2xl font-bold text-white mb-6">
-              Contact Information
+              {t.infoHeading}
             </h3>
             <div className="space-y-6">
               <div className="flex items-start space-x-4">
@@ -70,7 +74,7 @@ export default function Contact() {
                   <FaEnvelope className="text-xl" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-white mb-1">Email</h4>
+                  <h4 className="font-semibold text-white mb-1">{t.emailLabel}</h4>
                   <p className="text-gray-400">{siteConfig.contact.email}</p>
                 </div>
               </div>
@@ -80,7 +84,7 @@ export default function Contact() {
                   <FaInstagram className="text-xl" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-white mb-1">Instagram</h4>
+                  <h4 className="font-semibold text-white mb-1">{t.instagramLabel}</h4>
                   <a href={siteConfig.social.instagram} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
                     @aixiomedu
                   </a>
@@ -92,7 +96,7 @@ export default function Contact() {
                   <FaTiktok className="text-xl" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-white mb-1">TikTok</h4>
+                  <h4 className="font-semibold text-white mb-1">{t.tiktokLabel}</h4>
                   <a href={siteConfig.social.tiktok} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
                     @aixiomedu
                   </a>
@@ -117,7 +121,7 @@ export default function Contact() {
               <input type="hidden" name="form-name" value="contact" />
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                  Name
+                  {t.nameLabel}
                 </label>
                 <input
                   type="text"
@@ -127,13 +131,13 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-gray-900 border border-gray-700 text-white rounded-lg focus:ring-2 focus:ring-white focus:border-transparent transition-all placeholder-gray-500"
-                  placeholder="Your name"
+                  placeholder={t.namePlaceholder}
                 />
               </div>
 
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                  Email
+                  {t.emailFieldLabel}
                 </label>
                 <input
                   type="email"
@@ -143,13 +147,13 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-gray-900 border border-gray-700 text-white rounded-lg focus:ring-2 focus:ring-white focus:border-transparent transition-all placeholder-gray-500"
-                  placeholder="your@email.com"
+                  placeholder={t.emailPlaceholder}
                 />
               </div>
 
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                  Message
+                  {t.messageLabel}
                 </label>
                 <textarea
                   id="message"
@@ -159,7 +163,7 @@ export default function Contact() {
                   required
                   rows="5"
                   className="w-full px-4 py-3 bg-gray-900 border border-gray-700 text-white rounded-lg focus:ring-2 focus:ring-white focus:border-transparent transition-all resize-none placeholder-gray-500"
-                  placeholder="Tell us what subjects you need help with..."
+                  placeholder={t.messagePlaceholder}
                 ></textarea>
               </div>
 
@@ -169,17 +173,17 @@ export default function Contact() {
                 className="w-full"
                 disabled={status === 'submitting'}
               >
-                {status === 'submitting' ? 'Sending...' : 'Send Message'}
+                {status === 'submitting' ? t.sendingButton : t.sendButton}
               </Button>
 
               {status === 'success' && (
                 <div className="text-green-400 text-center font-medium">
-                  Message sent successfully!
+                  {t.successMessage}
                 </div>
               )}
               {status === 'error' && (
                 <div className="text-red-400 text-center font-medium">
-                  Something went wrong. Please email us directly at {siteConfig.contact.email}
+                  {t.errorMessage} {siteConfig.contact.email}
                 </div>
               )}
             </form>

@@ -1,0 +1,796 @@
+export const translations = {
+  en: {
+    nav: {
+      links: [
+        { name: 'Home', href: '/', type: 'route' },
+        { name: 'About Us', href: '/about', type: 'route' },
+        { name: 'Courses', href: '/courses', type: 'route' },
+        { name: 'AiXiom Academy', href: '/aixiomeducation', type: 'route' },
+        { name: 'Articles', href: '/articles', type: 'route' },
+        { name: 'Contact', href: '#contact', type: 'scroll' },
+      ],
+    },
+
+    hero: {
+      title: 'AiXiom Education',
+      subtitle:
+        'Delivering education that matters in the age of AI — built to keep you ahead of the curve.',
+      subtitle2:
+        'We Will Get You Into Your Dream Uni Or We Don\'t Make Money',
+      ctaPrimary: 'Browse Courses',
+      ctaSecondary: 'Learn More',
+    },
+
+    features: {
+      heading: 'Why Choose AiXiom Education?',
+      subheading:
+        'We\'re here to give you every advantage — whether you\'re aiming for top exam results or applying to UK and US universities.',
+      items: [
+        {
+          id: 1,
+          icon: 'FaUserGraduate',
+          title: 'Expert Tutors',
+          description:
+            'Qualified tutors who know the A-Level syllabus inside out and are passionate about helping you succeed.',
+        },
+        {
+          id: 2,
+          icon: 'FaLaptop',
+          title: 'Flexible Learning',
+          description:
+            'Study at your own pace, online, from anywhere — fitting around your school schedule and commitments.',
+        },
+        {
+          id: 3,
+          icon: 'FaClipboardCheck',
+          title: 'Exam-Focused',
+          description:
+            'Everything we do is geared towards getting you the grades you need, with proven revision and exam strategies.',
+        },
+        {
+          id: 4,
+          icon: 'FaPoundSign',
+          title: 'Affordable & Accessible',
+          description:
+            'Quality education that doesn\'t break the bank. Transparent pricing with no hidden costs.',
+        },
+      ],
+    },
+
+    services: {
+      heading: 'What We Offer',
+      subheading:
+        'Subject tutoring, UK and US university admissions prep, and more — everything you need to get ahead.',
+      items: [
+        {
+          id: 1,
+          title: 'A-Level Courses',
+          description:
+            'Structured learning content covering key A-Level subjects including Economics and Business Studies.',
+          icon: 'FaBookOpen',
+        },
+        {
+          id: 2,
+          title: 'IGCSE Courses',
+          description:
+            'Comprehensive support for IGCSE students across key subjects, with structured lessons and exam practice.',
+          icon: 'FaGlobe',
+        },
+        {
+          id: 3,
+          title: 'AP Courses',
+          description:
+            'Expert guidance for Advanced Placement exams, covering content review, practice tests, and scoring strategies.',
+          icon: 'FaAward',
+        },
+        {
+          id: 4,
+          title: 'IELTS',
+          description:
+            'Targeted preparation for all four IELTS components — Listening, Reading, Writing, and Speaking.',
+          icon: 'FaLanguage',
+        },
+        {
+          id: 5,
+          title: 'PF Debate',
+          description:
+            'Public Forum debate coaching covering case construction, rebuttal strategy, and speaking skills.',
+          icon: 'FaComments',
+        },
+      ],
+    },
+
+    academy: {
+      badge: 'Exclusive Programme',
+      title: 'AiXiom Academy',
+      tagline: 'Your Personal Edge in the College Race',
+      regions: {
+        hkuk: {
+          label: 'HK / UK',
+          highlights: [
+            { label: '1-on-1 Mentoring' },
+            { label: 'UCAS Personal Statement' },
+            { label: 'Oxbridge Interview Prep' },
+            { label: 'Russell Group Strategy' },
+          ],
+          description:
+            "AiXiom Academy is our elite 1-on-1 mentoring programme built for students applying to UK universities — including Oxbridge, Russell Group, and top Hong Kong institutions. We don't do group sessions. We don't do generic advice. Every session is tailored to you — your goals, your application, your future.",
+          description2:
+            "Our mentors have been through the UCAS process themselves, with successful applications to Oxford, Cambridge, LSE, Imperial, and other leading UK universities. They know what admissions tutors are looking for, and they'll work with you to craft a compelling personal statement and ace your interview.",
+          description3:
+            "Whether you're sitting A-Levels, the IB, or the DSE — AiXiom Academy covers personal statement writing, Oxbridge admissions tests, interview technique, subject choice, and university shortlisting. This is strategic, personalised mentorship designed to get you into your dream UK university.",
+          ctaText: 'Book Your Free Intro Session',
+        },
+        us: {
+          label: 'US',
+          highlights: [
+            { label: '1-on-1 Mentoring' },
+            { label: 'Common App Essay' },
+            { label: 'College Interview Prep' },
+            { label: 'Ivy League Strategy' },
+          ],
+          description:
+            "AiXiom Academy is our elite 1-on-1 mentoring programme built for students applying to US colleges — from Ivy League schools to top liberal arts colleges. We don't do group sessions. We don't do generic advice. Every session is tailored to you — your profile, your essays, your college list.",
+          description2:
+            "Our mentors have earned offers from MIT, the University of Michigan, Vanderbilt, and other top US institutions. They understand what admissions officers are looking for, and they'll help you build a standout application — from your Common App essays to your extracurricular narrative.",
+          description3:
+            'From crafting compelling Common App and supplemental essays to building your extracurricular profile, choosing the right college list, and preparing for alumni interviews — AiXiom Academy covers every angle of the US college application journey. This is strategic, personalised mentorship designed to get you accepted.',
+          ctaText: 'Book Your Free Intro Session',
+        },
+      },
+    },
+
+    about: {
+      visual: 'Your Success, Our Priority',
+      title: 'About AiXiom Education',
+      description:
+        'AiXiom Education still delivers the traditional foundations students rely on — 1-on-1 mentoring, structured recorded courses, and exam-focused tutoring across subjects like Economics. But we\'re built for a world that\'s changing fast. As automation reshapes the job market, we refuse to spend our students\' time on skills AI can already replace. Instead, our core focus is AI literacy: teaching you how to learn alongside AI, how to use it as a thinking partner, and how to build the judgment, creativity, and adaptability that keep human work valuable. We\'re here to prepare students not just for their next exam, but for a career landscape no one can fully predict.',
+      meetTeam: 'Meet the Team',
+      role: 'Head Mentor',
+      viewLinkedin: 'View LinkedIn',
+    },
+
+    aboutPage: {
+      heading: 'About Us',
+      valuesHeading: 'What We Stand For',
+      values: [
+        {
+          title: 'Student First',
+          description:
+            'Everything we do is built around helping students succeed — your goals drive every decision we make.',
+        },
+        {
+          title: 'Results-Driven',
+          description:
+            'We don\'t just teach content — we teach you how to perform under exam conditions and ace every paper.',
+        },
+        {
+          title: 'Accessible Excellence',
+          description:
+            'Top-tier tutoring shouldn\'t be reserved for the few. We keep our pricing transparent and fair.',
+        },
+      ],
+      teamHeading: 'Meet the Team',
+      teamMembers: [
+        {
+          name: 'Harry Zhu',
+          role: 'Head Mentor',
+          bio: 'Harry is passionate about making top-quality education accessible to every student. With deep expertise in Economics, he brings a results-driven approach to every tutoring session.',
+          linkedin: 'https://www.linkedin.com/in/wenhao-zhu-167599373/',
+        },
+        {
+          name: 'Cooper Wu',
+          role: 'Head Mentor',
+          bio: 'Cooper combines academic excellence with a genuine care for student success. His structured, exam-focused teaching style has helped students consistently achieve their target grades.',
+          linkedin: 'https://www.linkedin.com/in/yuzhelun-cooper-wu-7022b1377/',
+        },
+      ],
+      viewLinkedin: 'View LinkedIn',
+    },
+
+    cta: {
+      title: 'Ready to Smash Your A-Levels?',
+      description:
+        'Join AiXiom Education and get the support you need to achieve your best grades.',
+      buttonText: 'Get Started Today',
+    },
+
+    contact: {
+      heading: 'Get In Touch',
+      subheading: "Have a question? We'd love to hear from you.",
+      infoHeading: 'Contact Information',
+      emailLabel: 'Email',
+      instagramLabel: 'Instagram',
+      tiktokLabel: 'TikTok',
+      nameLabel: 'Name',
+      emailFieldLabel: 'Email',
+      messageLabel: 'Message',
+      namePlaceholder: 'Your name',
+      emailPlaceholder: 'your@email.com',
+      messagePlaceholder: 'Tell us what subjects you need help with...',
+      sendButton: 'Send Message',
+      sendingButton: 'Sending...',
+      successMessage: 'Message sent successfully!',
+      errorMessage: 'Something went wrong. Please email us directly at',
+    },
+
+    footer: {
+      quickLinks: 'Quick Links',
+      contact: 'Contact',
+      allRights: 'All rights reserved.',
+    },
+
+    coursesPage: {
+      heading: 'Our Courses',
+      subheading:
+        'Structured learning content designed around the A-Level syllabus, covering all the subjects you need to succeed.',
+      whatYouCover: "What you'll cover:",
+      formatHeading: 'Course Format',
+      videoTitle: 'Video Lessons',
+      videoDesc: 'Clear, concise video explanations of every topic',
+      worksheetsTitle: 'Worksheets',
+      worksheetsDesc: 'Practice questions and worksheets to reinforce learning',
+      pastPapersTitle: 'Past Papers',
+      pastPapersDesc: 'Exam-style questions with model answers',
+      comingSoonHeading: 'Coming Soon',
+      comingSoonDesc:
+        "We're putting the finishing touches on our course content. Sign up to be notified when we launch.",
+      getNotified: 'Get Notified',
+      courses: [
+        {
+          id: 1,
+          title: 'A-Level Courses',
+          description:
+            'Structured learning content covering key A-Level subjects with expert tutors and exam-focused strategies.',
+          topics: ['Economics', 'Mathematics', 'Further Mathematics', 'Sociology', 'Physics'],
+        },
+        {
+          id: 2,
+          title: 'IGCSE Courses',
+          description:
+            'Comprehensive support for IGCSE students across key subjects, with structured lessons and exam practice.',
+          topics: ['Core subject coverage', 'Past paper practice', 'Exam technique', 'Revision resources'],
+        },
+        {
+          id: 3,
+          title: 'AP Courses',
+          description:
+            'Expert guidance for Advanced Placement exams, covering content review, practice tests, and scoring strategies.',
+          topics: ['Content review', 'Practice tests', 'Scoring strategies', 'Exam preparation'],
+        },
+        {
+          id: 4,
+          title: 'IELTS',
+          description:
+            'Targeted preparation for all four IELTS components — Listening, Reading, Writing, and Speaking.',
+          topics: ['Listening', 'Reading', 'Writing', 'Speaking'],
+        },
+        {
+          id: 5,
+          title: 'PF Debate',
+          description:
+            'Public Forum debate coaching covering case construction, rebuttal strategy, and speaking skills.',
+          topics: ['Case construction', 'Rebuttal strategy', 'Crossfire technique', 'Speaking skills'],
+        },
+      ],
+    },
+
+    mentoringPage: {
+      heading: 'AiXiom Academy',
+      howItWorksHeading: 'How It Works',
+      typicalSessionHeading: 'What a Typical Session Looks Like',
+      ourMentorsHeading: 'Our Mentors',
+      bookFreeHeading: 'Book a Free Intro Session',
+      bookFreeDesc:
+        'Not sure if AiXiom Academy is right for you? Try a free introductory session — no commitment, no pressure.',
+      bookNow: 'Book Now',
+      stepLabel: 'Step',
+      mentorCards: [
+        {
+          emoji: '🎓',
+          title: 'Top University Graduates',
+          desc: 'Mentors from Oxbridge, Ivy League, and Russell Group universities',
+        },
+        {
+          emoji: '📖',
+          title: 'Admissions Experts',
+          desc: 'Deep knowledge of what top universities look for in applicants',
+        },
+        {
+          emoji: '💬',
+          title: 'Dedicated & Personal',
+          desc: 'Your mentor works exclusively with you throughout the entire process',
+        },
+      ],
+      steps: [
+        {
+          id: 1,
+          title: 'Book a Session',
+          description:
+            'Choose a time that works for you and book your session online. Your first introductory session is free.',
+        },
+        {
+          id: 2,
+          title: 'Tell Us Your Goals',
+          description:
+            "We'll discuss your target universities, your strengths, and the areas where you need the most support.",
+        },
+        {
+          id: 3,
+          title: 'Get Matched',
+          description:
+            "We'll pair you with a mentor who has navigated the admissions process and understands your goals.",
+        },
+        {
+          id: 4,
+          title: 'Start Your Journey',
+          description:
+            'Sessions take place online via Zoom or Google Meet — work with your mentor from anywhere.',
+        },
+      ],
+      regions: {
+        hkuk: {
+          label: 'HK / UK',
+          highlights: [
+            { label: '1-on-1 Mentoring' },
+            { label: 'UCAS Personal Statement' },
+            { label: 'Oxbridge Interview Prep' },
+            { label: 'Russell Group Strategy' },
+          ],
+          subtitle:
+            'Elite 1-on-1 mentoring for students applying to UK universities — Oxbridge, Russell Group, and top Hong Kong institutions.',
+          description:
+            "AiXiom Academy is our elite 1-on-1 mentoring programme built for students applying to UK universities — including Oxbridge, Russell Group, and top Hong Kong institutions. We don't do group sessions. We don't do generic advice. Every session is tailored to you — your goals, your application, your future.",
+          description2:
+            "Our mentors have been through the UCAS process themselves, with successful applications to Oxford, Cambridge, LSE, Imperial, and other leading UK universities. They know what admissions tutors are looking for, and they'll work with you to craft a compelling personal statement and ace your interview.",
+          description3:
+            "Whether you're sitting A-Levels, the IB, or the DSE — AiXiom Academy covers personal statement writing, Oxbridge admissions tests, interview technique, subject choice, and university shortlisting. This is strategic, personalised mentorship designed to get you into your dream UK university.",
+          sessionItems: [
+            {
+              label: 'Check-in (5 mins)',
+              detail: 'Quick review of your UCAS application progress and any questions from the week.',
+            },
+            {
+              label: 'Strategic Focus (30 mins)',
+              detail: 'Deep dive into personal statement drafts, university shortlisting, or Oxbridge test prep.',
+            },
+            {
+              label: 'Practice & Feedback (20 mins)',
+              detail: 'Work through mock interviews, personal statement critiques, or admissions strategy together.',
+            },
+            {
+              label: 'Wrap-up (5 mins)',
+              detail: 'Summary of key takeaways and action items for the week ahead.',
+            },
+          ],
+          mentorNote: 'Mentors from Oxford, Cambridge, LSE, Imperial, and other top UK universities.',
+        },
+        us: {
+          label: 'US',
+          highlights: [
+            { label: '1-on-1 Mentoring' },
+            { label: 'Common App Essay' },
+            { label: 'College Interview Prep' },
+            { label: 'Ivy League Strategy' },
+          ],
+          subtitle:
+            'Elite 1-on-1 mentoring for students applying to US colleges — from Ivy League schools to top liberal arts colleges.',
+          description:
+            "AiXiom Academy is our elite 1-on-1 mentoring programme built for students applying to US colleges — from Ivy League schools to top liberal arts colleges. We don't do group sessions. We don't do generic advice. Every session is tailored to you — your profile, your essays, your college list.",
+          description2:
+            "Our mentors have earned offers from MIT, the University of Michigan, Vanderbilt, and other top US institutions. They understand what admissions officers are looking for, and they'll help you build a standout application — from your Common App essays to your extracurricular narrative.",
+          description3:
+            'From crafting compelling Common App and supplemental essays to building your extracurricular profile, choosing the right college list, and preparing for alumni interviews — AiXiom Academy covers every angle of the US college application journey. This is strategic, personalised mentorship designed to get you accepted.',
+          sessionItems: [
+            {
+              label: 'Check-in (5 mins)',
+              detail: 'Quick review of your Common App progress and any questions from the week.',
+            },
+            {
+              label: 'Strategic Focus (30 mins)',
+              detail: 'Deep dive into Common App or supplemental essays, college list building, or interview prep.',
+            },
+            {
+              label: 'Practice & Feedback (20 mins)',
+              detail: 'Work through mock alumni interviews, essay critiques, or extracurricular narrative together.',
+            },
+            {
+              label: 'Wrap-up (5 mins)',
+              detail: 'Summary of key takeaways and action items for the week ahead.',
+            },
+          ],
+          mentorNote: 'Mentors with offers from MIT, the University of Michigan, Vanderbilt, and other top US universities.',
+        },
+      },
+    },
+
+    articlesPage: {
+      heading: 'Articles',
+      subheading: 'Insights, guides, and advice from the AiXiom team.',
+      readMore: 'Read Article',
+      by: 'By',
+    },
+  },
+
+  zh: {
+    nav: {
+      links: [
+        { name: '主页', href: '/', type: 'route' },
+        { name: '关于我们', href: '/about', type: 'route' },
+        { name: '课程', href: '/courses', type: 'route' },
+        { name: 'AiXiom学院', href: '/aixiomeducation', type: 'route' },
+        { name: '文章', href: '/articles', type: 'route' },
+        { name: '联系我们', href: '#contact', type: 'scroll' },
+      ],
+    },
+
+    hero: {
+      title: '爱科思摩',
+      subtitle: '在人工智能时代，提供真正有意义的教育——助您始终保持领先。',
+      subtitle2: '助您进入梦想大学，否则分文不取',
+      ctaPrimary: '浏览课程',
+      ctaSecondary: '了解更多',
+    },
+
+    features: {
+      heading: '为什么选择爱科思摩？',
+      subheading: '无论您的目标是取得优异的考试成绩，还是申请英美顶尖大学，我们都为您提供全方位的优势支持。',
+      items: [
+        {
+          id: 1,
+          icon: 'FaUserGraduate',
+          title: '专业导师',
+          description: '资质深厚的导师，对A-Level课程了如指掌，竭诚帮助您取得优异成绩。',
+        },
+        {
+          id: 2,
+          icon: 'FaLaptop',
+          title: '灵活学习',
+          description: '随时随地，按您的节奏在线学习，完美契合您的学校课程安排。',
+        },
+        {
+          id: 3,
+          icon: 'FaClipboardCheck',
+          title: '考试导向',
+          description: '我们所做的一切都以帮助您取得理想成绩为核心，采用经过验证的复习及应试策略。',
+        },
+        {
+          id: 4,
+          icon: 'FaPoundSign',
+          title: '价格合理，触手可及',
+          description: '高品质教育，不让您承受经济压力。收费透明，无任何隐性费用。',
+        },
+      ],
+    },
+
+    services: {
+      heading: '我们提供的服务',
+      subheading: '学科辅导、英美大学申请备考等——一切您所需要的，我们都有。',
+      items: [
+        {
+          id: 1,
+          title: 'A-Level课程',
+          description: '涵盖经济学、商业研究等A-Level核心科目的系统化学习内容。',
+          icon: 'FaBookOpen',
+        },
+        {
+          id: 2,
+          title: 'IGCSE课程',
+          description: '针对IGCSE学生的全方位支持，含系统化课程及历年真题练习。',
+          icon: 'FaGlobe',
+        },
+        {
+          id: 3,
+          title: 'AP课程',
+          description: '专业指导AP考试备考，涵盖内容复习、模拟测试及评分策略。',
+          icon: 'FaAward',
+        },
+        {
+          id: 4,
+          title: '雅思备考',
+          description: '针对雅思四项技能（听、读、写、说）的全面备考训练。',
+          icon: 'FaLanguage',
+        },
+        {
+          id: 5,
+          title: 'PF辩论',
+          description: '公共论坛辩论指导，涵盖论点构建、反驳策略及演讲技巧。',
+          icon: 'FaComments',
+        },
+      ],
+    },
+
+    academy: {
+      badge: '精英项目',
+      title: 'AiXiom学院',
+      tagline: '助您在名校申请中脱颖而出',
+      regions: {
+        hkuk: {
+          label: '香港 / 英国',
+          highlights: [
+            { label: '一对一辅导' },
+            { label: 'UCAS个人陈述' },
+            { label: '牛剑面试备考' },
+            { label: '罗素集团策略' },
+          ],
+          description:
+            'AiXiom学院是我们专为申请英国大学（包括牛津、剑桥、罗素集团及香港顶尖院校）的学生打造的精英一对一辅导项目。我们不开展小组课，不提供千篇一律的建议。每一次课程都完全围绕您——您的目标、您的申请、您的未来。',
+          description2:
+            '我们的导师亲身经历过UCAS申请流程，成功收到牛津、剑桥、伦敦政治经济学院、帝国理工等顶尖英国大学的录取通知。他们深知招生官的评判标准，将帮助您打磨出色的个人陈述，并在面试中出类拔萃。',
+          description3:
+            '无论您正在就读A-Level、IB还是DSE，AiXiom学院都覆盖个人陈述写作、牛剑笔试备考、面试技巧、科目选择及大学筛选等各个环节。这是专为帮助您进入梦想大学而量身定制的战略性、个性化辅导。',
+          ctaText: '预约免费初次咨询',
+        },
+        us: {
+          label: '美国',
+          highlights: [
+            { label: '一对一辅导' },
+            { label: 'Common App文书' },
+            { label: '大学面试备考' },
+            { label: '常青藤策略' },
+          ],
+          description:
+            'AiXiom学院是我们专为申请美国大学（从常青藤名校到顶尖文理学院）的学生打造的精英一对一辅导项目。我们不开展小组课，不提供千篇一律的建议。每一次课程都完全围绕您——您的背景、您的文书、您的申请学校名单。',
+          description2:
+            '我们的导师曾收到麻省理工学院、密歇根大学、范德堡大学等顶尖美国院校的录取通知。他们深谙招生官的评判标准，将助您从Common App文书到课外活动叙述，全方位打造令人印象深刻的申请材料。',
+          description3:
+            '从撰写出色的Common App及补充文书，到构建课外活动形象、优化申请学校名单，再到备战校友面试，AiXiom学院涵盖美国大学申请的每一个环节。这是专为帮助您成功录取而量身打造的战略性、个性化辅导。',
+          ctaText: '预约免费初次咨询',
+        },
+      },
+    },
+
+    about: {
+      visual: '您的成功，我们的首要目标',
+      title: '关于爱科思摩教育',
+      description:
+        '爱科思摩教育依然提供学生赖以信赖的传统基础服务——一对一辅导、系统化录播课程，以及经济学等科目的考试导向教学。但我们的眼光放得更远：在这个瞬息万变的时代，随着自动化重塑就业市场，我们拒绝让学生将宝贵时间花在人工智能已经可以替代的技能上。我们的核心关注点是AI素养：教会您如何与AI共同学习，如何将其作为思维伙伴，以及如何培养让人类工作保持价值的判断力、创造力与适应力。我们不只是帮您备战下一场考试，更是为无人能完全预见的职业未来做好准备。',
+      meetTeam: '认识我们的团队',
+      role: '首席导师',
+      viewLinkedin: '查看LinkedIn',
+    },
+
+    aboutPage: {
+      heading: '关于我们',
+      valuesHeading: '我们的核心价值观',
+      values: [
+        {
+          title: '学生优先',
+          description: '我们所做的一切都以帮助学生成功为核心——您的目标驱动着我们每一个决策。',
+        },
+        {
+          title: '结果导向',
+          description: '我们不只是传授知识，更教会您如何在考试压力下发挥出色，拿到每一科的理想成绩。',
+        },
+        {
+          title: '优质教育，人人可及',
+          description: '顶级辅导不应只是少数人的特权。我们坚持透明、公正的收费标准。',
+        },
+      ],
+      teamHeading: '认识我们的团队',
+      teamMembers: [
+        {
+          name: 'Harry Zhu',
+          role: '首席导师',
+          bio: 'Harry热衷于让每一位学生都能享受到高品质教育。凭借深厚的经济学专业知识，他以结果导向的方式投入每一次辅导课程。',
+          linkedin: 'https://www.linkedin.com/in/wenhao-zhu-167599373/',
+        },
+        {
+          name: 'Cooper Wu',
+          role: '首席导师',
+          bio: 'Cooper将卓越的学术能力与对学生成功的真诚关怀融为一体。他结构化、以考试为导向的教学风格，帮助众多学生持续达到目标成绩。',
+          linkedin: 'https://www.linkedin.com/in/yuzhelun-cooper-wu-7022b1377/',
+        },
+      ],
+      viewLinkedin: '查看LinkedIn',
+    },
+
+    cta: {
+      title: '准备好冲刺A-Level了吗？',
+      description: '加入爱科思摩教育，获得您实现最佳成绩所需的全力支持。',
+      buttonText: '立即开始',
+    },
+
+    contact: {
+      heading: '联系我们',
+      subheading: '有任何疑问？我们期待您的来信。',
+      infoHeading: '联系方式',
+      emailLabel: '电子邮件',
+      instagramLabel: 'Instagram',
+      tiktokLabel: 'TikTok',
+      nameLabel: '姓名',
+      emailFieldLabel: '邮箱',
+      messageLabel: '留言',
+      namePlaceholder: '您的姓名',
+      emailPlaceholder: 'your@email.com',
+      messagePlaceholder: '请告诉我们您需要哪些科目的帮助……',
+      sendButton: '发送消息',
+      sendingButton: '发送中……',
+      successMessage: '消息发送成功！',
+      errorMessage: '出现错误，请直接发送邮件至',
+    },
+
+    footer: {
+      quickLinks: '快速链接',
+      contact: '联系我们',
+      allRights: '版权所有。',
+    },
+
+    coursesPage: {
+      heading: '我们的课程',
+      subheading: '围绕A-Level课程体系设计的系统化学习内容，涵盖您取得成功所需的全部科目。',
+      whatYouCover: '课程内容：',
+      formatHeading: '课程形式',
+      videoTitle: '视频课程',
+      videoDesc: '清晰简洁的视频讲解，覆盖每个知识点',
+      worksheetsTitle: '练习册',
+      worksheetsDesc: '练习题与工作表，巩固所学内容',
+      pastPapersTitle: '历年真题',
+      pastPapersDesc: '考试风格题目附参考答案',
+      comingSoonHeading: '即将推出',
+      comingSoonDesc: '我们正在完善课程内容，敬请期待。欢迎注册以获得上线通知。',
+      getNotified: '获取通知',
+      courses: [
+        {
+          id: 1,
+          title: 'A-Level课程',
+          description: '涵盖A-Level核心科目的系统化学习内容，配备专业导师及以考试为导向的学习策略。',
+          topics: ['经济学', '数学', '进阶数学', '社会学', '物理学'],
+        },
+        {
+          id: 2,
+          title: 'IGCSE课程',
+          description: '针对IGCSE学生的全方位支持，提供结构化课程及历年真题练习。',
+          topics: ['核心科目覆盖', '历年真题练习', '考试技巧', '复习资料'],
+        },
+        {
+          id: 3,
+          title: 'AP课程',
+          description: '专业指导AP考试备考，涵盖内容复习、模拟测试及评分策略。',
+          topics: ['内容复习', '模拟测试', '评分策略', '考试备考'],
+        },
+        {
+          id: 4,
+          title: '雅思备考',
+          description: '针对雅思四项技能（听力、阅读、写作、口语）的全面备考训练。',
+          topics: ['听力', '阅读', '写作', '口语'],
+        },
+        {
+          id: 5,
+          title: 'PF辩论',
+          description: '公共论坛辩论指导，涵盖论点构建、反驳策略及演讲技巧。',
+          topics: ['论点构建', '反驳策略', '交叉盘问技巧', '演讲技巧'],
+        },
+      ],
+    },
+
+    mentoringPage: {
+      heading: 'AiXiom学院',
+      howItWorksHeading: '流程介绍',
+      typicalSessionHeading: '典型课程安排',
+      ourMentorsHeading: '我们的导师',
+      bookFreeHeading: '预约免费初次咨询',
+      bookFreeDesc: '不确定AiXiom学院是否适合您？欢迎参加免费初次咨询，无任何承诺，轻松体验。',
+      bookNow: '立即预约',
+      stepLabel: '步骤',
+      mentorCards: [
+        {
+          emoji: '🎓',
+          title: '顶尖大学毕业生',
+          desc: '导师来自牛津、剑桥、常青藤及罗素集团院校',
+        },
+        {
+          emoji: '📖',
+          title: '招生专家',
+          desc: '深度了解顶尖大学在申请者身上的评判标准',
+        },
+        {
+          emoji: '💬',
+          title: '专注且个性化',
+          desc: '您的导师全程专注陪伴您，贯穿整个申请过程',
+        },
+      ],
+      steps: [
+        {
+          id: 1,
+          title: '预约课程',
+          description: '选择适合您的时间，在线完成预约。您的第一次初次咨询完全免费。',
+        },
+        {
+          id: 2,
+          title: '告诉我们您的目标',
+          description: '我们将与您深入探讨目标院校、您的优势，以及最需要提升的方向。',
+        },
+        {
+          id: 3,
+          title: '匹配导师',
+          description: '我们将为您匹配一位深谙申请流程且理解您目标的专属导师。',
+        },
+        {
+          id: 4,
+          title: '开启您的申请之旅',
+          description: '课程通过Zoom或Google Meet在线进行，无论身在何处，随时开始。',
+        },
+      ],
+      regions: {
+        hkuk: {
+          label: '香港 / 英国',
+          highlights: [
+            { label: '一对一辅导' },
+            { label: 'UCAS个人陈述' },
+            { label: '牛剑面试备考' },
+            { label: '罗素集团策略' },
+          ],
+          subtitle: '为申请英国大学（包括牛剑、罗素集团及香港顶尖院校）的学生提供精英一对一辅导。',
+          description:
+            'AiXiom学院是我们专为申请英国大学（包括牛津、剑桥、罗素集团及香港顶尖院校）的学生打造的精英一对一辅导项目。我们不开展小组课，不提供千篇一律的建议。每一次课程都完全围绕您——您的目标、您的申请、您的未来。',
+          description2:
+            '我们的导师亲身经历过UCAS申请流程，成功收到牛津、剑桥、伦敦政治经济学院、帝国理工等顶尖英国大学的录取通知。他们深知招生官的评判标准，将帮助您打磨出色的个人陈述，并在面试中脱颖而出。',
+          description3:
+            '无论您正在就读A-Level、IB还是DSE，AiXiom学院都覆盖个人陈述写作、牛剑笔试备考、面试技巧、科目选择及大学筛选等各个环节，为您量身定制战略性、个性化的辅导，助您进入梦想大学。',
+          sessionItems: [
+            {
+              label: '签到（5分钟）',
+              detail: '快速回顾您的UCAS申请进度并解答本周问题。',
+            },
+            {
+              label: '重点策略（30分钟）',
+              detail: '深入打磨个人陈述草稿、大学筛选方案或牛剑考试备考。',
+            },
+            {
+              label: '练习与反馈（20分钟）',
+              detail: '进行模拟面试、个人陈述点评或申请策略讨论。',
+            },
+            {
+              label: '总结（5分钟）',
+              detail: '梳理本次课程要点，确定下周行动计划。',
+            },
+          ],
+          mentorNote: '导师来自牛津、剑桥、伦敦政治经济学院、帝国理工及其他英国顶尖大学。',
+        },
+        us: {
+          label: '美国',
+          highlights: [
+            { label: '一对一辅导' },
+            { label: 'Common App文书' },
+            { label: '大学面试备考' },
+            { label: '常青藤策略' },
+          ],
+          subtitle: '为申请美国大学（从常青藤名校到顶尖文理学院）的学生提供精英一对一辅导。',
+          description:
+            'AiXiom学院是我们专为申请美国大学（从常青藤名校到顶尖文理学院）的学生打造的精英一对一辅导项目。我们不开展小组课，不提供千篇一律的建议。每一次课程都完全围绕您——您的背景、您的文书、您的申请学校名单。',
+          description2:
+            '我们的导师曾收到麻省理工学院、密歇根大学、范德堡大学等顶尖美国院校的录取通知。他们深谙招生官的评判标准，将助您从Common App文书到课外活动叙述，全方位打造令人印象深刻的申请材料。',
+          description3:
+            '从撰写出色的Common App及补充文书，到构建课外活动形象、优化申请学校名单，再到备战校友面试，AiXiom学院涵盖美国大学申请的每一个环节，为您量身定制战略性、个性化的辅导，助您成功录取。',
+          sessionItems: [
+            {
+              label: '签到（5分钟）',
+              detail: '快速回顾您的Common App进度并解答本周问题。',
+            },
+            {
+              label: '重点策略（30分钟）',
+              detail: '深入打磨Common App或补充文书、申请学校名单，或备战面试。',
+            },
+            {
+              label: '练习与反馈（20分钟）',
+              detail: '进行模拟校友面试、文书点评或课外活动叙述讨论。',
+            },
+            {
+              label: '总结（5分钟）',
+              detail: '梳理本次课程要点，确定下周行动计划。',
+            },
+          ],
+          mentorNote: '导师曾收到麻省理工学院、密歇根大学、范德堡大学及其他美国顶尖大学的录取通知。',
+        },
+      },
+    },
+
+    articlesPage: {
+      heading: '文章',
+      subheading: '来自爱科思摩团队的见解、指南与建议。',
+      readMore: '阅读文章',
+      by: '作者：',
+    },
+  },
+}

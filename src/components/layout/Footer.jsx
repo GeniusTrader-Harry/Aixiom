@@ -1,9 +1,13 @@
 import { FaInstagram, FaTiktok } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { siteConfig } from '../../utils/constants'
+import { useLanguage } from '../../context/LanguageContext'
+import { translations } from '../../utils/translations'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
+  const { lang } = useLanguage()
+  const t = translations[lang]
 
   return (
     <footer className="bg-black text-gray-300 py-12 border-t border-gray-800">
@@ -36,10 +40,10 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Quick Links</h4>
+            <h4 className="text-white font-semibold mb-4">{t.footer.quickLinks}</h4>
             <ul className="space-y-2">
-              {siteConfig.nav.links.map((link) => (
-                <li key={link.name}>
+              {t.nav.links.map((link) => (
+                <li key={link.href}>
                   {link.type === 'route' ? (
                     <Link
                       to={link.href}
@@ -62,7 +66,7 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Contact</h4>
+            <h4 className="text-white font-semibold mb-4">{t.footer.contact}</h4>
             <ul className="space-y-2 text-gray-400">
               <li>{siteConfig.contact.email}</li>
               <li>
@@ -81,7 +85,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="border-t border-gray-800 pt-8 text-center text-gray-500">
-          <p>&copy; {currentYear} {siteConfig.siteName}. All rights reserved.</p>
+          <p>&copy; {currentYear} {siteConfig.siteName}. {t.footer.allRights}</p>
         </div>
       </div>
     </footer>

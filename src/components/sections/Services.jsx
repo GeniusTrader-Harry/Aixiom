@@ -1,7 +1,8 @@
 import { FaBookOpen, FaGlobe, FaAward, FaLanguage, FaComments } from 'react-icons/fa'
-import { siteConfig } from '../../utils/constants'
 import Section from '../ui/Section'
 import Card from '../ui/Card'
+import { useLanguage } from '../../context/LanguageContext'
+import { translations } from '../../utils/translations'
 
 const iconMap = {
   FaBookOpen: FaBookOpen,
@@ -12,19 +13,22 @@ const iconMap = {
 }
 
 export default function Services() {
+  const { lang } = useLanguage()
+  const t = translations[lang].services
+
   return (
     <Section id="services" background="white">
       <div className="text-center mb-16">
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-          What We Offer
+          {t.heading}
         </h2>
         <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-          Subject tutoring, UK and US university admissions prep, and more — everything you need to get ahead.
+          {t.subheading}
         </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {siteConfig.services.map((service, index) => {
+        {t.items.map((service, index) => {
           const Icon = iconMap[service.icon]
           return (
             <Card key={service.id} delay={index * 0.15} className="p-8">

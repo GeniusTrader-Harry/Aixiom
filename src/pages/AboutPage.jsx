@@ -1,41 +1,22 @@
 import { motion } from 'framer-motion'
-import { siteConfig } from '../utils/constants'
 import Section from '../components/ui/Section'
 import CTA from '../components/sections/CTA'
+import { useLanguage } from '../context/LanguageContext'
+import { translations } from '../utils/translations'
 
-const team = [
-  {
-    name: 'Harry Zhu',
-    image: '/avatar-harry.jpg',
-    role: 'Head Mentor',
-    bio: 'Harry is passionate about making top-quality education accessible to every student. With deep expertise in Economics, he brings a results-driven approach to every tutoring session.',
-    linkedin: 'https://www.linkedin.com/in/wenhao-zhu-167599373/',
-  },
-  {
-    name: 'Cooper Wu',
-    image: '/avatar-cooper.jpg',
-    role: 'Head Mentor',
-    bio: 'Cooper combines academic excellence with a genuine care for student success. His structured, exam-focused teaching style has helped students consistently achieve their target grades.',
-    linkedin: 'https://www.linkedin.com/in/yuzhelun-cooper-wu-7022b1377/',
-  },
-]
-
-const values = [
-  {
-    title: 'Student First',
-    description: 'Everything we do is built around helping students succeed — your goals drive every decision we make.',
-  },
-  {
-    title: 'Results-Driven',
-    description: 'We don\'t just teach content — we teach you how to perform under exam conditions and ace every paper.',
-  },
-  {
-    title: 'Accessible Excellence',
-    description: 'Top-tier tutoring shouldn\'t be reserved for the few. We keep our pricing transparent and fair.',
-  },
-]
+const teamImages = {
+  'Harry Zhu': '/avatar-harry.jpg',
+  'Cooper Wu': '/avatar-cooper.jpg',
+}
+const teamLinkedIn = {
+  'Harry Zhu': 'https://www.linkedin.com/in/wenhao-zhu-167599373/',
+  'Cooper Wu': 'https://www.linkedin.com/in/yuzhelun-cooper-wu-7022b1377/',
+}
 
 export default function AboutPage() {
+  const { lang } = useLanguage()
+  const t = translations[lang].aboutPage
+
   return (
     <div className="pt-24">
       {/* Hero Header */}
@@ -47,10 +28,10 @@ export default function AboutPage() {
           className="text-center mb-20"
         >
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            About Us
+            {t.heading}
           </h1>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            {siteConfig.about.description}
+            {translations[lang].about.description}
           </p>
         </motion.div>
 
@@ -63,10 +44,10 @@ export default function AboutPage() {
           className="mb-24"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-12">
-            What We Stand For
+            {t.valuesHeading}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {values.map((value, i) => (
+            {t.values.map((value, i) => (
               <motion.div
                 key={value.title}
                 initial={{ opacity: 0, y: 20 }}
@@ -91,10 +72,10 @@ export default function AboutPage() {
           className="mb-8"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-14">
-            Meet the Team
+            {t.teamHeading}
           </h2>
           <div className="flex flex-col sm:flex-row justify-center gap-12">
-            {team.map((member, i) => (
+            {t.teamMembers.map((member, i) => (
               <motion.div
                 key={member.name}
                 initial={{ opacity: 0, y: 20 }}
@@ -105,7 +86,7 @@ export default function AboutPage() {
               >
                 <div className="w-52 h-52 rounded-full overflow-hidden border-4 border-white shadow-2xl mb-6">
                   <img
-                    src={member.image}
+                    src={teamImages[member.name]}
                     alt={member.name}
                     className="w-full h-full object-cover object-top"
                   />
@@ -113,14 +94,14 @@ export default function AboutPage() {
                 <p className="text-2xl font-bold text-white mb-1">{member.name}</p>
                 <p className="text-sm text-gray-400 mb-4">{member.role}</p>
                 <p className="text-gray-400 leading-relaxed">{member.bio}</p>
-                {member.linkedin && (
+                {teamLinkedIn[member.name] && (
                   <a
-                    href={member.linkedin}
+                    href={teamLinkedIn[member.name]}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-4 inline-block text-white hover:text-gray-300 transition-colors font-medium underline"
                   >
-                    View LinkedIn
+                    {t.viewLinkedin}
                   </a>
                 )}
               </motion.div>

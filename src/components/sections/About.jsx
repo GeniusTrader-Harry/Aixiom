@@ -1,23 +1,25 @@
 import { motion } from 'framer-motion'
-import { siteConfig } from '../../utils/constants'
 import Section from '../ui/Section'
+import { useLanguage } from '../../context/LanguageContext'
+import { translations } from '../../utils/translations'
 
 const team = [
   {
     name: 'Harry Zhu',
     image: '/avatar-harry.jpg',
-    role: 'Head Mentor',
     linkedin: 'https://www.linkedin.com/in/wenhao-zhu-167599373/',
   },
   {
     name: 'Cooper Wu',
     image: '/avatar-cooper.jpg',
-    role: 'Head Mentor',
     linkedin: 'https://www.linkedin.com/in/yuzhelun-cooper-wu-7022b1377/',
   },
 ]
 
 export default function About() {
+  const { lang } = useLanguage()
+  const t = translations[lang].about
+
   return (
     <Section id="about" background="gray">
       {/* About intro */}
@@ -33,7 +35,7 @@ export default function About() {
           <div className="relative w-full h-96 bg-gradient-to-br from-gray-800 to-black rounded-2xl shadow-xl border border-gray-800 flex items-center justify-center">
             <div className="text-white text-center p-8">
               <div className="text-8xl mb-4">🎓</div>
-              <p className="text-2xl font-semibold">Your Success, Our Priority</p>
+              <p className="text-2xl font-semibold">{t.visual}</p>
             </div>
           </div>
         </motion.div>
@@ -46,10 +48,10 @@ export default function About() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            {siteConfig.about.title}
+            {t.title}
           </h2>
           <p className="text-lg text-gray-400 mb-6 leading-relaxed">
-            {siteConfig.about.description}
+            {t.description}
           </p>
         </motion.div>
       </div>
@@ -62,7 +64,7 @@ export default function About() {
         transition={{ duration: 0.8 }}
       >
         <h3 className="text-3xl md:text-4xl font-bold text-white text-center mb-12">
-          Meet the Team
+          {t.meetTeam}
         </h3>
         <div className="flex flex-col sm:flex-row justify-center gap-10">
           {team.map((member, i) => (
@@ -82,7 +84,7 @@ export default function About() {
                 />
               </div>
               <p className="text-xl font-semibold text-white">{member.name}</p>
-              <p className="text-sm text-gray-400 mt-1">{member.role}</p>
+              <p className="text-sm text-gray-400 mt-1">{t.role}</p>
               {member.linkedin && (
                 <a
                   href={member.linkedin}
@@ -90,7 +92,7 @@ export default function About() {
                   rel="noopener noreferrer"
                   className="mt-3 inline-block text-white hover:text-gray-300 transition-colors font-medium underline text-sm"
                 >
-                  View LinkedIn
+                  {t.viewLinkedin}
                 </a>
               )}
             </motion.div>

@@ -1,7 +1,8 @@
 import { FaUserGraduate, FaLaptop, FaClipboardCheck, FaPoundSign } from 'react-icons/fa'
-import { siteConfig } from '../../utils/constants'
 import Section from '../ui/Section'
 import Card from '../ui/Card'
+import { useLanguage } from '../../context/LanguageContext'
+import { translations } from '../../utils/translations'
 
 const iconMap = {
   FaUserGraduate: FaUserGraduate,
@@ -11,19 +12,22 @@ const iconMap = {
 }
 
 export default function Features() {
+  const { lang } = useLanguage()
+  const t = translations[lang].features
+
   return (
     <Section id="features" background="gray">
       <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-          Why Choose AiXiom Education?
+        <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          {t.heading}
         </h2>
         <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-          We're here to give you every advantage — whether you're aiming for top exam results or applying to UK and US universities.
+          {t.subheading}
         </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {siteConfig.features.map((feature, index) => {
+        {t.items.map((feature, index) => {
           const Icon = iconMap[feature.icon]
           return (
             <Card key={feature.id} delay={index * 0.1} className="p-8 text-center">

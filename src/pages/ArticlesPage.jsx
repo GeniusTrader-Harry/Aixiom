@@ -19,6 +19,14 @@ export default function ArticlesPage() {
   const { lang } = useLanguage()
   const t = translations[lang].articlesPage
 
+  const localizedArticles = articles.map(article => {
+    if (lang === 'zh' && t.articles) {
+      const translated = t.articles.find(a => a.id === article.id)
+      if (translated) return { ...article, ...translated }
+    }
+    return article
+  })
+
   return (
     <div className="pt-24">
       <Section background="gray">
@@ -35,7 +43,7 @@ export default function ArticlesPage() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {articles.map((article, index) => (
+          {localizedArticles.map((article, index) => (
             <Link key={article.id} to={`/articles/${article.id}`} className="block h-full">
               <Card delay={index * 0.1} className="p-7 h-full flex flex-col hover:border-white transition-colors cursor-pointer">
                 <div className="flex items-center justify-between text-sm text-gray-400 mb-4">

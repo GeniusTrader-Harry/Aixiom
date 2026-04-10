@@ -434,7 +434,7 @@ export const translations = {
 
     features: {
       heading: '为什么选择爱科思摩？',
-      subheading: '无论您的目标是取得优异的考试成绩，还是申请英美顶尖大学，我们都为您提供全方位的优势支持。',
+      subheading: '无论您的目标是取得优异的考试成绩，还是申请英美顶尖大学，我们都全力为您提供支持，助您占据全面优势。',
       items: [
         {
           id: 1,
@@ -446,7 +446,7 @@ export const translations = {
           id: 2,
           icon: 'FaLaptop',
           title: '灵活学习',
-          description: '随时随地，按您的节奏在线学习，完美契合您的学校课程安排。',
+          description: '随时随地，按您的节奏在线学习，完美契合您的学校课程及日常安排。',
         },
         {
           id: 3,
@@ -465,7 +465,7 @@ export const translations = {
 
     services: {
       heading: '我们提供的服务',
-      subheading: '学科辅导、英美大学申请备考等——一切您所需要的，我们都有。',
+      subheading: '学科辅导、英美大学申请备考等——助您全面领先所需的一切，我们都有。',
       items: [
         {
           id: 1,
@@ -544,7 +544,7 @@ export const translations = {
       visual: '您的成功，我们的首要目标',
       title: '关于爱科思摩教育',
       description:
-        '爱科思摩教育依然提供学生赖以信赖的传统基础服务——一对一辅导、系统化录播课程，以及经济学等科目的考试导向教学。但我们的眼光放得更远：在这个瞬息万变的时代，随着自动化重塑就业市场，我们拒绝让学生将宝贵时间花在人工智能已经可以替代的技能上。我们的核心关注点是AI素养：教会您如何与AI共同学习，如何将其作为思维伙伴，以及如何培养让人类工作保持价值的判断力、创造力与适应力。我们不只是帮您备战下一场考试，更是为无人能完全预见的职业未来做好准备。',
+        '爱科思摩教育依然提供学生信赖的传统基础服务——一对一辅导、系统化录播课程，以及经济学等科目的考试导向教学。但我们的眼光放得更远：在这个瞬息万变的时代，随着自动化重塑就业市场，我们拒绝让学生将宝贵时间花在人工智能已经可以替代的技能上。我们的核心关注点是AI素养：教会您如何与AI共同学习，如何将其作为思维伙伴，以及如何培养让人类工作保持价值的判断力、创造力与适应力。我们不只是帮您备战下一场考试，更是为无人能完全预见的职业未来做好准备。',
       meetTeam: '认识我们的团队',
       role: '首席导师',
       viewLinkedin: '查看LinkedIn',
@@ -586,7 +586,7 @@ export const translations = {
     },
 
     cta: {
-      title: '准备好冲刺A-Level了吗？',
+      title: '准备好冲刺您的梦校了吗？',
       description: '加入爱科思摩教育，获得您实现最佳成绩所需的全力支持。',
       buttonText: '立即开始',
     },
@@ -670,7 +670,7 @@ export const translations = {
       typicalSessionHeading: '典型课程安排',
       ourMentorsHeading: '我们的导师',
       bookFreeHeading: '预约免费初次咨询',
-      bookFreeDesc: '不确定AiXiom学院是否适合您？欢迎参加免费初次咨询，无任何承诺，轻松体验。',
+      bookFreeDesc: '不确定AiXiom学院是否适合您？欢迎参加免费初次咨询，无需承诺，轻松无压力。',
       bookNow: '立即预约',
       stepLabel: '步骤',
       mentorCards: [
@@ -791,6 +791,17 @@ export const translations = {
       subheading: '来自爱科思摩团队的见解、指南与建议。',
       readMore: '阅读文章',
       by: '作者：',
+      backToArticles: '← 返回文章列表',
+      articleNotFound: '文章未找到',
+      articles: [
+        {
+          id: 1,
+          title: '奥地利经济学派最佳院校有哪些？',
+          category: '院校指南',
+          summary: '为有意深入研究奥地利经济学的学生提供一份实用的美英院校清单。',
+          readTime: '18分钟阅读',
+        },
+      ],
     },
   },
 }

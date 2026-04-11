@@ -1,23 +1,48 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { sendEconomicsChatMessage } from '../utils/chatApi'
+import { sendChatMessage } from '../utils/chatApi'
 import MathText from '../components/ui/MathText'
 
-const CHAT_STORAGE_KEY = 'aixiom_cie_econ_chat_v1'
-const CHAT_SETTINGS_KEY = 'aixiom_cie_econ_chat_settings_v1'
-
-const STARTER_PROMPTS = [
-  'Explain price elasticity of demand with a real example.',
-  'How do I evaluate a maximum price policy in a 12-mark question?',
-  'Give me a short plan for an essay on inflation causes and consequences.',
-]
-
-const INITIAL_MESSAGE = {
-  id: 'assistant-welcome',
-  role: 'assistant',
-  content:
-    'Hi, I am your CIE A Level Economics AI tutor. Ask me about theory, diagrams, essays, calculations, or exam technique. You can also upload an image of a question or diagram.',
+const SUBJECTS = {
+  economics: {
+    label: 'A Level Economics',
+    description: 'CIE A Level Economics — theory, diagrams, essays, calculations, and exam technique.',
+    storageKey: 'aixiom_cie_econ_chat_v1',
+    settingsKey: 'aixiom_cie_econ_chat_settings_v1',
+    welcomeMessage:
+      'Hi, I am your CIE A Level Economics AI tutor. Ask me about theory, diagrams, essays, calculations, or exam technique. You can also upload an image of a question or diagram.',
+    starterPrompts: [
+      'Explain price elasticity of demand with a real example.',
+      'How do I evaluate a maximum price policy in a 12-mark question?',
+      'Give me a short plan for an essay on inflation causes and consequences.',
+    ],
+    placeholder: 'Ask anything about CIE A Level Economics...',
+    exportPrefix: 'aixiom-cie-econ-notes',
+    exportHeader: 'AiXiom CIE Economics Chat Notes',
+    color: 'bg-emerald-600',
+    colorHover: 'hover:bg-emerald-500',
+    borderColor: 'border-emerald-600',
+  },
+  sociology: {
+    label: 'A Level Sociology',
+    description: 'CIE A Level Sociology — perspectives, key studies, essays, and exam technique.',
+    storageKey: 'aixiom_cie_socio_chat_v1',
+    settingsKey: 'aixiom_cie_socio_chat_settings_v1',
+    welcomeMessage:
+      'Hi, I am your CIE A Level Sociology AI tutor. Ask me about sociological perspectives, key studies, research methods, essays, or exam technique. You can also upload an image of a question.',
+    starterPrompts: [
+      'Explain the Functionalist view of education with key studies.',
+      'Compare Marxist and Feminist perspectives on the family.',
+      'Give me a plan for a 25-mark essay on whether secularisation is happening.',
+    ],
+    placeholder: 'Ask anything about CIE A Level Sociology...',
+    exportPrefix: 'aixiom-cie-socio-notes',
+    exportHeader: 'AiXiom CIE Sociology Chat Notes',
+    color: 'bg-violet-600',
+    colorHover: 'hover:bg-violet-500',
+    borderColor: 'border-violet-600',
+  },
 }
 
 function createMessage(role, content, imageData = null) {
@@ -29,27 +54,49 @@ function createMessage(role, content, imageData = null) {
   }
 }
 
+function getInitialMessage(subject) {
+  const config = SUBJECTS[subject]
+  return {
+    id: 'assistant-welcome',
+    role: 'assistant',
+    content: config.welcomeMessage,
+  }
+}
+
+function loadMessages(subject) {
+  try {
+    const saved = localStorage.getItem(SUBJECTS[subject].storageKey)
+    if (!saved) return [getInitialMessage(subject)]
+    const parsed = JSON.parse(saved)
+    return Array.isArray(parsed) && parsed.length > 0 ? parsed : [getInitialMessage(subject)]
+  } catch {
+    return [getInitialMessage(subject)]
+  }
+}
+
+function loadExamMode(subject) {
+  try {
+    const saved = localStorage.getItem(SUBJECTS[subject].settingsKey)
+    if (!saved) return false
+    return Boolean(JSON.parse(saved)?.examMode)
+  } catch {
+    return false
+  }
+}
+
 export default function AiChatPage() {
-  const [messages, setMessages] = useState(() => {
+  const [activeSubject, setActiveSubject] = useState(() => {
     try {
-      const saved = localStorage.getItem(CHAT_STORAGE_KEY)
-      if (!saved) return [INITIAL_MESSAGE]
-      const parsed = JSON.parse(saved)
-      return Array.isArray(parsed) && parsed.length > 0 ? parsed : [INITIAL_MESSAGE]
+      return localStorage.getItem('aixiom_chat_subject') || 'economics'
     } catch {
-      return [INITIAL_MESSAGE]
+      return 'economics'
     }
   })
-  const [examMode, setExamMode] = useState(() => {
-    try {
-      const saved = localStorage.getItem(CHAT_SETTINGS_KEY)
-      if (!saved) return false
-      const parsed = JSON.parse(saved)
-      return Boolean(parsed?.examMode)
-    } catch {
-      return false
-    }
-  })
+
+  const config = SUBJECTS[activeSubject]
+
+  const [messages, setMessages] = useState(() => loadMessages(activeSubject))
+  const [examMode, setExamMode] = useState(() => loadExamMode(activeSubject))
   const [inputValue, setInputValue] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
@@ -62,16 +109,31 @@ export default function AiChatPage() {
   )
 
   useEffect(() => {
-    localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(messages))
-  }, [messages])
+    localStorage.setItem(config.storageKey, JSON.stringify(messages))
+  }, [messages, config.storageKey])
 
   useEffect(() => {
-    localStorage.setItem(CHAT_SETTINGS_KEY, JSON.stringify({ examMode }))
-  }, [examMode])
+    localStorage.setItem(config.settingsKey, JSON.stringify({ examMode }))
+  }, [examMode, config.settingsKey])
+
+  const switchSubject = (subject) => {
+    if (subject === activeSubject) return
+    // Save current chat before switching
+    localStorage.setItem(config.storageKey, JSON.stringify(messages))
+    localStorage.setItem(config.settingsKey, JSON.stringify({ examMode }))
+    localStorage.setItem('aixiom_chat_subject', subject)
+
+    setActiveSubject(subject)
+    setMessages(loadMessages(subject))
+    setExamMode(loadExamMode(subject))
+    setInputValue('')
+    setSelectedImage(null)
+    setError('')
+  }
 
   const exportChatAsNotes = () => {
     const stamp = new Date().toISOString().slice(0, 10)
-    const header = `AiXiom CIE Economics Chat Notes (${stamp})\n\n`
+    const header = `${config.exportHeader} (${stamp})\n\n`
     const body = messages
       .map((message) => `${message.role === 'user' ? 'Student' : 'Tutor'}: ${message.content}`)
       .join('\n\n')
@@ -80,7 +142,7 @@ export default function AiChatPage() {
     const url = URL.createObjectURL(blob)
     const link = document.createElement('a')
     link.href = url
-    link.download = `aixiom-cie-econ-notes-${stamp}.txt`
+    link.download = `${config.exportPrefix}-${stamp}.txt`
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
@@ -88,7 +150,7 @@ export default function AiChatPage() {
   }
 
   const clearChat = () => {
-    setMessages([INITIAL_MESSAGE])
+    setMessages([getInitialMessage(activeSubject)])
     setError('')
     setSelectedImage(null)
   }
@@ -119,7 +181,7 @@ export default function AiChatPage() {
     setIsLoading(true)
 
     try {
-      const aiReply = await sendEconomicsChatMessage(nextMessages, { examMode })
+      const aiReply = await sendChatMessage(nextMessages, { examMode, subject: activeSubject })
       setMessages((prev) => [...prev, createMessage('assistant', aiReply)])
     } catch (err) {
       const fallbackError = err instanceof Error ? err.message : 'Something went wrong. Please try again.'
@@ -143,10 +205,28 @@ export default function AiChatPage() {
           transition={{ duration: 0.4 }}
           className="max-w-5xl mx-auto"
         >
+          {/* Subject Tabs */}
+          <div className="mb-6 flex flex-wrap gap-2">
+            {Object.entries(SUBJECTS).map(([key, subject]) => (
+              <button
+                key={key}
+                type="button"
+                onClick={() => switchSubject(key)}
+                className={`px-4 py-2 text-sm font-semibold rounded-lg transition-colors ${
+                  activeSubject === key
+                    ? `${subject.color} text-white`
+                    : 'bg-gray-800 text-gray-400 hover:text-white hover:bg-gray-700'
+                }`}
+              >
+                {subject.label}
+              </button>
+            ))}
+          </div>
+
           <div className="mb-6 flex items-start justify-between gap-4">
             <div>
-              <h1 className="text-3xl md:text-4xl font-bold text-white">A Level Economics CIE AI Chat</h1>
-              <p className="text-gray-400 mt-2">Built for high school students: clear explanations, diagram support, and exam-focused answers.</p>
+              <h1 className="text-3xl md:text-4xl font-bold text-white">{config.label} CIE AI Chat</h1>
+              <p className="text-gray-400 mt-2">{config.description}</p>
               <div className="mt-3 flex flex-wrap items-center gap-3">
                 <label className="inline-flex items-center gap-2 text-sm text-gray-300">
                   <input
@@ -185,7 +265,7 @@ export default function AiChatPage() {
             <div className="p-4 md:p-6 border-b border-gray-800 bg-gray-900/60">
               <p className="text-sm text-gray-300">Try a prompt:</p>
               <div className="mt-3 flex flex-wrap gap-2">
-                {STARTER_PROMPTS.map((prompt) => (
+                {config.starterPrompts.map((prompt) => (
                   <button
                     key={prompt}
                     type="button"
@@ -234,8 +314,8 @@ export default function AiChatPage() {
             </div>
 
             <form onSubmit={handleSubmit} className="p-4 md:p-6 border-t border-gray-800 bg-gray-900/60">
-              <label htmlFor="economics-chat-input" className="sr-only">
-                Ask your economics question
+              <label htmlFor="chat-input" className="sr-only">
+                Ask your question
               </label>
 
               {selectedImage && (
@@ -258,11 +338,11 @@ export default function AiChatPage() {
               <div className="flex flex-col sm:flex-row gap-3">
                 <div className="flex-1 flex flex-col gap-2">
                   <textarea
-                    id="economics-chat-input"
+                    id="chat-input"
                     rows={3}
                     value={inputValue}
                     onChange={(event) => setInputValue(event.target.value)}
-                    placeholder="Ask anything about CIE A Level Economics..."
+                    placeholder={config.placeholder}
                     className="w-full resize-none rounded-xl bg-black border border-gray-700 focus:border-white focus:outline-none text-gray-100 px-4 py-3"
                     onKeyDown={(event) => {
                       if (event.key === 'Enter' && !event.shiftKey) {

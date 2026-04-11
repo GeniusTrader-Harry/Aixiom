@@ -5,8 +5,8 @@ import { useLanguage } from '../context/LanguageContext'
 import { translations } from '../utils/translations'
 
 const teamImages = {
-  'Harry Zhu': '/avatar-harry.jpg',
-  'Cooper Wu': '/avatar-cooper.jpg',
+  'Harry Zhu': '/avatar-harry.png',
+  'Cooper Wu': '/avatar-cooper.png',
 }
 const teamLinkedIn = {
   'Harry Zhu': 'https://www.linkedin.com/in/wenhao-zhu-167599373/',

@@ -96,7 +96,7 @@ export const siteConfig = {
   },
 
   cta: {
-    title: "Ready to Smash Your A-Levels?",
+    title: "Ready to Smash Your University Application?",
     description: "Join AiXiom Education and get the support you need to achieve your best grades.",
     buttonText: "Get Started Today"
   },

@@ -8,6 +8,7 @@ import ArticlesPage from './pages/ArticlesPage'
 import ArticleDetailPage from './pages/ArticleDetailPage'
 import NotFoundPage from './pages/NotFoundPage'
 import AiChatPage from './pages/AiChatPage'
+import ResourcesPage from './pages/ResourcesPage'
 import { LanguageProvider } from './context/LanguageContext'
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/aixiomeducation" element={<MentoringPage />} />
           <Route path="/articles" element={<ArticlesPage />} />
           <Route path="/articles/:id" element={<ArticleDetailPage />} />
+          <Route path="/resources" element={<ResourcesPage />} />
           <Route path="/ai-chat" element={<AiChatPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

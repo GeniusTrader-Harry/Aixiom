@@ -6,12 +6,12 @@ import { translations } from '../../utils/translations'
 const team = [
   {
     name: 'Harry Zhu',
-    image: '/avatar-harry.jpg',
+    image: '/avatar-harry.png',
     linkedin: 'https://www.linkedin.com/in/wenhao-zhu-167599373/',
   },
   {
     name: 'Cooper Wu',
-    image: '/avatar-cooper.jpg',
+    image: '/avatar-cooper.png',
     linkedin: 'https://www.linkedin.com/in/yuzhelun-cooper-wu-7022b1377/',
   },
 ]

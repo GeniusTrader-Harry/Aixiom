@@ -6,6 +6,7 @@ export const translations = {
         { name: 'About Us', href: '/about', type: 'route' },
         { name: 'Courses', href: '/courses', type: 'route' },
         { name: 'AiXiom Academy', href: '/aixiomeducation', type: 'route' },
+        { name: 'Resources', href: '/resources', type: 'route' },
         { name: 'Articles', href: '/articles', type: 'route' },
         { name: 'Contact', href: '#contact', type: 'scroll' },
       ],
@@ -189,7 +190,7 @@ export const translations = {
     },
 
     cta: {
-      title: 'Ready to Smash Your A-Levels?',
+      title: 'Ready to Smash Your University Application?',
       description:
         'Join AiXiom Education and get the support you need to achieve your best grades.',
       buttonText: 'Get Started Today',
@@ -419,6 +420,7 @@ export const translations = {
         { name: '关于我们', href: '/about', type: 'route' },
         { name: '课程', href: '/courses', type: 'route' },
         { name: 'AiXiom学院', href: '/aixiomeducation', type: 'route' },
+        { name: '学习资源', href: '/resources', type: 'route' },
         { name: '文章', href: '/articles', type: 'route' },
         { name: '联系我们', href: '#contact', type: 'scroll' },
       ],

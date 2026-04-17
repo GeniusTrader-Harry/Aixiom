@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { FaBookOpen, FaGlobe, FaAward, FaLanguage, FaComments } from 'react-icons/fa'
 import Section from '../components/ui/Section'
 import Card from '../components/ui/Card'
@@ -51,6 +52,14 @@ export default function CoursesPage() {
                     ))}
                   </ul>
                 </div>
+                {course.slug && (
+                  <Link
+                    to={`/courses/${course.slug}`}
+                    className="mt-6 inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold bg-white text-black rounded-lg hover:bg-gray-200 transition-all"
+                  >
+                    {t.checkCoursesCta}
+                  </Link>
+                )}
               </Card>
             )
           })}

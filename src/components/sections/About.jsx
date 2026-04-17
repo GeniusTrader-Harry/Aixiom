@@ -1,5 +1,7 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Section from '../ui/Section'
+import BioModal from '../ui/BioModal'
 import { useLanguage } from '../../context/LanguageContext'
 import { translations } from '../../utils/translations'
 
@@ -19,6 +21,14 @@ const team = [
 export default function About() {
   const { lang } = useLanguage()
   const t = translations[lang].about
+  const tAbout = translations[lang].aboutPage
+  const [activeBio, setActiveBio] = useState(null)
+  const activeMember = activeBio
+    ? tAbout.teamMembers.find((m) => m.name === activeBio)
+    : null
+  const activeImage = activeMember
+    ? team.find((m) => m.name === activeMember.name)?.image
+    : null
 
   return (
     <Section id="about" background="gray">
@@ -85,20 +95,40 @@ export default function About() {
               </div>
               <p className="text-xl font-semibold text-white">{member.name}</p>
               <p className="text-sm text-gray-400 mt-1">{t.role}</p>
-              {member.linkedin && (
-                <a
-                  href={member.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-3 inline-block text-white hover:text-gray-300 transition-colors font-medium underline text-sm"
+              <div className="mt-3 flex flex-col items-center gap-2">
+                {member.linkedin && (
+                  <a
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white hover:text-gray-300 transition-colors font-medium underline text-sm"
+                  >
+                    {t.viewLinkedin}
+                  </a>
+                )}
+                <button
+                  type="button"
+                  onClick={() => setActiveBio(member.name)}
+                  className="text-white hover:text-gray-300 transition-colors font-medium underline text-sm bg-transparent border-0 cursor-pointer p-0"
                 >
-                  {t.viewLinkedin}
-                </a>
-              )}
+                  {tAbout.viewBio}
+                </button>
+              </div>
             </motion.div>
           ))}
         </div>
       </motion.div>
+
+      <BioModal
+        member={activeMember}
+        image={activeImage}
+        labels={{
+          close: tAbout.closeLabel,
+          education: tAbout.educationLabel,
+          academicExperience: tAbout.academicExperienceLabel,
+        }}
+        onClose={() => setActiveBio(null)}
+      />
     </Section>
   )
 }

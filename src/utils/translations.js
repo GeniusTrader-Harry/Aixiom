@@ -148,7 +148,7 @@ export const translations = {
         'AiXiom Education still delivers the traditional foundations students rely on — 1-on-1 mentoring, structured recorded courses, and exam-focused tutoring across subjects like Economics. But we\'re built for a world that\'s changing fast. As automation reshapes the job market, we refuse to spend our students\' time on skills AI can already replace. Instead, our core focus is AI literacy: teaching you how to learn alongside AI, how to use it as a thinking partner, and how to build the judgment, creativity, and adaptability that keep human work valuable. We\'re here to prepare students not just for their next exam, but for a career landscape no one can fully predict.',
       meetTeam: 'Meet the Team',
       role: 'Head Mentor',
-      viewLinkedin: 'View LinkedIn',
+      viewLinkedin: 'View His LinkedIn',
     },
 
     aboutPage: {
@@ -176,17 +176,25 @@ export const translations = {
         {
           name: 'Harry Zhu',
           role: 'Head Mentor',
-          bio: 'Harry is passionate about making top-quality education accessible to every student. With deep expertise in Economics, he brings a results-driven approach to every tutoring session.',
+          bio: 'Harry is a Head Mentor at AiXiom whose research and teaching focus on monetary and behavioral economics — the forces behind central bank policy and the cognitive biases that drive the decisions textbooks assume are rational. He brings this perspective into every session, helping students move beyond mark-scheme answers to the ideas that make economics come alive.',
+          education: 'BSc Economics, Finance, and Data Science (EFDS) — Imperial College London.',
+          academicExperience: 'EFDS at Imperial spans economic theory, quantitative finance, and statistical and machine-learning methods. This blend is the foundation for Harry\'s interest in monetary economics (central bank policy, inflation dynamics, the transmission of interest rates) and behavioral economics (decision-making under uncertainty, cognitive biases, and how real agents depart from the rational-expectations benchmark).',
           linkedin: 'https://www.linkedin.com/in/wenhao-zhu-167599373/',
         },
         {
           name: 'Cooper Wu',
           role: 'Head Mentor',
-          bio: 'Cooper combines academic excellence with a genuine care for student success. His structured, exam-focused teaching style has helped students consistently achieve their target grades.',
+          bio: 'Cooper is a Head Mentor at AiXiom specializing in Austrian Economics and Public Choice theory — the schools that ask how markets coordinate dispersed knowledge and what actually happens when political actors face real incentives. He pairs this theoretical depth with a structured, exam-focused teaching style that consistently moves students to their target grades.',
+          education: 'BSc Philosophy, Politics, and Economics (PPE) — University College London (UCL).',
+          academicExperience: 'PPE at UCL anchors Cooper\'s interdisciplinary approach, drawing together political philosophy, microeconomic theory, and constitutional economics. His reading centers on the Austrian tradition — Hayek on the knowledge problem and spontaneous order, Mises on economic calculation — alongside Public Choice in the Buchanan–Tullock tradition, with particular attention to rent-seeking and the incentives facing political actors.',
           linkedin: 'https://www.linkedin.com/in/yuzhelun-cooper-wu-7022b1377/',
         },
       ],
-      viewLinkedin: 'View LinkedIn',
+      viewLinkedin: 'View His LinkedIn',
+      viewBio: 'View His Bio',
+      educationLabel: 'Education',
+      academicExperienceLabel: 'Academic Experience',
+      closeLabel: 'Close',
     },
 
     cta: {
@@ -237,9 +245,11 @@ export const translations = {
       comingSoonDesc:
         "We're putting the finishing touches on our course content. Sign up to be notified when we launch.",
       getNotified: 'Get Notified',
+      checkCoursesCta: 'Check our Courses',
       courses: [
         {
           id: 1,
+          slug: 'alevel',
           title: 'A-Level Courses',
           description:
             'Structured learning content covering key A-Level subjects with expert tutors and exam-focused strategies.',
@@ -247,6 +257,7 @@ export const translations = {
         },
         {
           id: 2,
+          slug: 'igcse',
           title: 'IGCSE Courses',
           description:
             'Comprehensive support for IGCSE students across key subjects, with structured lessons and exam practice.',
@@ -261,6 +272,7 @@ export const translations = {
         },
         {
           id: 4,
+          slug: 'ielts',
           title: 'IELTS',
           description:
             'Targeted preparation for all four IELTS components — Listening, Reading, Writing, and Speaking.',
@@ -268,12 +280,79 @@ export const translations = {
         },
         {
           id: 5,
+          slug: 'pfdebate',
           title: 'PF Debate',
           description:
             'Public Forum debate coaching covering case construction, rebuttal strategy, and speaking skills.',
           topics: ['Case construction', 'Rebuttal strategy', 'Crossfire technique', 'Speaking skills'],
         },
       ],
+      categoryDetail: {
+        backToCourses: '← Back to Courses',
+        tutorLabel: 'Tutor',
+        courseListHeading: 'Courses We Offer',
+        highlightsHeading: 'What\'s Included',
+      },
+      categories: {
+        alevel: {
+          title: 'A-Level Recorded Courses',
+          subtitle: 'Structured, exam-focused content across our full A-Level lineup.',
+          price: '$200 per course',
+          access: '2-year access',
+          support: '24/7 mentor support',
+          bundle: 'Full A-Level Package: $500 (all five courses included)',
+          note: 'All A-Level courses are delivered as recorded video lessons with unlimited replays and direct mentor support whenever you need it.',
+          courses: [
+            { subject: 'Economics', tutors: 'Co-tutored by Harry & Cooper' },
+            { subject: 'Mathematics', tutors: 'Harry' },
+            { subject: 'Further Mathematics', tutors: 'Harry' },
+            { subject: 'Sociology', tutors: 'Cooper' },
+            { subject: 'Physics', tutors: 'Harry' },
+          ],
+        },
+        igcse: {
+          title: 'IGCSE Recorded Courses',
+          subtitle: 'Full IGCSE coverage designed to build the foundations for A-Level success.',
+          price: '$100 per course',
+          access: '2-year access',
+          support: '24/7 mentor support',
+          bundle: 'Full IGCSE Package: $400 (all six courses included)',
+          note: 'All IGCSE courses are recorded and come with ongoing mentor support throughout your 2-year access period.',
+          courses: [
+            { subject: 'Mathematics', tutors: 'Harry' },
+            { subject: 'History', tutors: 'Cooper' },
+            { subject: 'English as a Second Language', tutors: 'Cooper' },
+            { subject: 'English as a First Language', tutors: 'Cooper' },
+            { subject: 'Computer Science', tutors: 'Harry' },
+            { subject: 'Economics', tutors: 'Cooper & Harry' },
+          ],
+        },
+        ielts: {
+          title: 'IELTS Preparation',
+          subtitle: 'A complete IELTS package covering every section of the exam.',
+          price: '$400 for the complete package',
+          access: '2-year access',
+          support: 'Listening · Reading · Writing · Speaking',
+          note: 'Harry teaches all four sections (Listening, Reading, Writing, Speaking). Cooper runs 1-on-1 speaking mock exams so you walk into the test with real examiner-style practice.',
+          courses: [
+            { subject: 'Listening', tutors: 'Harry' },
+            { subject: 'Reading', tutors: 'Harry' },
+            { subject: 'Writing', tutors: 'Harry' },
+            { subject: 'Speaking (recorded + mock exams)', tutors: 'Harry (content) · Cooper (speaking mocks)' },
+          ],
+        },
+        pfdebate: {
+          title: 'PF Debate Coaching',
+          subtitle: '1-on-1 mentoring only — no recorded content.',
+          price: '$50 per hour',
+          access: '1-on-1 live sessions',
+          support: 'Bespoke coaching for every student',
+          note: 'Public Forum debate is taught exclusively through live 1-on-1 mentoring. Tutored by Cooper, former NHSDLC (National High School Debate League of China) National Champion.',
+          courses: [
+            { subject: '1-on-1 PF Debate Mentoring', tutors: 'Cooper — former NHSDLC National Champion' },
+          ],
+        },
+      },
     },
 
     mentoringPage: {
@@ -286,6 +365,39 @@ export const translations = {
         'Not sure if AiXiom Academy is right for you? Try a free introductory session — no commitment, no pressure.',
       bookNow: 'Book Now',
       stepLabel: 'Step',
+      packagesHeading: 'Academy Packages',
+      packagesSubheading: 'Choose the package that matches your ambition.',
+      mostPopularLabel: 'Dream-School Guarantee',
+      packages: [
+        {
+          id: 'standard',
+          name: 'AiXiom Academy',
+          price: '$5,000',
+          tagline: 'The complete 1-on-1 mentoring package.',
+          features: [
+            '40 hours of 1-on-1 mentoring sessions',
+            'Covers every course we offer — A-Level, IGCSE, IELTS, and PF Debate',
+            'Unlimited personal statement edits',
+            'Unlimited mock interviews',
+            'Full UCAS / Common App application strategy',
+            '24/7 mentor support throughout the process',
+          ],
+        },
+        {
+          id: 'guarantee',
+          name: 'AiXiom Academy + Money-Back Guarantee',
+          price: '$8,000',
+          tagline: 'Full refund if you don\'t get into your dream university.',
+          featured: true,
+          features: [
+            'Everything included in the standard package',
+            '40 hours of 1-on-1 mentoring sessions',
+            'Unlimited personal statement edits and mock interviews',
+            'Covers every course we offer — A-Level, IGCSE, IELTS, and PF Debate',
+            '100% money-back guarantee if you are not accepted to your dream university',
+          ],
+        },
+      ],
       mentorCards: [
         {
           emoji: '🎓',
@@ -549,7 +661,7 @@ export const translations = {
         '爱科思摩教育依然提供学生信赖的传统基础服务——一对一辅导、系统化录播课程，以及经济学等科目的考试导向教学。但我们的眼光放得更远：在这个瞬息万变的时代，随着自动化重塑就业市场，我们拒绝让学生将宝贵时间花在人工智能已经可以替代的技能上。我们的核心关注点是AI素养：教会您如何与AI共同学习，如何将其作为思维伙伴，以及如何培养让人类工作保持价值的判断力、创造力与适应力。我们不只是帮您备战下一场考试，更是为无人能完全预见的职业未来做好准备。',
       meetTeam: '认识我们的团队',
       role: '首席导师',
-      viewLinkedin: '查看LinkedIn',
+      viewLinkedin: '查看他的LinkedIn',
     },
 
     aboutPage: {
@@ -574,17 +686,25 @@ export const translations = {
         {
           name: 'Harry Zhu',
           role: '首席导师',
-          bio: 'Harry热衷于让每一位学生都能享受到高品质教育。凭借深厚的经济学专业知识，他以结果导向的方式投入每一次辅导课程。',
+          bio: 'Harry是爱科思摩的首席导师，其研究与教学聚焦于货币经济学与行为经济学——探讨央行政策背后的作用机制，以及驱动人类决策的认知偏差（而教科书往往假设这些决策是完全理性的）。他将这一视角融入每一节辅导课，帮助学生跳出标准答案，真正理解让经济学鲜活起来的思想。',
+          education: '经济、金融与数据科学学士（EFDS）——帝国理工学院。',
+          academicExperience: '帝国理工的EFDS课程横跨经济学理论、量化金融与统计/机器学习方法。这一跨学科组合正是Harry研究货币经济学（央行政策、通胀动态、利率传导机制）与行为经济学（不确定性下的决策、认知偏差，以及现实主体为何偏离理性预期基准）的方法论基础。',
           linkedin: 'https://www.linkedin.com/in/wenhao-zhu-167599373/',
         },
         {
           name: 'Cooper Wu',
           role: '首席导师',
-          bio: 'Cooper将卓越的学术能力与对学生成功的真诚关怀融为一体。他结构化、以考试为导向的教学风格，帮助众多学生持续达到目标成绩。',
+          bio: 'Cooper是爱科思摩的首席导师，专注于奥地利学派经济学与公共选择理论——前者追问市场如何协调分散的知识，后者则关注政治行为者在真实激励下会做出什么选择。他将这份理论深度与结构化、考试导向的教学风格相结合，持续帮助学生达到目标成绩。',
+          education: '哲学、政治与经济学士（PPE）——伦敦大学学院（UCL）。',
+          academicExperience: 'UCL的PPE课程奠定了Cooper跨学科的研究路径，贯穿政治哲学、微观经济理论与宪政经济学。他的阅读聚焦于奥地利学派传统——哈耶克的知识分散论与自生秩序、米塞斯的经济计算论——以及布坎南与塔洛克所代表的公共选择学派，尤其关注寻租行为及政治行为者所面对的激励结构。',
           linkedin: 'https://www.linkedin.com/in/yuzhelun-cooper-wu-7022b1377/',
         },
       ],
-      viewLinkedin: '查看LinkedIn',
+      viewLinkedin: '查看他的LinkedIn',
+      viewBio: '查看他的简介',
+      educationLabel: '教育背景',
+      academicExperienceLabel: '学术经历',
+      closeLabel: '关闭',
     },
 
     cta: {
@@ -632,15 +752,18 @@ export const translations = {
       comingSoonHeading: '即将推出',
       comingSoonDesc: '我们正在完善课程内容，敬请期待。欢迎注册以获得上线通知。',
       getNotified: '获取通知',
+      checkCoursesCta: '查看我们的课程',
       courses: [
         {
           id: 1,
+          slug: 'alevel',
           title: 'A-Level课程',
           description: '涵盖A-Level核心科目的系统化学习内容，配备专业导师及以考试为导向的学习策略。',
           topics: ['经济学', '数学', '进阶数学', '社会学', '物理学'],
         },
         {
           id: 2,
+          slug: 'igcse',
           title: 'IGCSE课程',
           description: '针对IGCSE学生的全方位支持，提供结构化课程及历年真题练习。',
           topics: ['核心科目覆盖', '历年真题练习', '考试技巧', '复习资料'],
@@ -653,17 +776,85 @@ export const translations = {
         },
         {
           id: 4,
+          slug: 'ielts',
           title: '雅思备考',
           description: '针对雅思四项技能（听力、阅读、写作、口语）的全面备考训练。',
           topics: ['听力', '阅读', '写作', '口语'],
         },
         {
           id: 5,
+          slug: 'pfdebate',
           title: 'PF辩论',
           description: '公共论坛辩论指导，涵盖论点构建、反驳策略及演讲技巧。',
           topics: ['论点构建', '反驳策略', '交叉盘问技巧', '演讲技巧'],
         },
       ],
+      categoryDetail: {
+        backToCourses: '← 返回课程页面',
+        tutorLabel: '授课导师',
+        courseListHeading: '我们提供的课程',
+        highlightsHeading: '课程亮点',
+      },
+      categories: {
+        alevel: {
+          title: 'A-Level录播课程',
+          subtitle: '系统化、以考试为导向的A-Level全科内容。',
+          price: '每门课程 $200',
+          access: '两年使用期',
+          support: '全天候导师支持（24/7）',
+          bundle: 'A-Level全套课程包：$500（包含全部五门课程）',
+          note: '所有A-Level课程均以录播视频形式提供，可无限次回看，并在使用期内随时获得导师支持。',
+          courses: [
+            { subject: '经济学', tutors: 'Harry与Cooper联合授课' },
+            { subject: '数学', tutors: 'Harry' },
+            { subject: '进阶数学', tutors: 'Harry' },
+            { subject: '社会学', tutors: 'Cooper' },
+            { subject: '物理学', tutors: 'Harry' },
+          ],
+        },
+        igcse: {
+          title: 'IGCSE录播课程',
+          subtitle: '完整的IGCSE覆盖，为A-Level打下坚实基础。',
+          price: '每门课程 $100',
+          access: '两年使用期',
+          support: '全天候导师支持（24/7）',
+          bundle: 'IGCSE全套课程包：$400（包含全部六门课程）',
+          note: '所有IGCSE课程均为录播形式，并在两年使用期内持续提供导师支持。',
+          courses: [
+            { subject: '数学', tutors: 'Harry' },
+            { subject: '历史', tutors: 'Cooper' },
+            { subject: '英语（第二语言）', tutors: 'Cooper' },
+            { subject: '英语（第一语言）', tutors: 'Cooper' },
+            { subject: '计算机科学', tutors: 'Harry' },
+            { subject: '经济学', tutors: 'Cooper与Harry' },
+          ],
+        },
+        ielts: {
+          title: '雅思备考',
+          subtitle: '覆盖雅思全部四项技能的完整备考课程包。',
+          price: '整套课程 $400',
+          access: '两年使用期',
+          support: '听力 · 阅读 · 写作 · 口语',
+          note: 'Harry负责全部四项技能（听力、阅读、写作、口语）的授课。Cooper负责一对一口语模考，让您在正式考试前获得真实考官风格的实战练习。',
+          courses: [
+            { subject: '听力', tutors: 'Harry' },
+            { subject: '阅读', tutors: 'Harry' },
+            { subject: '写作', tutors: 'Harry' },
+            { subject: '口语（录播课程 + 模考）', tutors: 'Harry（录播内容）· Cooper（口语模考）' },
+          ],
+        },
+        pfdebate: {
+          title: 'PF辩论指导',
+          subtitle: '仅提供一对一辅导——无录播课程。',
+          price: '每小时 $50',
+          access: '一对一实时辅导',
+          support: '为每位学生量身定制',
+          note: '公共论坛辩论仅通过一对一实时辅导授课。由Cooper亲自辅导，NHSDLC（全国中学生辩论联赛）前全国冠军。',
+          courses: [
+            { subject: 'PF辩论一对一辅导', tutors: 'Cooper——NHSDLC前全国冠军' },
+          ],
+        },
+      },
     },
 
     mentoringPage: {
@@ -675,6 +866,39 @@ export const translations = {
       bookFreeDesc: '不确定AiXiom学院是否适合您？欢迎参加免费初次咨询，无需承诺，轻松无压力。',
       bookNow: '立即预约',
       stepLabel: '步骤',
+      packagesHeading: 'AiXiom学院课程方案',
+      packagesSubheading: '根据您的目标，选择最合适的方案。',
+      mostPopularLabel: '梦校录取保障',
+      packages: [
+        {
+          id: 'standard',
+          name: 'AiXiom学院',
+          price: '$5,000',
+          tagline: '完整的一对一辅导课程包。',
+          features: [
+            '40小时一对一辅导课程',
+            '涵盖我们所有课程——A-Level、IGCSE、雅思及PF辩论',
+            '无限次个人陈述（PS）修改',
+            '无限次模拟面试',
+            '完整的UCAS / Common App申请策略支持',
+            '全天候（24/7）导师支持，陪伴您走完申请全程',
+          ],
+        },
+        {
+          id: 'guarantee',
+          name: 'AiXiom学院 + 全额退款保障',
+          price: '$8,000',
+          tagline: '未录取梦校，全额退款。',
+          featured: true,
+          features: [
+            '包含标准方案的全部内容',
+            '40小时一对一辅导课程',
+            '无限次个人陈述修改与模拟面试',
+            '涵盖我们所有课程——A-Level、IGCSE、雅思及PF辩论',
+            '若未被梦想大学录取，100%全额退款',
+          ],
+        },
+      ],
       mentorCards: [
         {
           emoji: '🎓',

@@ -167,6 +167,50 @@ export default function MentoringPage() {
           </motion.div>
         </AnimatePresence>
 
+        {/* Packages */}
+        <div className="mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-10"
+          >
+            <h2 className="text-3xl font-bold text-white mb-4">{t.packagesHeading}</h2>
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+              {t.packagesSubheading}
+            </p>
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {t.packages.map((pkg, i) => (
+              <Card
+                key={pkg.id}
+                delay={i * 0.1}
+                className={`p-8 flex flex-col ${
+                  pkg.featured ? 'border-white/60 ring-1 ring-white/30' : ''
+                }`}
+              >
+                {pkg.featured && (
+                  <span className="inline-block self-start mb-3 px-3 py-1 bg-white text-black text-xs font-bold rounded-full uppercase tracking-wide">
+                    {t.mostPopularLabel}
+                  </span>
+                )}
+                <h3 className="text-2xl font-bold text-white mb-2">{pkg.name}</h3>
+                <div className="text-4xl font-bold text-white mb-2">{pkg.price}</div>
+                <p className="text-gray-400 mb-6">{pkg.tagline}</p>
+                <ul className="space-y-3 text-gray-300">
+                  {pkg.features.map((feature) => (
+                    <li key={feature} className="flex items-start">
+                      <span className="flex-shrink-0 w-1.5 h-1.5 bg-white rounded-full mt-2 mr-3"></span>
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Card>
+            ))}
+          </div>
+        </div>
+
         {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

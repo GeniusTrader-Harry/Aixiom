@@ -10,14 +10,24 @@ export default function Hero() {
   const t = translations[lang].hero
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden bg-blue-950">
-      {/* Background image */}
+    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden bg-[#0a0e2a]">
+      {/* Aurora Indigo gradient base */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0"
+        style={{
+          background:
+            'radial-gradient(ellipse at 20% 10%, rgba(99,102,241,0.55), transparent 55%),' +
+            'radial-gradient(ellipse at 85% 30%, rgba(168,85,247,0.45), transparent 55%),' +
+            'radial-gradient(ellipse at 60% 90%, rgba(56,189,248,0.30), transparent 60%),' +
+            'linear-gradient(135deg, #0a0e2a 0%, #1e1b4b 45%, #312e81 100%)',
+        }}
+      />
+      {/* Hero image as subtle texture */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 mix-blend-overlay"
         style={{ backgroundImage: 'url(/hero-bird.jpg)' }}
       />
-      {/* Deep blue overlay */}
-      <div className="absolute inset-0 bg-blue-950/65" />
+      <div className="absolute inset-0 bg-[#0a0e2a]/40" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-32 pb-20">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
@@ -59,9 +69,9 @@ export default function Hero() {
           {/* Right: Main avatar */}
           <div className="flex-shrink-0 w-64 h-80 md:w-80 md:h-[400px] lg:w-96 lg:h-[480px]">
             <img
-              src="/avatar-main.jpg"
+              src="/avatar-main.png"
               alt="AiXiom Education"
-              className="w-full h-full object-cover rounded-2xl drop-shadow-2xl mix-blend-multiply"
+              className="w-full h-full object-contain drop-shadow-2xl"
             />
           </div>
         </div>

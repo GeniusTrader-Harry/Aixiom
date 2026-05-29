@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FaEnvelope, FaInstagram, FaTiktok } from 'react-icons/fa'
+import { SiXiaohongshu } from 'react-icons/si'
 import { siteConfig } from '../../utils/constants'
 import Section from '../ui/Section'
 import Button from '../ui/Button'
@@ -100,6 +101,16 @@ export default function Contact() {
                   <a href={siteConfig.social.tiktok} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
                     @aixiomedu
                   </a>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 w-12 h-12 bg-white/10 text-white rounded-lg flex items-center justify-center">
+                  <SiXiaohongshu className="text-xl" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-white mb-1">{t.xiaohongshuLabel}</h4>
+                  <p className="text-gray-400">@aixiomedu</p>
                 </div>
               </div>
             </div>

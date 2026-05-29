@@ -38,7 +38,7 @@ export const siteConfig = {
       id: 3,
       icon: "FaClipboardCheck",
       title: "Exam-Focused",
-      description: "Everything we do is geared towards getting you the grades you need, with proven revision and exam strategies."
+      description: "Everything we do is geared toward getting you the grades you need, with proven revision and exam strategies."
     },
     {
       id: 4,
@@ -84,9 +84,9 @@ export const siteConfig = {
   academy: {
     title: "AiXiom Academy",
     tagline: "Your Personal Edge in the College Race",
-    description: "AiXiom Academy is our elite 1-on-1 mentoring programme built for students applying to UK or US universities. We don't do group sessions. We don't do generic advice. Every session is tailored to you — your goals, your application, your future.",
+    description: "AiXiom Academy is our elite 1-on-1 mentoring program built for students applying to UK or US universities. We don't do group sessions. We don't do generic advice. Every session is tailored to you — your goals, your application, your future.",
     description2: "Our mentors have navigated the admissions process at top universities — from Oxbridge and the Russell Group to the Ivy League and beyond. They know what admissions tutors and officers are looking for, and they'll work with you personally to make sure your application stands out.",
-    description3: "From crafting a compelling personal statement or Common App essay to preparing for interviews, building your extracurricular profile, and shortlisting universities — AiXiom Academy covers every angle of the application journey. This is strategic, personalised mentorship designed to get you where you want to be.",
+    description3: "From crafting a compelling personal statement or Common App essay to preparing for interviews, building your extracurricular profile, and shortlisting universities — AiXiom Academy covers every angle of the application journey. This is strategic, personalized mentorship designed to get you where you want to be.",
     ctaText: "Book Your Free Intro Session"
   },
 

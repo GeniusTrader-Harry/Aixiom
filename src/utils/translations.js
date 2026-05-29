@@ -46,7 +46,7 @@ export const translations = {
           icon: 'FaClipboardCheck',
           title: 'Exam-Focused',
           description:
-            'Everything we do is geared towards getting you the grades you need, with proven revision and exam strategies.',
+            'Everything we do is geared toward getting you the grades you need, with proven revision and exam strategies.',
         },
         {
           id: 4,
@@ -102,7 +102,7 @@ export const translations = {
     },
 
     academy: {
-      badge: 'Exclusive Programme',
+      badge: 'Exclusive Program',
       title: 'AiXiom Academy',
       tagline: 'Your Personal Edge in the College Race',
       regions: {
@@ -115,11 +115,11 @@ export const translations = {
             { label: 'Russell Group Strategy' },
           ],
           description:
-            "AiXiom Academy is our elite 1-on-1 mentoring programme built for students applying to UK universities — including Oxbridge, Russell Group, and top Hong Kong institutions. We don't do group sessions. We don't do generic advice. Every session is tailored to you — your goals, your application, your future.",
+            "AiXiom Academy is our elite two-year 1-on-1 mentoring program built for students applying to UK universities — including Oxbridge, Russell Group, and top Hong Kong institutions. Spanning the full two years before you submit your application, it gives us the runway to shape your subjects, your profile, and your story properly. We don't do group sessions. We don't do generic advice. Every session is tailored to you — your goals, your application, your future.",
           description2:
             "Our mentors have been through the UCAS process themselves, with successful applications to Oxford, Cambridge, LSE, Imperial, and other leading UK universities. They know what admissions tutors are looking for, and they'll work with you to craft a compelling personal statement and ace your interview.",
           description3:
-            "Whether you're sitting A-Levels, the IB, or the DSE — AiXiom Academy covers personal statement writing, Oxbridge admissions tests, interview technique, subject choice, and university shortlisting. This is strategic, personalised mentorship designed to get you into your dream UK university.",
+            "Whether you're sitting A-Levels, the IB, or the DSE — AiXiom Academy covers personal statement writing, Oxbridge admissions tests, interview technique, subject choice, and university shortlisting. This is strategic, personalized mentorship designed to get you into your dream UK university.",
           ctaText: 'Book Your Free Intro Session',
         },
         us: {
@@ -131,11 +131,11 @@ export const translations = {
             { label: 'Ivy League Strategy' },
           ],
           description:
-            "AiXiom Academy is our elite 1-on-1 mentoring programme built for students applying to US colleges — from Ivy League schools to top liberal arts colleges. We don't do group sessions. We don't do generic advice. Every session is tailored to you — your profile, your essays, your college list.",
+            "AiXiom Academy is our elite two-year 1-on-1 mentoring program built for students applying to US colleges — from Ivy League schools to top liberal arts colleges. Across the full two years leading into your application cycle, we have the time to build your profile deliberately rather than scramble in senior year. We don't do group sessions. We don't do generic advice. Every session is tailored to you — your profile, your essays, your college list.",
           description2:
             "Our mentors have earned offers from MIT, the University of Michigan, Vanderbilt, and other top US institutions. They understand what admissions officers are looking for, and they'll help you build a standout application — from your Common App essays to your extracurricular narrative.",
           description3:
-            'From crafting compelling Common App and supplemental essays to building your extracurricular profile, choosing the right college list, and preparing for alumni interviews — AiXiom Academy covers every angle of the US college application journey. This is strategic, personalised mentorship designed to get you accepted.',
+            'From crafting compelling Common App and supplemental essays to building your extracurricular profile, choosing the right college list, and preparing for alumni interviews — AiXiom Academy covers every angle of the US college application journey. This is strategic, personalized mentorship designed to get you accepted.',
           ctaText: 'Book Your Free Intro Session',
         },
       },
@@ -211,6 +211,7 @@ export const translations = {
       emailLabel: 'Email',
       instagramLabel: 'Instagram',
       tiktokLabel: 'TikTok',
+      xiaohongshuLabel: 'Little Red Note (小红书)',
       nameLabel: 'Name',
       emailFieldLabel: 'Email',
       messageLabel: 'Message',
@@ -371,10 +372,11 @@ export const translations = {
           id: 'standard',
           name: 'AiXiom Academy',
           price: '$5,000',
-          tagline: 'The complete 1-on-1 mentoring package.',
+          tagline: 'The complete two-year 1-on-1 mentoring package.',
           features: [
+            '2-year program spanning the full lead-up to your application',
             '40 hours of 1-on-1 mentoring sessions',
-            'Covers every course we offer — A-Level, IGCSE, IELTS, and PF Debate',
+            'Covers every course we offer — A-Level, AP, IGCSE, IELTS, and PF Debate',
             'Unlimited personal statement edits',
             'Unlimited mock interviews',
             'Full UCAS / Common App application strategy',
@@ -385,13 +387,14 @@ export const translations = {
           id: 'guarantee',
           name: 'AiXiom Academy + Money-Back Guarantee',
           price: '$8,000',
-          tagline: 'Full refund if you don\'t get into your dream university.',
+          tagline: 'Our full two-year program, with a full refund if you don\'t get into your dream university.',
           featured: true,
           features: [
             'Everything included in the standard package',
+            '2-year program spanning the full lead-up to your application',
             '40 hours of 1-on-1 mentoring sessions',
             'Unlimited personal statement edits and mock interviews',
-            'Covers every course we offer — A-Level, IGCSE, IELTS, and PF Debate',
+            'Covers every course we offer — A-Level, AP, IGCSE, IELTS, and PF Debate',
             '100% money-back guarantee if you are not accepted to your dream university',
           ],
         },
@@ -451,11 +454,11 @@ export const translations = {
           subtitle:
             'Elite 1-on-1 mentoring for students applying to UK universities — Oxbridge, Russell Group, and top Hong Kong institutions.',
           description:
-            "AiXiom Academy is our elite 1-on-1 mentoring programme built for students applying to UK universities — including Oxbridge, Russell Group, and top Hong Kong institutions. We don't do group sessions. We don't do generic advice. Every session is tailored to you — your goals, your application, your future.",
+            "AiXiom Academy is our elite two-year 1-on-1 mentoring program built for students applying to UK universities — including Oxbridge, Russell Group, and top Hong Kong institutions. Spanning the full two years before you submit your application, it gives us the runway to shape your subjects, your profile, and your story properly. We don't do group sessions. We don't do generic advice. Every session is tailored to you — your goals, your application, your future.",
           description2:
             "Our mentors have been through the UCAS process themselves, with successful applications to Oxford, Cambridge, LSE, Imperial, and other leading UK universities. They know what admissions tutors are looking for, and they'll work with you to craft a compelling personal statement and ace your interview.",
           description3:
-            "Whether you're sitting A-Levels, the IB, or the DSE — AiXiom Academy covers personal statement writing, Oxbridge admissions tests, interview technique, subject choice, and university shortlisting. This is strategic, personalised mentorship designed to get you into your dream UK university.",
+            "Whether you're sitting A-Levels, the IB, or the DSE — AiXiom Academy covers personal statement writing, Oxbridge admissions tests, interview technique, subject choice, and university shortlisting. This is strategic, personalized mentorship designed to get you into your dream UK university.",
           sessionItems: [
             {
               label: 'Check-in (5 mins)',
@@ -487,11 +490,11 @@ export const translations = {
           subtitle:
             'Elite 1-on-1 mentoring for students applying to US colleges — from Ivy League schools to top liberal arts colleges.',
           description:
-            "AiXiom Academy is our elite 1-on-1 mentoring programme built for students applying to US colleges — from Ivy League schools to top liberal arts colleges. We don't do group sessions. We don't do generic advice. Every session is tailored to you — your profile, your essays, your college list.",
+            "AiXiom Academy is our elite two-year 1-on-1 mentoring program built for students applying to US colleges — from Ivy League schools to top liberal arts colleges. Across the full two years leading into your application cycle, we have the time to build your profile deliberately rather than scramble in senior year. We don't do group sessions. We don't do generic advice. Every session is tailored to you — your profile, your essays, your college list.",
           description2:
             "Our mentors have earned offers from MIT, the University of Michigan, Vanderbilt, and other top US institutions. They understand what admissions officers are looking for, and they'll help you build a standout application — from your Common App essays to your extracurricular narrative.",
           description3:
-            'From crafting compelling Common App and supplemental essays to building your extracurricular profile, choosing the right college list, and preparing for alumni interviews — AiXiom Academy covers every angle of the US college application journey. This is strategic, personalised mentorship designed to get you accepted.',
+            'From crafting compelling Common App and supplemental essays to building your extracurricular profile, choosing the right college list, and preparing for alumni interviews — AiXiom Academy covers every angle of the US college application journey. This is strategic, personalized mentorship designed to get you accepted.',
           sessionItems: [
             {
               label: 'Check-in (5 mins)',
@@ -626,7 +629,7 @@ export const translations = {
             { label: '罗素集团策略' },
           ],
           description:
-            'AiXiom学院是我们专为申请英国大学（包括牛津、剑桥、罗素集团及香港顶尖院校）的学生打造的精英一对一辅导项目。我们不开展小组课，不提供千篇一律的建议。每一次课程都完全围绕您——您的目标、您的申请、您的未来。',
+            'AiXiom学院是我们专为申请英国大学（包括牛津、剑桥、罗素集团及香港顶尖院校）的学生打造的为期两年的精英一对一辅导项目。两年完整的备战周期，让我们有足够的时间从科目选择、背景塑造到申请故事，逐步为您搭建出真正成熟的申请档案。我们不开展小组课，不提供千篇一律的建议。每一次课程都完全围绕您——您的目标、您的申请、您的未来。',
           description2:
             '我们的导师亲身经历过UCAS申请流程，成功收到牛津、剑桥、伦敦政治经济学院、帝国理工等顶尖英国大学的录取通知。他们深知招生官的评判标准，将帮助您打磨出色的个人陈述，并在面试中出类拔萃。',
           description3:
@@ -642,7 +645,7 @@ export const translations = {
             { label: '常青藤策略' },
           ],
           description:
-            'AiXiom学院是我们专为申请美国大学（从常青藤名校到顶尖文理学院）的学生打造的精英一对一辅导项目。我们不开展小组课，不提供千篇一律的建议。每一次课程都完全围绕您——您的背景、您的文书、您的申请学校名单。',
+            'AiXiom学院是我们专为申请美国大学（从常青藤名校到顶尖文理学院）的学生打造的为期两年的精英一对一辅导项目。两年完整的备战周期，让我们能从容地塑造您的学术与课外背景，而不是在申请季临时抱佛脚。我们不开展小组课，不提供千篇一律的建议。每一次课程都完全围绕您——您的背景、您的文书、您的申请学校名单。',
           description2:
             '我们的导师曾收到麻省理工学院、密歇根大学、范德堡大学等顶尖美国院校的录取通知。他们深谙招生官的评判标准，将助您从Common App文书到课外活动叙述，全方位打造令人印象深刻的申请材料。',
           description3:
@@ -718,6 +721,7 @@ export const translations = {
       emailLabel: '电子邮件',
       instagramLabel: 'Instagram',
       tiktokLabel: 'TikTok',
+      xiaohongshuLabel: '小红书',
       nameLabel: '姓名',
       emailFieldLabel: '邮箱',
       messageLabel: '留言',
@@ -870,10 +874,11 @@ export const translations = {
           id: 'standard',
           name: 'AiXiom学院',
           price: '$5,000',
-          tagline: '完整的一对一辅导课程包。',
+          tagline: '为期两年的完整一对一辅导课程包。',
           features: [
+            '为期两年的辅导项目，覆盖申请前的整个备战周期',
             '40小时一对一辅导课程',
-            '涵盖我们所有课程——A-Level、IGCSE、雅思及PF辩论',
+            '涵盖我们所有课程——A-Level、AP、IGCSE、雅思及PF辩论',
             '无限次个人陈述（PS）修改',
             '无限次模拟面试',
             '完整的UCAS / Common App申请策略支持',
@@ -884,13 +889,14 @@ export const translations = {
           id: 'guarantee',
           name: 'AiXiom学院 + 全额退款保障',
           price: '$8,000',
-          tagline: '未录取梦校，全额退款。',
+          tagline: '完整两年辅导项目；未录取梦校，全额退款。',
           featured: true,
           features: [
             '包含标准方案的全部内容',
+            '为期两年的辅导项目，覆盖申请前的整个备战周期',
             '40小时一对一辅导课程',
             '无限次个人陈述修改与模拟面试',
-            '涵盖我们所有课程——A-Level、IGCSE、雅思及PF辩论',
+            '涵盖我们所有课程——A-Level、AP、IGCSE、雅思及PF辩论',
             '若未被梦想大学录取，100%全额退款',
           ],
         },
@@ -945,7 +951,7 @@ export const translations = {
           ],
           subtitle: '为申请英国大学（包括牛剑、罗素集团及香港顶尖院校）的学生提供精英一对一辅导。',
           description:
-            'AiXiom学院是我们专为申请英国大学（包括牛津、剑桥、罗素集团及香港顶尖院校）的学生打造的精英一对一辅导项目。我们不开展小组课，不提供千篇一律的建议。每一次课程都完全围绕您——您的目标、您的申请、您的未来。',
+            'AiXiom学院是我们专为申请英国大学（包括牛津、剑桥、罗素集团及香港顶尖院校）的学生打造的为期两年的精英一对一辅导项目。两年完整的备战周期，让我们有足够的时间从科目选择、背景塑造到申请故事，逐步为您搭建出真正成熟的申请档案。我们不开展小组课，不提供千篇一律的建议。每一次课程都完全围绕您——您的目标、您的申请、您的未来。',
           description2:
             '我们的导师亲身经历过UCAS申请流程，成功收到牛津、剑桥、伦敦政治经济学院、帝国理工等顶尖英国大学的录取通知。他们深知招生官的评判标准，将帮助您打磨出色的个人陈述，并在面试中脱颖而出。',
           description3:
@@ -980,7 +986,7 @@ export const translations = {
           ],
           subtitle: '为申请美国大学（从常青藤名校到顶尖文理学院）的学生提供精英一对一辅导。',
           description:
-            'AiXiom学院是我们专为申请美国大学（从常青藤名校到顶尖文理学院）的学生打造的精英一对一辅导项目。我们不开展小组课，不提供千篇一律的建议。每一次课程都完全围绕您——您的背景、您的文书、您的申请学校名单。',
+            'AiXiom学院是我们专为申请美国大学（从常青藤名校到顶尖文理学院）的学生打造的为期两年的精英一对一辅导项目。两年完整的备战周期，让我们能从容地塑造您的学术与课外背景，而不是在申请季临时抱佛脚。我们不开展小组课，不提供千篇一律的建议。每一次课程都完全围绕您——您的背景、您的文书、您的申请学校名单。',
           description2:
             '我们的导师曾收到麻省理工学院、密歇根大学、范德堡大学等顶尖美国院校的录取通知。他们深谙招生官的评判标准，将助您从Common App文书到课外活动叙述，全方位打造令人印象深刻的申请材料。',
           description3:

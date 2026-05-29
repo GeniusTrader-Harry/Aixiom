@@ -4,6 +4,7 @@ import { FaBars, FaTimes } from 'react-icons/fa'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { siteConfig } from '../../utils/constants'
 import { useLanguage } from '../../context/LanguageContext'
+import CurrencySelector from './CurrencySelector'
 import { translations } from '../../utils/translations'
 
 export default function Header() {
@@ -85,6 +86,8 @@ export default function Header() {
             >
               AI Chat
             </Link>
+            {/* Currency Selector */}
+            <CurrencySelector />
             {/* Language Toggle */}
             <button
               onClick={toggleLanguage}
@@ -103,6 +106,8 @@ export default function Header() {
             >
               AI Chat
             </Link>
+            {/* Currency Selector Mobile */}
+            <CurrencySelector compact />
             {/* Language Toggle Mobile */}
             <button
               onClick={toggleLanguage}

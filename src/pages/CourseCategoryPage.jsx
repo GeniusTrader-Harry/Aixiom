@@ -5,11 +5,14 @@ import Card from '../components/ui/Card'
 import CTA from '../components/sections/CTA'
 import NotFoundPage from './NotFoundPage'
 import { useLanguage } from '../context/LanguageContext'
+import { useCurrency } from '../context/CurrencyContext'
+import { formatPrice } from '../utils/currency'
 import { translations } from '../utils/translations'
 
 export default function CourseCategoryPage() {
   const { category } = useParams()
   const { lang } = useLanguage()
+  const { currency } = useCurrency()
   const t = translations[lang].coursesPage
   const detail = t.categories?.[category]
 
@@ -62,7 +65,7 @@ export default function CourseCategoryPage() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center mb-6">
               <div>
                 <div className="text-3xl mb-2">💳</div>
-                <p className="text-white font-semibold">{detail.price}</p>
+                <p className="text-white font-semibold">{formatPrice(detail.price, currency)}</p>
               </div>
               <div>
                 <div className="text-3xl mb-2">⏳</div>
@@ -76,7 +79,7 @@ export default function CourseCategoryPage() {
             {detail.bundle && (
               <div className="border border-white/20 bg-white/5 rounded-xl p-4 mb-6 text-center">
                 <div className="text-2xl mb-1">📦</div>
-                <p className="text-white font-semibold">{detail.bundle}</p>
+                <p className="text-white font-semibold">{formatPrice(detail.bundle, currency)}</p>
               </div>
             )}
             <p className="text-gray-400 leading-relaxed text-center">

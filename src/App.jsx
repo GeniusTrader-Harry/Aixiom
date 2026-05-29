@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Layout from './components/layout/Layout'
+import ScrollToTop from './components/layout/ScrollToTop'
 import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage'
 import CoursesPage from './pages/CoursesPage'
@@ -11,11 +12,14 @@ import NotFoundPage from './pages/NotFoundPage'
 import AiChatPage from './pages/AiChatPage'
 import ResourcesPage from './pages/ResourcesPage'
 import { LanguageProvider } from './context/LanguageContext'
+import { CurrencyProvider } from './context/CurrencyContext'
 
 function App() {
   return (
     <LanguageProvider>
+    <CurrencyProvider>
     <BrowserRouter>
+      <ScrollToTop />
       <Layout>
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -31,6 +35,7 @@ function App() {
         </Routes>
       </Layout>
     </BrowserRouter>
+    </CurrencyProvider>
     </LanguageProvider>
   )
 }

@@ -262,7 +262,7 @@ export const translations = {
           title: 'IGCSE Courses',
           description:
             'Comprehensive support for IGCSE students across key subjects, with structured lessons and exam practice.',
-          topics: ['Core subject coverage', 'Past paper practice', 'Exam technique', 'Revision resources'],
+          topics: ['Mathematics', 'Economics', 'History', 'English (First & Second Language)'],
         },
         {
           id: 3,
@@ -287,6 +287,14 @@ export const translations = {
             'Public Forum debate coaching covering case construction, rebuttal strategy, and speaking skills.',
           topics: ['Case construction', 'Rebuttal strategy', 'Crossfire technique', 'Speaking skills'],
         },
+        {
+          id: 6,
+          slug: 'epq',
+          title: 'EPQ',
+          description:
+            '1-on-1 guidance through the Extended Project Qualification — from choosing your research question to submitting a polished 5,000-word project that strengthens your university application.',
+          topics: ['Choosing your research question', 'Research & academic referencing', 'Writing your 5,000-word report', 'Presentation & production log'],
+        },
       ],
       categoryDetail: {
         backToCourses: '← Back to Courses',
@@ -298,10 +306,10 @@ export const translations = {
         alevel: {
           title: 'A-Level Recorded Courses',
           subtitle: 'Structured, exam-focused content across our full A-Level lineup.',
-          price: '$200 per course',
+          price: '{price:150} per course',
           access: '2-year access',
           support: '24/7 mentor support',
-          bundle: 'Full A-Level Package: $400 (all four courses included)',
+          bundle: 'Full A-Level Package: {price:400} (all four courses included)',
           note: 'All A-Level courses are delivered as recorded video lessons with unlimited replays and direct mentor support whenever you need it.',
           courses: [
             { subject: 'Economics', tutors: 'Co-tutored by Harry & Cooper' },
@@ -313,10 +321,10 @@ export const translations = {
         igcse: {
           title: 'IGCSE Recorded Courses',
           subtitle: 'Full IGCSE coverage designed to build the foundations for A-Level success.',
-          price: '$100 per course',
+          price: '{price:100} per course',
           access: '2-year access',
           support: '24/7 mentor support',
-          bundle: 'Full IGCSE Package: $400 (all five courses included)',
+          bundle: 'Full IGCSE Package: {price:400} (all five courses included)',
           note: 'All IGCSE courses are recorded and come with ongoing mentor support throughout your 2-year access period.',
           courses: [
             { subject: 'Mathematics', tutors: 'Harry' },
@@ -328,27 +336,38 @@ export const translations = {
         },
         ielts: {
           title: 'IELTS Preparation',
-          subtitle: 'A complete IELTS package covering every section of the exam.',
-          price: '$400 for the complete package',
-          access: '2-year access',
+          subtitle: '1-on-1 preparation covering every section of the exam.',
+          price: '{price:80} per hour',
+          access: '1-on-1 live sessions',
           support: 'Listening · Reading · Writing · Speaking',
-          note: 'Harry teaches all four sections (Listening, Reading, Writing, Speaking). Cooper runs 1-on-1 speaking mock exams so you walk into the test with real examiner-style practice.',
+          note: 'IELTS is taught exclusively through 1-on-1 live sessions. Harry and Cooper tutor all four sections — Listening, Reading, Writing, and Speaking — including examiner-style speaking mock exams so you walk into the test fully prepared.',
           courses: [
-            { subject: 'Listening', tutors: 'Harry' },
-            { subject: 'Reading', tutors: 'Harry' },
-            { subject: 'Writing', tutors: 'Harry' },
-            { subject: 'Speaking (recorded + mock exams)', tutors: 'Harry (content) · Cooper (speaking mocks)' },
+            { subject: 'Listening', tutors: 'Harry & Cooper' },
+            { subject: 'Reading', tutors: 'Harry & Cooper' },
+            { subject: 'Writing', tutors: 'Harry & Cooper' },
+            { subject: 'Speaking (incl. mock exams)', tutors: 'Harry & Cooper' },
           ],
         },
         pfdebate: {
           title: 'PF Debate Coaching',
           subtitle: '1-on-1 mentoring only — no recorded content.',
-          price: '$50 per hour',
+          price: '{price:50} per hour',
           access: '1-on-1 live sessions',
           support: 'Bespoke coaching for every student',
           note: 'Public Forum debate is taught exclusively through live 1-on-1 mentoring. Tutored by Cooper, former NHSDLC (National High School Debate League of China) National Champion.',
           courses: [
             { subject: '1-on-1 PF Debate Mentoring', tutors: 'Cooper — former NHSDLC National Champion' },
+          ],
+        },
+        epq: {
+          title: 'EPQ (Extended Project Qualification)',
+          subtitle: 'Personalised 1-on-1 mentoring through every stage of your independent research project.',
+          price: '{price:50} per hour',
+          access: '1-on-1 live sessions',
+          support: '24/7 mentor support',
+          note: 'The EPQ is an independent research project worth up to 28 UCAS points — equivalent to half an A-Level — and is highly valued by UK universities. We mentor you one-on-one from topic selection through to your final 5,000-word report and presentation, building the research, academic writing, and project-management skills that set strong applicants apart.',
+          courses: [
+            { subject: 'EPQ Project Mentoring', tutors: 'Harry & Cooper' },
           ],
         },
       },
@@ -371,12 +390,12 @@ export const translations = {
         {
           id: 'standard',
           name: 'AiXiom Academy',
-          price: '$5,000',
+          price: '{price:5000}',
           tagline: 'The complete two-year 1-on-1 mentoring package.',
           features: [
             '2-year program spanning the full lead-up to your application',
             '40 hours of 1-on-1 mentoring sessions',
-            'Covers every course we offer — A-Level, AP, IGCSE, IELTS, and PF Debate',
+            'Covers every course we offer — A-Level, AP, IGCSE, IELTS, EPQ, and PF Debate',
             'Unlimited personal statement edits',
             'Unlimited mock interviews',
             'Full UCAS / Common App application strategy',
@@ -386,7 +405,7 @@ export const translations = {
         {
           id: 'guarantee',
           name: 'AiXiom Academy + Money-Back Guarantee',
-          price: '$8,000',
+          price: '{price:8000}',
           tagline: 'Our full two-year program, with a full refund if you don\'t get into your dream university.',
           featured: true,
           features: [
@@ -394,7 +413,7 @@ export const translations = {
             '2-year program spanning the full lead-up to your application',
             '40 hours of 1-on-1 mentoring sessions',
             'Unlimited personal statement edits and mock interviews',
-            'Covers every course we offer — A-Level, AP, IGCSE, IELTS, and PF Debate',
+            'Covers every course we offer — A-Level, AP, IGCSE, IELTS, EPQ, and PF Debate',
             '100% money-back guarantee if you are not accepted to your dream university',
           ],
         },
@@ -768,7 +787,7 @@ export const translations = {
           slug: 'igcse',
           title: 'IGCSE课程',
           description: '针对IGCSE学生的全方位支持，提供结构化课程及历年真题练习。',
-          topics: ['核心科目覆盖', '历年真题练习', '考试技巧', '复习资料'],
+          topics: ['数学', '经济学', '历史', '英语（第一与第二语言）'],
         },
         {
           id: 3,
@@ -790,6 +809,14 @@ export const translations = {
           description: '公共论坛辩论指导，涵盖论点构建、反驳策略及演讲技巧。',
           topics: ['论点构建', '反驳策略', '交叉盘问技巧', '演讲技巧'],
         },
+        {
+          id: 6,
+          slug: 'epq',
+          title: 'EPQ',
+          description:
+            '一对一指导完成EPQ（扩展项目资格）——从确定研究课题到提交一篇精炼的5000字项目报告，全面提升你的大学申请竞争力。',
+          topics: ['确定研究课题', '研究与学术引用', '撰写5000字报告', '展示与项目日志'],
+        },
       ],
       categoryDetail: {
         backToCourses: '← 返回课程页面',
@@ -801,10 +828,10 @@ export const translations = {
         alevel: {
           title: 'A-Level录播课程',
           subtitle: '系统化、以考试为导向的A-Level全科内容。',
-          price: '每门课程 $200',
+          price: '每门课程 {price:150}',
           access: '两年使用期',
           support: '全天候导师支持（24/7）',
-          bundle: 'A-Level全套课程包：$400（包含全部四门课程）',
+          bundle: 'A-Level全套课程包：{price:400}（包含全部四门课程）',
           note: '所有A-Level课程均以录播视频形式提供，可无限次回看，并在使用期内随时获得导师支持。',
           courses: [
             { subject: '经济学', tutors: 'Harry与Cooper联合授课' },
@@ -816,10 +843,10 @@ export const translations = {
         igcse: {
           title: 'IGCSE录播课程',
           subtitle: '完整的IGCSE覆盖，为A-Level打下坚实基础。',
-          price: '每门课程 $100',
+          price: '每门课程 {price:100}',
           access: '两年使用期',
           support: '全天候导师支持（24/7）',
-          bundle: 'IGCSE全套课程包：$400（包含全部五门课程）',
+          bundle: 'IGCSE全套课程包：{price:400}（包含全部五门课程）',
           note: '所有IGCSE课程均为录播形式，并在两年使用期内持续提供导师支持。',
           courses: [
             { subject: '数学', tutors: 'Harry' },
@@ -831,27 +858,38 @@ export const translations = {
         },
         ielts: {
           title: '雅思备考',
-          subtitle: '覆盖雅思全部四项技能的完整备考课程包。',
-          price: '整套课程 $400',
-          access: '两年使用期',
+          subtitle: '一对一辅导，覆盖雅思全部四项技能。',
+          price: '每小时 {price:80}',
+          access: '一对一实时辅导',
           support: '听力 · 阅读 · 写作 · 口语',
-          note: 'Harry负责全部四项技能（听力、阅读、写作、口语）的授课。Cooper负责一对一口语模考，让您在正式考试前获得真实考官风格的实战练习。',
+          note: '雅思仅通过一对一实时辅导授课。Harry与Cooper负责全部四项技能（听力、阅读、写作、口语）的辅导，包含考官风格的口语模考，让您充分备战正式考试。',
           courses: [
-            { subject: '听力', tutors: 'Harry' },
-            { subject: '阅读', tutors: 'Harry' },
-            { subject: '写作', tutors: 'Harry' },
-            { subject: '口语（录播课程 + 模考）', tutors: 'Harry（录播内容）· Cooper（口语模考）' },
+            { subject: '听力', tutors: 'Harry与Cooper' },
+            { subject: '阅读', tutors: 'Harry与Cooper' },
+            { subject: '写作', tutors: 'Harry与Cooper' },
+            { subject: '口语（含模考）', tutors: 'Harry与Cooper' },
           ],
         },
         pfdebate: {
           title: 'PF辩论指导',
           subtitle: '仅提供一对一辅导——无录播课程。',
-          price: '每小时 $50',
+          price: '每小时 {price:50}',
           access: '一对一实时辅导',
           support: '为每位学生量身定制',
           note: '公共论坛辩论仅通过一对一实时辅导授课。由Cooper亲自辅导，NHSDLC（全国中学生辩论联赛）前全国冠军。',
           courses: [
             { subject: 'PF辩论一对一辅导', tutors: 'Cooper——NHSDLC前全国冠军' },
+          ],
+        },
+        epq: {
+          title: 'EPQ（扩展项目资格）',
+          subtitle: '一对一个性化辅导，贯穿独立研究项目的每个阶段。',
+          price: '每小时 {price:50}',
+          access: '一对一实时辅导',
+          support: '全天候导师支持（24/7）',
+          note: 'EPQ是一项独立研究项目，最高可获得28个UCAS分数——相当于半门A-Level——深受英国大学青睐。我们提供一对一辅导，从选题到最终5000字报告及展示，帮助你培养研究、学术写作和项目管理能力，让你在申请中脱颖而出。',
+          courses: [
+            { subject: 'EPQ项目辅导', tutors: 'Harry与Cooper' },
           ],
         },
       },
@@ -873,12 +911,12 @@ export const translations = {
         {
           id: 'standard',
           name: 'AiXiom学院',
-          price: '$5,000',
+          price: '{price:5000}',
           tagline: '为期两年的完整一对一辅导课程包。',
           features: [
             '为期两年的辅导项目，覆盖申请前的整个备战周期',
             '40小时一对一辅导课程',
-            '涵盖我们所有课程——A-Level、AP、IGCSE、雅思及PF辩论',
+            '涵盖我们所有课程——A-Level、AP、IGCSE、雅思、EPQ及PF辩论',
             '无限次个人陈述（PS）修改',
             '无限次模拟面试',
             '完整的UCAS / Common App申请策略支持',
@@ -888,7 +926,7 @@ export const translations = {
         {
           id: 'guarantee',
           name: 'AiXiom学院 + 全额退款保障',
-          price: '$8,000',
+          price: '{price:8000}',
           tagline: '完整两年辅导项目；未录取梦校，全额退款。',
           featured: true,
           features: [
@@ -896,7 +934,7 @@ export const translations = {
             '为期两年的辅导项目，覆盖申请前的整个备战周期',
             '40小时一对一辅导课程',
             '无限次个人陈述修改与模拟面试',
-            '涵盖我们所有课程——A-Level、AP、IGCSE、雅思及PF辩论',
+            '涵盖我们所有课程——A-Level、AP、IGCSE、雅思、EPQ及PF辩论',
             '若未被梦想大学录取，100%全额退款',
           ],
         },

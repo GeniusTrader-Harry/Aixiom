@@ -5,6 +5,8 @@ import Section from '../components/ui/Section'
 import Card from '../components/ui/Card'
 import Button from '../components/ui/Button'
 import { useLanguage } from '../context/LanguageContext'
+import { useCurrency } from '../context/CurrencyContext'
+import { formatPrice } from '../utils/currency'
 import { translations } from '../utils/translations'
 
 const highlightIconMap = {
@@ -17,6 +19,7 @@ const stepIcons = [FaCalendarCheck, FaComments, FaUserGraduate, FaVideo]
 export default function MentoringPage() {
   const [activeRegion, setActiveRegion] = useState('hkuk')
   const { lang } = useLanguage()
+  const { currency } = useCurrency()
   const t = translations[lang].mentoringPage
   const region = t.regions[activeRegion]
   const icons = highlightIconMap[activeRegion]
@@ -196,7 +199,7 @@ export default function MentoringPage() {
                   </span>
                 )}
                 <h3 className="text-2xl font-bold text-white mb-2">{pkg.name}</h3>
-                <div className="text-4xl font-bold text-white mb-2">{pkg.price}</div>
+                <div className="text-4xl font-bold text-white mb-2">{formatPrice(pkg.price, currency)}</div>
                 <p className="text-gray-400 mb-6">{pkg.tagline}</p>
                 <ul className="space-y-3 text-gray-300">
                   {pkg.features.map((feature) => (

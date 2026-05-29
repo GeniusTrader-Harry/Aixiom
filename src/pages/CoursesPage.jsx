@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { FaBookOpen, FaGlobe, FaAward, FaLanguage, FaComments } from 'react-icons/fa'
+import { FaBookOpen, FaGlobe, FaAward, FaLanguage, FaComments, FaProjectDiagram } from 'react-icons/fa'
 import Section from '../components/ui/Section'
 import Card from '../components/ui/Card'
 import { useLanguage } from '../context/LanguageContext'
 import { translations } from '../utils/translations'
 
-const courseIcons = [FaBookOpen, FaGlobe, FaAward, FaLanguage, FaComments]
+const courseIcons = [FaBookOpen, FaGlobe, FaAward, FaLanguage, FaComments, FaProjectDiagram]
 
 export default function CoursesPage() {
   const { lang } = useLanguage()

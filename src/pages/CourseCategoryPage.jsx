@@ -59,9 +59,21 @@ export default function CourseCategoryPage() {
           className="max-w-3xl mx-auto mb-14"
         >
           <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 md:p-10">
-            <h2 className="text-xl font-semibold text-white mb-4">
+            <h2 className="text-xl font-semibold text-white mb-4 text-center">
               {labels.highlightsHeading}
             </h2>
+            {detail.oneOnOne && (
+              <div className="border border-white/20 bg-white/5 rounded-xl p-4 mb-6 text-center">
+                <div className="text-2xl mb-1">🧑‍🏫</div>
+                <p className="text-white font-semibold">{formatPrice(detail.oneOnOne, currency)}</p>
+              </div>
+            )}
+            {detail.bundle && (
+              <div className="border border-white/20 bg-white/5 rounded-xl p-4 mb-6 text-center">
+                <div className="text-2xl mb-1">📦</div>
+                <p className="text-white font-semibold">{formatPrice(detail.bundle, currency)}</p>
+              </div>
+            )}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center mb-6">
               <div>
                 <div className="text-3xl mb-2">💳</div>
@@ -76,12 +88,6 @@ export default function CourseCategoryPage() {
                 <p className="text-white font-semibold">{detail.support}</p>
               </div>
             </div>
-            {detail.bundle && (
-              <div className="border border-white/20 bg-white/5 rounded-xl p-4 mb-6 text-center">
-                <div className="text-2xl mb-1">📦</div>
-                <p className="text-white font-semibold">{formatPrice(detail.bundle, currency)}</p>
-              </div>
-            )}
             <p className="text-gray-400 leading-relaxed text-center">
               {detail.note}
             </p>

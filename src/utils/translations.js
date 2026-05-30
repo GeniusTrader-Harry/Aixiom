@@ -304,13 +304,14 @@ export const translations = {
       },
       categories: {
         alevel: {
-          title: 'A-Level Recorded Courses',
+          title: 'A-Level Courses',
           subtitle: 'Structured, exam-focused content across our full A-Level lineup.',
-          price: '{price:150} per course',
+          price: '{price:150} per recorded course',
           access: '2-year access',
           support: '24/7 mentor support',
           bundle: 'Full A-Level Package: {price:400} (all four courses included)',
-          note: 'All A-Level courses are delivered as recorded video lessons with unlimited replays and direct mentor support whenever you need it.',
+          oneOnOne: '1-on-1 Tutoring: {price:60} per hour',
+          note: 'All A-Level courses are available as recorded video lessons with unlimited replays, or as live 1-on-1 tutoring — with direct mentor support whenever you need it.',
           courses: [
             { subject: 'Economics', tutors: 'Co-tutored by Harry & Cooper' },
             { subject: 'Mathematics', tutors: 'Harry' },
@@ -319,13 +320,14 @@ export const translations = {
           ],
         },
         igcse: {
-          title: 'IGCSE Recorded Courses',
+          title: 'IGCSE Courses',
           subtitle: 'Full IGCSE coverage designed to build the foundations for A-Level success.',
-          price: '{price:100} per course',
+          price: '{price:100} per recorded course',
           access: '2-year access',
           support: '24/7 mentor support',
           bundle: 'Full IGCSE Package: {price:400} (all five courses included)',
-          note: 'All IGCSE courses are recorded and come with ongoing mentor support throughout your 2-year access period.',
+          oneOnOne: '1-on-1 Tutoring: {price:50} per hour',
+          note: 'All IGCSE courses are available as recorded lessons or live 1-on-1 tutoring, with ongoing mentor support throughout your access period.',
           courses: [
             { subject: 'Mathematics', tutors: 'Harry' },
             { subject: 'History', tutors: 'Cooper' },
@@ -826,13 +828,14 @@ export const translations = {
       },
       categories: {
         alevel: {
-          title: 'A-Level录播课程',
+          title: 'A-Level课程',
           subtitle: '系统化、以考试为导向的A-Level全科内容。',
-          price: '每门课程 {price:150}',
+          price: '每门录播课程 {price:150}',
           access: '两年使用期',
           support: '全天候导师支持（24/7）',
           bundle: 'A-Level全套课程包：{price:400}（包含全部四门课程）',
-          note: '所有A-Level课程均以录播视频形式提供，可无限次回看，并在使用期内随时获得导师支持。',
+          oneOnOne: '一对一辅导：每小时 {price:60}',
+          note: '所有A-Level课程均可选择录播视频（可无限次回看）或一对一实时辅导，并随时获得导师支持。',
           courses: [
             { subject: '经济学', tutors: 'Harry与Cooper联合授课' },
             { subject: '数学', tutors: 'Harry' },
@@ -841,13 +844,14 @@ export const translations = {
           ],
         },
         igcse: {
-          title: 'IGCSE录播课程',
+          title: 'IGCSE课程',
           subtitle: '完整的IGCSE覆盖，为A-Level打下坚实基础。',
-          price: '每门课程 {price:100}',
+          price: '每门录播课程 {price:100}',
           access: '两年使用期',
           support: '全天候导师支持（24/7）',
           bundle: 'IGCSE全套课程包：{price:400}（包含全部五门课程）',
-          note: '所有IGCSE课程均为录播形式，并在两年使用期内持续提供导师支持。',
+          oneOnOne: '一对一辅导：每小时 {price:50}',
+          note: '所有IGCSE课程均可选择录播课程或一对一实时辅导，并在使用期内持续提供导师支持。',
           courses: [
             { subject: '数学', tutors: 'Harry' },
             { subject: '历史', tutors: 'Cooper' },

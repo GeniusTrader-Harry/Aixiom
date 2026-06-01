@@ -20,9 +20,9 @@ const SUBJECTS = {
     placeholder: 'Ask anything about CIE A Level Economics...',
     exportPrefix: 'aixiom-cie-econ-notes',
     exportHeader: 'AiXiom CIE Economics Chat Notes',
-    color: 'bg-emerald-600',
-    colorHover: 'hover:bg-emerald-500',
-    borderColor: 'border-emerald-600',
+    color: 'bg-accent-600',
+    colorHover: 'hover:bg-accent-500',
+    borderColor: 'border-accent-600',
   },
   sociology: {
     label: 'A Level Sociology',
@@ -39,9 +39,9 @@ const SUBJECTS = {
     placeholder: 'Ask anything about CIE A Level Sociology...',
     exportPrefix: 'aixiom-cie-socio-notes',
     exportHeader: 'AiXiom CIE Sociology Chat Notes',
-    color: 'bg-violet-600',
-    colorHover: 'hover:bg-violet-500',
-    borderColor: 'border-violet-600',
+    color: 'bg-cyan-600',
+    colorHover: 'hover:bg-cyan-500',
+    borderColor: 'border-cyan-600',
   },
 }
 

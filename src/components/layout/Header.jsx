@@ -53,14 +53,21 @@ export default function Header() {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo — always stays as "AiXiom Education" */}
+          {/* Logo — icon + "AiXiom Education" */}
           <Link to="/">
-            <motion.span
-              className="text-2xl font-bold text-white cursor-pointer"
+            <motion.div
+              className="flex items-center gap-2.5 cursor-pointer"
               whileHover={{ scale: 1.05 }}
             >
-              {siteConfig.siteName}
-            </motion.span>
+              <img
+                src="/logo.png"
+                alt="AiXiom Education logo"
+                className="h-9 w-9 object-contain"
+              />
+              <span className="text-2xl font-bold text-white">
+                {siteConfig.siteName}
+              </span>
+            </motion.div>
           </Link>
 
           {/* Desktop Navigation */}

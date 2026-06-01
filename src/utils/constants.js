@@ -107,7 +107,9 @@ export const siteConfig = {
 
   social: {
     instagram: "https://instagram.com/aixiomedu",
-    tiktok: "https://tiktok.com/@aixiomedu"
+    tiktok: "https://tiktok.com/@aixiomedu",
+    xiaohongshu: "https://www.xiaohongshu.com/search_result?keyword=AixiomEducation",
+    xiaohongshuHandle: "AixiomEducation"
   }
 }
 

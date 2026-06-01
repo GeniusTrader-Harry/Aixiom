@@ -10,24 +10,31 @@ export default function Hero() {
   const t = translations[lang].hero
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden bg-[#0a0e2a]">
-      {/* Aurora Indigo gradient base */}
+    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden bg-[#070c18]">
+      {/* Navy base + electric-blue glow (matches the new logo) */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            'radial-gradient(ellipse at 20% 10%, rgba(99,102,241,0.55), transparent 55%),' +
-            'radial-gradient(ellipse at 85% 30%, rgba(168,85,247,0.45), transparent 55%),' +
-            'radial-gradient(ellipse at 60% 90%, rgba(56,189,248,0.30), transparent 60%),' +
-            'linear-gradient(135deg, #0a0e2a 0%, #1e1b4b 45%, #312e81 100%)',
+            'radial-gradient(ellipse at 22% 12%, rgba(56,160,255,0.30), transparent 55%),' +
+            'radial-gradient(ellipse at 82% 26%, rgba(22,112,230,0.22), transparent 55%),' +
+            'radial-gradient(ellipse at 60% 95%, rgba(80,180,255,0.16), transparent 60%),' +
+            'linear-gradient(135deg, #070c18 0%, #0b1430 50%, #0e1d40 100%)',
         }}
       />
-      {/* Hero image as subtle texture */}
+      {/* Subtle circuit grid (echoes the logo's nodes/lines) */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 mix-blend-overlay"
-        style={{ backgroundImage: 'url(/hero-bird.jpg)' }}
+        className="absolute inset-0 opacity-[0.18]"
+        style={{
+          backgroundImage:
+            'linear-gradient(rgba(124,195,255,0.25) 1px, transparent 1px),' +
+            'linear-gradient(90deg, rgba(124,195,255,0.25) 1px, transparent 1px)',
+          backgroundSize: '46px 46px',
+          maskImage: 'radial-gradient(ellipse at 70% 50%, black, transparent 75%)',
+          WebkitMaskImage: 'radial-gradient(ellipse at 70% 50%, black, transparent 75%)',
+        }}
       />
-      <div className="absolute inset-0 bg-[#0a0e2a]/40" />
+      <div className="absolute inset-0 bg-[#070c18]/40" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-32 pb-20">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
@@ -66,12 +73,13 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right: Main avatar */}
-          <div className="flex-shrink-0 w-64 h-80 md:w-80 md:h-[400px] lg:w-96 lg:h-[480px]">
+          {/* Right: AiXiom logo */}
+          <div className="flex-shrink-0 w-64 h-72 md:w-80 md:h-96 lg:w-[420px] lg:h-[420px] flex items-center justify-center">
             <img
-              src="/avatar-main.png"
+              src="/logo.png"
               alt="AiXiom Education"
-              className="w-full h-full object-contain drop-shadow-2xl"
+              className="w-full h-full object-contain"
+              style={{ filter: 'drop-shadow(0 0 40px rgba(56,160,255,0.35))' }}
             />
           </div>
         </div>

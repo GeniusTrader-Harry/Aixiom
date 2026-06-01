@@ -1,4 +1,5 @@
 import { FaInstagram, FaTiktok } from 'react-icons/fa'
+import { SiXiaohongshu } from 'react-icons/si'
 import { Link } from 'react-router-dom'
 import { siteConfig } from '../../utils/constants'
 import { useLanguage } from '../../context/LanguageContext'
@@ -15,9 +16,16 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
-            <h3 className="text-2xl font-bold text-white mb-4">
-              {siteConfig.siteName}
-            </h3>
+            <div className="flex items-center gap-2.5 mb-4">
+              <img
+                src="/logo.png"
+                alt="AiXiom Education logo"
+                className="h-9 w-9 object-contain"
+              />
+              <h3 className="text-2xl font-bold text-white">
+                {siteConfig.siteName}
+              </h3>
+            </div>
             <div className="flex space-x-4">
               <a
                 href={siteConfig.social.instagram}
@@ -34,6 +42,15 @@ export default function Footer() {
                 className="text-gray-400 hover:text-white transition-colors text-xl"
               >
                 <FaTiktok />
+              </a>
+              <a
+                href={siteConfig.social.xiaohongshu}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors text-xl"
+                aria-label="Little Red Note (小红书)"
+              >
+                <SiXiaohongshu />
               </a>
             </div>
           </div>
@@ -77,6 +94,11 @@ export default function Footer() {
               <li>
                 <a href={siteConfig.social.tiktok} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
                   TikTok
+                </a>
+              </li>
+              <li>
+                <a href={siteConfig.social.xiaohongshu} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                  {t.contact.xiaohongshuLabel}
                 </a>
               </li>
             </ul>

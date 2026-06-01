@@ -110,7 +110,9 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-white mb-1">{t.xiaohongshuLabel}</h4>
-                  <p className="text-gray-400">@aixiomedu</p>
+                  <a href={siteConfig.social.xiaohongshu} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
+                    {siteConfig.social.xiaohongshuHandle}
+                  </a>
                 </div>
               </div>
             </div>

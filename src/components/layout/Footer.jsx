@@ -70,7 +70,7 @@ export default function Footer() {
                     </Link>
                   ) : (
                     <a
-                      href={link.href}
+                      href={`/${link.href}`}
                       className="text-gray-400 hover:text-white transition-colors"
                     >
                       {link.name}

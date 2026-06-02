@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useNavigate, useLocation } from 'react-router-dom'
 import Button from '../ui/Button'
 import Section from '../ui/Section'
 import { useLanguage } from '../../context/LanguageContext'
@@ -7,6 +8,22 @@ import { translations } from '../../utils/translations'
 export default function CTA({ contactHref = '#contact' }) {
   const { lang } = useLanguage()
   const t = translations[lang].cta
+  const navigate = useNavigate()
+  const location = useLocation()
+
+  const scrollToContact = () => {
+    const el = document.querySelector('#contact')
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  const handleClick = () => {
+    if (location.pathname !== '/') {
+      navigate('/')
+      setTimeout(scrollToContact, 100)
+    } else {
+      scrollToContact()
+    }
+  }
 
   return (
     <Section background="white">
@@ -24,7 +41,7 @@ export default function CTA({ contactHref = '#contact' }) {
           {t.description}
         </p>
         <Button
-          href={contactHref}
+          onClick={handleClick}
           variant="primary"
           size="lg"
         >

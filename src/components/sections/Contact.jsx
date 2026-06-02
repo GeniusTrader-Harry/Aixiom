@@ -200,6 +200,24 @@ export default function Contact() {
                 </div>
               )}
             </form>
+
+            {/* Book a Free Inquiry Session */}
+            <div className="mt-8 bg-gray-900 border border-gray-800 rounded-2xl p-8 text-center">
+              <h3 className="text-2xl font-bold text-white mb-3">
+                {t.bookHeading}
+              </h3>
+              <p className="text-gray-400 mb-6">
+                {t.bookDesc}
+              </p>
+              <Button
+                href="https://calendly.com/wucooper464/new-meeting"
+                target="_blank"
+                size="lg"
+                className="w-full"
+              >
+                {t.bookButton}
+              </Button>
+            </div>
           </motion.div>
         </div>
       </div>

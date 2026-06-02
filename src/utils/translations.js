@@ -145,7 +145,7 @@ export const translations = {
       visual: 'Your Success, Our Priority',
       title: 'About AiXiom Education',
       description:
-        'AiXiom Education still delivers the traditional foundations students rely on — 1-on-1 mentoring, structured recorded courses, and exam-focused tutoring across subjects like Economics. But we\'re built for a world that\'s changing fast. As automation reshapes the job market, we refuse to spend our students\' time on skills AI can already replace. Instead, our core focus is AI literacy: teaching you how to learn alongside AI, how to use it as a thinking partner, and how to build the judgment, creativity, and adaptability that keep human work valuable. We\'re here to prepare students not just for their next exam, but for a career landscape no one can fully predict.',
+        'AiXiom Education still delivers the traditional foundations students rely on — 1-on-1 mentoring, structured recorded courses (coming soon), and exam-focused tutoring across subjects like Economics. But we\'re built for a world that\'s changing fast. As automation reshapes the job market, we refuse to spend our students\' time on skills AI can already replace. Instead, our core focus is AI literacy: teaching you how to learn alongside AI, how to use it as a thinking partner, and how to build the judgment, creativity, and adaptability that keep human work valuable. We\'re here to prepare students not just for their next exam, but for a career landscape no one can fully predict.',
       meetTeam: 'Meet the Team',
       role: 'Head Mentor',
       viewLinkedin: 'View His LinkedIn',
@@ -222,6 +222,9 @@ export const translations = {
       sendingButton: 'Sending...',
       successMessage: 'Message sent successfully!',
       errorMessage: 'Something went wrong. Please email us directly at',
+      bookHeading: 'Book a Free Inquiry Session',
+      bookDesc: "Prefer to talk it through? Schedule a free 30-minute intro session and we'll map out a personalised plan for you.",
+      bookButton: 'Book Now',
     },
 
     footer: {
@@ -306,10 +309,10 @@ export const translations = {
         alevel: {
           title: 'A-Level Courses',
           subtitle: 'Structured, exam-focused content across our full A-Level lineup.',
-          price: '{price:150} per recorded course',
+          price: '{price:150} per recorded course (Coming Soon)',
           access: '2-year access',
           support: '24/7 mentor support',
-          bundle: 'Full A-Level Package: {price:400} (all four courses included)',
+          bundle: 'Full A-Level Package: {price:400} (all four courses included) (Coming Soon)',
           oneOnOne: '1-on-1 Tutoring: {price:60} per hour',
           note: 'All A-Level courses are available as recorded video lessons with unlimited replays, or as live 1-on-1 tutoring — with direct mentor support whenever you need it.',
           courses: [
@@ -322,10 +325,10 @@ export const translations = {
         igcse: {
           title: 'IGCSE Courses',
           subtitle: 'Full IGCSE coverage designed to build the foundations for A-Level success.',
-          price: '{price:100} per recorded course',
+          price: '{price:100} per recorded course (Coming Soon)',
           access: '2-year access',
           support: '24/7 mentor support',
-          bundle: 'Full IGCSE Package: {price:400} (all five courses included)',
+          bundle: 'Full IGCSE Package: {price:400} (all five courses included) (Coming Soon)',
           oneOnOne: '1-on-1 Tutoring: {price:50} per hour',
           note: 'All IGCSE courses are available as recorded lessons or live 1-on-1 tutoring, with ongoing mentor support throughout your access period.',
           courses: [
@@ -680,7 +683,7 @@ export const translations = {
       visual: '您的成功，我们的首要目标',
       title: '关于爱科思摩教育',
       description:
-        '爱科思摩教育依然提供学生信赖的传统基础服务——一对一辅导、系统化录播课程，以及经济学等科目的考试导向教学。但我们的眼光放得更远：在这个瞬息万变的时代，随着自动化重塑就业市场，我们拒绝让学生将宝贵时间花在人工智能已经可以替代的技能上。我们的核心关注点是AI素养：教会您如何与AI共同学习，如何将其作为思维伙伴，以及如何培养让人类工作保持价值的判断力、创造力与适应力。我们不只是帮您备战下一场考试，更是为无人能完全预见的职业未来做好准备。',
+        '爱科思摩教育依然提供学生信赖的传统基础服务——一对一辅导、系统化录播课程（即将上线），以及经济学等科目的考试导向教学。但我们的眼光放得更远：在这个瞬息万变的时代，随着自动化重塑就业市场，我们拒绝让学生将宝贵时间花在人工智能已经可以替代的技能上。我们的核心关注点是AI素养：教会您如何与AI共同学习，如何将其作为思维伙伴，以及如何培养让人类工作保持价值的判断力、创造力与适应力。我们不只是帮您备战下一场考试，更是为无人能完全预见的职业未来做好准备。',
       meetTeam: '认识我们的团队',
       role: '首席导师',
       viewLinkedin: '查看他的LinkedIn',
@@ -753,6 +756,9 @@ export const translations = {
       sendingButton: '发送中……',
       successMessage: '消息发送成功！',
       errorMessage: '出现错误，请直接发送邮件至',
+      bookHeading: '预约免费咨询课',
+      bookDesc: '想先聊一聊？预约一节免费的30分钟介绍课，我们将为您量身定制学习方案。',
+      bookButton: '立即预约',
     },
 
     footer: {
@@ -830,10 +836,10 @@ export const translations = {
         alevel: {
           title: 'A-Level课程',
           subtitle: '系统化、以考试为导向的A-Level全科内容。',
-          price: '每门录播课程 {price:150}',
+          price: '每门录播课程 {price:150}（即将上线）',
           access: '两年使用期',
           support: '全天候导师支持（24/7）',
-          bundle: 'A-Level全套课程包：{price:400}（包含全部四门课程）',
+          bundle: 'A-Level全套课程包：{price:400}（包含全部四门课程）（即将上线）',
           oneOnOne: '一对一辅导：每小时 {price:60}',
           note: '所有A-Level课程均可选择录播视频（可无限次回看）或一对一实时辅导，并随时获得导师支持。',
           courses: [
@@ -846,10 +852,10 @@ export const translations = {
         igcse: {
           title: 'IGCSE课程',
           subtitle: '完整的IGCSE覆盖，为A-Level打下坚实基础。',
-          price: '每门录播课程 {price:100}',
+          price: '每门录播课程 {price:100}（即将上线）',
           access: '两年使用期',
           support: '全天候导师支持（24/7）',
-          bundle: 'IGCSE全套课程包：{price:400}（包含全部五门课程）',
+          bundle: 'IGCSE全套课程包：{price:400}（包含全部五门课程）（即将上线）',
           oneOnOne: '一对一辅导：每小时 {price:50}',
           note: '所有IGCSE课程均可选择录播课程或一对一实时辅导，并在使用期内持续提供导师支持。',
           courses: [

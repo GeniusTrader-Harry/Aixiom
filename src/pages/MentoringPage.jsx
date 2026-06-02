@@ -228,7 +228,7 @@ export default function MentoringPage() {
               {t.bookFreeDesc}
             </p>
             <Button
-              href="https://calendly.com/wucooper464/30min-intro-session?month=2026-04"
+              href="https://calendly.com/wucooper464/new-meeting"
               target="_blank"
               size="lg"
             >

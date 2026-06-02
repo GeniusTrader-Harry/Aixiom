@@ -93,27 +93,6 @@ export default function CoursesPage() {
             </div>
           </div>
         </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mt-12"
-        >
-          <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 md:p-12 text-white max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold mb-4">{t.comingSoonHeading}</h2>
-            <p className="text-lg text-gray-400 mb-6">
-              {t.comingSoonDesc}
-            </p>
-            <a
-              href="#contact"
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold bg-white text-black rounded-lg hover:bg-gray-200 transition-all"
-            >
-              {t.getNotified}
-            </a>
-          </div>
-        </motion.div>
       </Section>
     </div>
   )

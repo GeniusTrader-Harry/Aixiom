@@ -62,9 +62,9 @@ export default function Header() {
               <img
                 src="/logo.png"
                 alt="AiXiom Education logo"
-                className="h-12 w-12 object-contain"
+                className="h-9 w-9 lg:h-12 lg:w-12 object-contain"
               />
-              <span className="text-2xl font-bold text-white whitespace-nowrap">
+              <span className="hidden sm:inline text-lg sm:text-xl lg:text-2xl font-bold text-white whitespace-nowrap">
                 {siteConfig.siteName}
               </span>
             </motion.div>
@@ -106,25 +106,19 @@ export default function Header() {
           </div>
 
           {/* Mobile Actions */}
-          <div className="lg:hidden flex items-center gap-2">
-            <Link
-              to="/ai-chat"
-              className="inline-flex items-center justify-center px-3 py-1.5 text-xs font-semibold rounded-lg bg-white text-black hover:bg-gray-200 transition-colors"
-            >
-              AI Chat
-            </Link>
+          <div className="lg:hidden flex items-center gap-1.5">
             {/* Currency Selector Mobile */}
             <CurrencySelector compact />
             {/* Language Toggle Mobile */}
             <button
               onClick={toggleLanguage}
-              className="inline-flex items-center justify-center px-3 py-1.5 text-xs font-semibold rounded-lg border border-white/40 text-white hover:bg-white/10 transition-colors"
+              className="inline-flex items-center justify-center px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-white/40 text-white hover:bg-white/10 transition-colors"
               aria-label="Toggle language"
             >
               {lang === 'en' ? '中文' : 'EN'}
             </button>
             <button
-              className="text-gray-300 text-2xl"
+              className="text-gray-300 text-2xl p-1.5"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Menu"
               aria-expanded={isMobileMenuOpen}

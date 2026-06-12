@@ -11,6 +11,7 @@ import ArticleDetailPage from './pages/ArticleDetailPage'
 import NotFoundPage from './pages/NotFoundPage'
 import AiChatPage from './pages/AiChatPage'
 import ResourcesPage from './pages/ResourcesPage'
+import DashboardPage from './pages/DashboardPage'
 import { LanguageProvider } from './context/LanguageContext'
 import { CurrencyProvider } from './context/CurrencyContext'
 
@@ -31,6 +32,7 @@ function App() {
           <Route path="/articles/:id" element={<ArticleDetailPage />} />
           <Route path="/resources" element={<ResourcesPage />} />
           <Route path="/ai-chat" element={<AiChatPage />} />
+          <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Layout>

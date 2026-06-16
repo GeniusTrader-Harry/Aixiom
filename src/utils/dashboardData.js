@@ -139,7 +139,7 @@ export const mentors = [
       zh: '帝国理工学院经济、金融与数据科学专业。专注于货币与行为经济学、数学辅导及英国申请指导。',
     },
     emoji: '📈',
-    calendly: null, // TODO: paste Harry's Calendly link if he has one
+    calendly: 'https://calendly.com/harry-w-zhu/1v1-mentor-session',
   },
 ]
 

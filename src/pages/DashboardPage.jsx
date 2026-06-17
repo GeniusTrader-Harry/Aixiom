@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   FaExternalLinkAlt,
@@ -12,6 +12,8 @@ import {
   FaCommentDots,
   FaCloudUploadAlt,
   FaChalkboardTeacher,
+  FaChevronDown,
+  FaBookOpen,
 } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import Section from '../components/ui/Section'
@@ -22,6 +24,8 @@ import PortalNotice from '../components/portal/PortalNotice'
 import { useLanguage } from '../context/LanguageContext'
 import { useAuth } from '../context/AuthContext'
 import { mentors, sessionTypes } from '../utils/dashboardData'
+import { translations } from '../utils/translations'
+import { courseIcons, courseKey, groupMaterialsByCourse } from '../utils/courses'
 import {
   listMyMaterials,
   listMyFeedback,
@@ -45,10 +49,12 @@ const strings = {
     welcome: 'Welcome back',
     signOut: 'Sign out',
     teacherLink: 'Open Teacher Portal',
-    tabs: { materials: 'Materials', feedback: 'My Feedback', submit: 'Submit Work', booking: 'Book a Session' },
-    materialsHeading: 'Your Course Materials',
-    materialsSub: 'Everything your tutors have shared with you.',
+    tabs: { courses: 'Courses', booking: 'Book a Session', feedback: 'My Feedback', submit: 'Submit Work' },
+    coursesHeading: 'Your Courses',
+    coursesSub: 'All the courses we offer — open a course to see its materials.',
     noMaterials: 'No materials yet — your tutor will share them here.',
+    noMaterialsForCourse: 'No materials shared for this course yet.',
+    otherMaterials: 'Other Materials',
     feedbackHeading: 'Feedback & Grades',
     feedbackSub: 'Comments and grades from your tutors.',
     noFeedback: 'No feedback yet.',
@@ -93,10 +99,12 @@ const strings = {
     welcome: '欢迎回来',
     signOut: '退出',
     teacherLink: '进入教师中心',
-    tabs: { materials: '课程资料', feedback: '我的反馈', submit: '提交作业', booking: '预约课程' },
-    materialsHeading: '您的课程资料',
-    materialsSub: '导师与您分享的全部资料。',
+    tabs: { courses: '课程', booking: '预约课程', feedback: '我的反馈', submit: '提交作业' },
+    coursesHeading: '您的课程',
+    coursesSub: '我们提供的全部课程——展开课程即可查看相关资料。',
     noMaterials: '暂无资料——导师会在此处分享。',
+    noMaterialsForCourse: '该课程暂无资料。',
+    otherMaterials: '其他资料',
     feedbackHeading: '反馈与成绩',
     feedbackSub: '导师给您的评语与成绩。',
     noFeedback: '暂无反馈。',
@@ -158,8 +166,9 @@ export default function DashboardPage() {
   const t = strings[lang] ?? strings.en
   const { user, profile, role, loading, isSupabaseConfigured, signOut } = useAuth()
 
-  const [activeTab, setActiveTab] = useState('materials')
+  const [activeTab, setActiveTab] = useState('courses')
   const [materials, setMaterials] = useState([])
+  const [openCourses, setOpenCourses] = useState(() => new Set())
   const [feedback, setFeedback] = useState([])
   const [submissions, setSubmissions] = useState([])
   const [subjects, setSubjects] = useState([])
@@ -197,6 +206,24 @@ export default function DashboardPage() {
     localStorage.setItem(SESSIONS_KEY, JSON.stringify(sessions))
   }, [sessions])
 
+  // The course catalogue shown on the public Courses page, in the current language.
+  const courseCatalog = translations[lang]?.coursesPage?.courses ?? []
+
+  // Group the student's materials under the course each one belongs to.
+  const materialsByCourse = useMemo(() => groupMaterialsByCourse(materials), [materials])
+
+  // Auto-expand the courses that actually have materials once they load.
+  useEffect(() => {
+    setOpenCourses(new Set(Object.keys(materialsByCourse)))
+  }, [materialsByCourse])
+
+  const toggleCourse = (k) =>
+    setOpenCourses((prev) => {
+      const next = new Set(prev)
+      next.has(k) ? next.delete(k) : next.add(k)
+      return next
+    })
+
   const studentName = profile?.full_name || user?.email || 'Student'
 
   const openMaterial = async (m) => {
@@ -211,6 +238,26 @@ export default function DashboardPage() {
       }
     }
   }
+
+  const renderMaterials = (items) => (
+    <ul className="space-y-2">
+      {items.map((m) => {
+        const TypeIcon = materialTypeIcons[m.kind] ?? FaFileAlt
+        return (
+          <li key={m.id}>
+            <button
+              onClick={() => openMaterial(m)}
+              className="w-full flex items-center gap-3 px-4 py-3 rounded-lg bg-gray-900 border border-gray-800 text-gray-200 hover:border-gray-500 hover:text-white transition-colors group text-left"
+            >
+              <TypeIcon className="text-gray-500 group-hover:text-white transition-colors flex-shrink-0" />
+              <span className="flex-1">{lang === 'zh' ? m.title_zh || m.title_en : m.title_en}</span>
+              <FaExternalLinkAlt className="text-xs text-gray-600 group-hover:text-white transition-colors" />
+            </button>
+          </li>
+        )
+      })}
+    </ul>
+  )
 
   const handleUpload = async (e) => {
     e.preventDefault()
@@ -322,39 +369,86 @@ export default function DashboardPage() {
         </div>
 
         <AnimatePresence mode="wait">
-          {/* ---- Materials ---- */}
-          {activeTab === 'materials' && (
-            <motion.div key={'materials-' + lang} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -16 }} transition={{ duration: 0.35 }}>
+          {/* ---- Courses ---- */}
+          {activeTab === 'courses' && (
+            <motion.div key={'courses-' + lang} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -16 }} transition={{ duration: 0.35 }}>
               <div className="mb-8">
-                <h2 className="text-2xl font-bold text-white mb-2">{t.materialsHeading}</h2>
-                <p className="text-gray-400">{t.materialsSub}</p>
+                <h2 className="text-2xl font-bold text-white mb-2">{t.coursesHeading}</h2>
+                <p className="text-gray-400">{t.coursesSub}</p>
               </div>
-              {materials.length === 0 ? (
-                <p className="text-gray-500">{t.noMaterials}</p>
-              ) : (
-                <ul className="space-y-3 max-w-3xl">
-                  {materials.map((m) => {
-                    const TypeIcon = materialTypeIcons[m.kind] ?? FaFileAlt
-                    return (
-                      <li key={m.id}>
-                        <button
-                          onClick={() => openMaterial(m)}
-                          className="w-full flex items-center gap-3 px-4 py-3 rounded-lg bg-gray-950 border border-gray-800 text-gray-200 hover:border-gray-500 hover:text-white transition-colors group text-left"
-                        >
-                          <TypeIcon className="text-gray-500 group-hover:text-white transition-colors flex-shrink-0" />
-                          <span className="flex-1">
-                            {lang === 'zh' ? m.title_zh || m.title_en : m.title_en}
-                            {m.subjects && (
-                              <span className="text-gray-500 text-sm ml-2">· {pick({ en: m.subjects.name_en, zh: m.subjects.name_zh }, lang)}</span>
-                            )}
-                          </span>
-                          <FaExternalLinkAlt className="text-xs text-gray-600 group-hover:text-white transition-colors" />
-                        </button>
-                      </li>
-                    )
-                  })}
-                </ul>
-              )}
+              <div className="space-y-4 max-w-3xl">
+                {courseCatalog.map((course, index) => {
+                  const k = courseKey(course)
+                  const items = materialsByCourse[k] ?? []
+                  const isOpen = openCourses.has(k)
+                  const Icon = courseIcons[index] ?? FaBookOpen
+                  return (
+                    <div key={k} className="rounded-xl border border-gray-800 bg-gray-950 overflow-hidden">
+                      <button
+                        type="button"
+                        onClick={() => toggleCourse(k)}
+                        aria-expanded={isOpen}
+                        className="w-full flex items-center justify-between gap-3 px-5 py-4 text-left hover:bg-gray-900/60 transition-colors"
+                      >
+                        <div className="flex items-center gap-4 min-w-0">
+                          <div className="flex items-center justify-center w-11 h-11 bg-white/10 text-white rounded-xl flex-shrink-0">
+                            <Icon className="text-lg" />
+                          </div>
+                          <div className="min-w-0">
+                            <h3 className="text-white font-semibold">{course.title}</h3>
+                            <p className="text-xs text-gray-500 truncate">{course.topics.join(' · ')}</p>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-3 flex-shrink-0">
+                          {items.length > 0 && (
+                            <span className="px-2 py-0.5 text-xs font-semibold rounded-full bg-white/10 text-gray-300 border border-white/20">
+                              {items.length}
+                            </span>
+                          )}
+                          <FaChevronDown className={`text-gray-500 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+                        </div>
+                      </button>
+                      {isOpen && (
+                        <div className="px-5 pb-5 pt-1">
+                          {items.length === 0 ? (
+                            <p className="text-gray-600 text-sm py-1">{t.noMaterialsForCourse}</p>
+                          ) : (
+                            renderMaterials(items)
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  )
+                })}
+
+                {/* Materials whose subject doesn't match a listed course. */}
+                {(materialsByCourse.other?.length ?? 0) > 0 && (
+                  <div className="rounded-xl border border-gray-800 bg-gray-950 overflow-hidden">
+                    <button
+                      type="button"
+                      onClick={() => toggleCourse('other')}
+                      aria-expanded={openCourses.has('other')}
+                      className="w-full flex items-center justify-between gap-3 px-5 py-4 text-left hover:bg-gray-900/60 transition-colors"
+                    >
+                      <div className="flex items-center gap-4 min-w-0">
+                        <div className="flex items-center justify-center w-11 h-11 bg-white/10 text-white rounded-xl flex-shrink-0">
+                          <FaFileAlt className="text-lg" />
+                        </div>
+                        <h3 className="text-white font-semibold">{t.otherMaterials}</h3>
+                      </div>
+                      <div className="flex items-center gap-3 flex-shrink-0">
+                        <span className="px-2 py-0.5 text-xs font-semibold rounded-full bg-white/10 text-gray-300 border border-white/20">
+                          {materialsByCourse.other.length}
+                        </span>
+                        <FaChevronDown className={`text-gray-500 transition-transform duration-200 ${openCourses.has('other') ? 'rotate-180' : ''}`} />
+                      </div>
+                    </button>
+                    {openCourses.has('other') && (
+                      <div className="px-5 pb-5 pt-1">{renderMaterials(materialsByCourse.other)}</div>
+                    )}
+                  </div>
+                )}
+              </div>
             </motion.div>
           )}
 

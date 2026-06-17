@@ -12,13 +12,16 @@ import NotFoundPage from './pages/NotFoundPage'
 import AiChatPage from './pages/AiChatPage'
 import ResourcesPage from './pages/ResourcesPage'
 import DashboardPage from './pages/DashboardPage'
+import TeacherPage from './pages/TeacherPage'
 import { LanguageProvider } from './context/LanguageContext'
 import { CurrencyProvider } from './context/CurrencyContext'
+import { AuthProvider } from './context/AuthContext'
 
 function App() {
   return (
     <LanguageProvider>
     <CurrencyProvider>
+    <AuthProvider>
     <BrowserRouter>
       <ScrollToTop />
       <Layout>
@@ -33,10 +36,12 @@ function App() {
           <Route path="/resources" element={<ResourcesPage />} />
           <Route path="/ai-chat" element={<AiChatPage />} />
           <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/teacher" element={<TeacherPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Layout>
     </BrowserRouter>
+    </AuthProvider>
     </CurrencyProvider>
     </LanguageProvider>
   )

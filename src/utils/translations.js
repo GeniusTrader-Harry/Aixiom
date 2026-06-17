@@ -119,7 +119,7 @@ export const translations = {
           description2:
             "Our mentors have been through the UCAS process themselves, with successful applications to Oxford, Cambridge, LSE, Imperial, and other leading UK universities. They know what admissions tutors are looking for, and they'll work with you to craft a compelling personal statement and ace your interview.",
           description3:
-            "Whether you're sitting A-Levels, the IB, or the DSE — AiXiom Academy covers personal statement writing, Oxbridge admissions tests, interview technique, subject choice, and university shortlisting. This is strategic, personalized mentorship designed to get you into your dream UK university.",
+            "Whether you're sitting A-Levels or the IB — AiXiom Academy covers personal statement writing, Oxbridge admissions tests, interview technique, subject choice, and university shortlisting. This is strategic, personalized mentorship designed to get you into your dream UK university.",
           ctaText: 'Book Your Free Intro Session',
         },
         us: {
@@ -309,11 +309,11 @@ export const translations = {
         alevel: {
           title: 'A-Level Courses',
           subtitle: 'Structured, exam-focused content across our full A-Level lineup.',
-          price: '{price:150} per recorded course (Coming Soon)',
+          price: '{price:100|1000} per recorded course (Coming Soon)',
           access: '2-year access',
           support: '24/7 mentor support',
-          bundle: 'Full A-Level Package: {price:400} (all four courses included) (Coming Soon)',
-          oneOnOne: '1-on-1 Tutoring: {price:60} per hour',
+          bundle: 'Full A-Level Package: {price:300|3000} (all four courses included) (Coming Soon)',
+          oneOnOne: '1-on-1 Tutoring: {price:50|400} per hour',
           note: 'All A-Level courses are available as recorded video lessons with unlimited replays, or as live 1-on-1 tutoring — with direct mentor support whenever you need it.',
           courses: [
             { subject: 'Economics', tutors: 'Co-tutored by Harry & Cooper' },
@@ -325,11 +325,11 @@ export const translations = {
         igcse: {
           title: 'IGCSE Courses',
           subtitle: 'Full IGCSE coverage designed to build the foundations for A-Level success.',
-          price: '{price:100} per recorded course (Coming Soon)',
+          price: '{price:80|800} per recorded course (Coming Soon)',
           access: '2-year access',
           support: '24/7 mentor support',
-          bundle: 'Full IGCSE Package: {price:400} (all five courses included) (Coming Soon)',
-          oneOnOne: '1-on-1 Tutoring: {price:50} per hour',
+          bundle: 'Full IGCSE Package: {price:300|3000} (all five courses included) (Coming Soon)',
+          oneOnOne: '1-on-1 Tutoring: {price:40|300} per hour',
           note: 'All IGCSE courses are available as recorded lessons or live 1-on-1 tutoring, with ongoing mentor support throughout your access period.',
           courses: [
             { subject: 'Mathematics', tutors: 'Harry' },
@@ -342,7 +342,7 @@ export const translations = {
         ielts: {
           title: 'IELTS Preparation',
           subtitle: '1-on-1 preparation covering every section of the exam.',
-          price: '{price:80} per hour',
+          price: '{price:60|600} per hour',
           access: '1-on-1 live sessions',
           support: 'Listening · Reading · Writing · Speaking',
           note: 'IELTS is taught exclusively through 1-on-1 live sessions. Harry and Cooper tutor all four sections — Listening, Reading, Writing, and Speaking — including examiner-style speaking mock exams so you walk into the test fully prepared.',
@@ -356,7 +356,7 @@ export const translations = {
         pfdebate: {
           title: 'PF Debate Coaching',
           subtitle: '1-on-1 mentoring only — no recorded content.',
-          price: '{price:50} per hour',
+          price: '{price:40|400} per hour',
           access: '1-on-1 live sessions',
           support: 'Bespoke coaching for every student',
           note: 'Public Forum debate is taught exclusively through live 1-on-1 mentoring. Tutored by Cooper, former NHSDLC (National High School Debate League of China) National Champion.',
@@ -367,7 +367,7 @@ export const translations = {
         epq: {
           title: 'EPQ (Extended Project Qualification)',
           subtitle: 'Personalised 1-on-1 mentoring through every stage of your independent research project.',
-          price: '{price:50} per hour',
+          price: '{price:40|400} per hour',
           access: '1-on-1 live sessions',
           support: '24/7 mentor support',
           note: 'The EPQ is an independent research project worth up to 28 UCAS points — equivalent to half an A-Level — and is highly valued by UK universities. We mentor you one-on-one from topic selection through to your final 5,000-word report and presentation, building the research, academic writing, and project-management skills that set strong applicants apart.',
@@ -395,7 +395,7 @@ export const translations = {
         {
           id: 'standard',
           name: 'AiXiom Academy',
-          price: '{price:5000}',
+          price: '{price:4000|38888}',
           tagline: 'The complete two-year 1-on-1 mentoring package.',
           features: [
             '2-year program spanning the full lead-up to your application',
@@ -410,7 +410,7 @@ export const translations = {
         {
           id: 'guarantee',
           name: 'AiXiom Academy + Money-Back Guarantee',
-          price: '{price:8000}',
+          price: '{price:6000|58888}',
           tagline: 'Our full two-year program, with a full refund if you don\'t get into your dream university.',
           featured: true,
           features: [
@@ -482,7 +482,7 @@ export const translations = {
           description2:
             "Our mentors have been through the UCAS process themselves, with successful applications to Oxford, Cambridge, LSE, Imperial, and other leading UK universities. They know what admissions tutors are looking for, and they'll work with you to craft a compelling personal statement and ace your interview.",
           description3:
-            "Whether you're sitting A-Levels, the IB, or the DSE — AiXiom Academy covers personal statement writing, Oxbridge admissions tests, interview technique, subject choice, and university shortlisting. This is strategic, personalized mentorship designed to get you into your dream UK university.",
+            "Whether you're sitting A-Levels or the IB — AiXiom Academy covers personal statement writing, Oxbridge admissions tests, interview technique, subject choice, and university shortlisting. This is strategic, personalized mentorship designed to get you into your dream UK university.",
           sessionItems: [
             {
               label: 'Check-in (5 mins)',
@@ -657,7 +657,7 @@ export const translations = {
           description2:
             '我们的导师亲身经历过UCAS申请流程，成功收到牛津、剑桥、伦敦政治经济学院、帝国理工等顶尖英国大学的录取通知。他们深知招生官的评判标准，将帮助您打磨出色的个人陈述，并在面试中出类拔萃。',
           description3:
-            '无论您正在就读A-Level、IB还是DSE，AiXiom学院都覆盖个人陈述写作、牛剑笔试备考、面试技巧、科目选择及大学筛选等各个环节。这是专为帮助您进入梦想大学而量身定制的战略性、个性化辅导。',
+            '无论您正在就读A-Level还是IB，AiXiom学院都覆盖个人陈述写作、牛剑笔试备考、面试技巧、科目选择及大学筛选等各个环节。这是专为帮助您进入梦想大学而量身定制的战略性、个性化辅导。',
           ctaText: '预约免费初次咨询',
         },
         us: {
@@ -836,11 +836,11 @@ export const translations = {
         alevel: {
           title: 'A-Level课程',
           subtitle: '系统化、以考试为导向的A-Level全科内容。',
-          price: '每门录播课程 {price:150}（即将上线）',
+          price: '每门录播课程 {price:100|1000}（即将上线）',
           access: '两年使用期',
           support: '全天候导师支持（24/7）',
-          bundle: 'A-Level全套课程包：{price:400}（包含全部四门课程）（即将上线）',
-          oneOnOne: '一对一辅导：每小时 {price:60}',
+          bundle: 'A-Level全套课程包：{price:300|3000}（包含全部四门课程）（即将上线）',
+          oneOnOne: '一对一辅导：每小时 {price:50|400}',
           note: '所有A-Level课程均可选择录播视频（可无限次回看）或一对一实时辅导，并随时获得导师支持。',
           courses: [
             { subject: '经济学', tutors: 'Harry与Cooper联合授课' },
@@ -852,11 +852,11 @@ export const translations = {
         igcse: {
           title: 'IGCSE课程',
           subtitle: '完整的IGCSE覆盖，为A-Level打下坚实基础。',
-          price: '每门录播课程 {price:100}（即将上线）',
+          price: '每门录播课程 {price:80|800}（即将上线）',
           access: '两年使用期',
           support: '全天候导师支持（24/7）',
-          bundle: 'IGCSE全套课程包：{price:400}（包含全部五门课程）（即将上线）',
-          oneOnOne: '一对一辅导：每小时 {price:50}',
+          bundle: 'IGCSE全套课程包：{price:300|3000}（包含全部五门课程）（即将上线）',
+          oneOnOne: '一对一辅导：每小时 {price:40|300}',
           note: '所有IGCSE课程均可选择录播课程或一对一实时辅导，并在使用期内持续提供导师支持。',
           courses: [
             { subject: '数学', tutors: 'Harry' },
@@ -869,7 +869,7 @@ export const translations = {
         ielts: {
           title: '雅思备考',
           subtitle: '一对一辅导，覆盖雅思全部四项技能。',
-          price: '每小时 {price:80}',
+          price: '每小时 {price:60|600}',
           access: '一对一实时辅导',
           support: '听力 · 阅读 · 写作 · 口语',
           note: '雅思仅通过一对一实时辅导授课。Harry与Cooper负责全部四项技能（听力、阅读、写作、口语）的辅导，包含考官风格的口语模考，让您充分备战正式考试。',
@@ -883,7 +883,7 @@ export const translations = {
         pfdebate: {
           title: 'PF辩论指导',
           subtitle: '仅提供一对一辅导——无录播课程。',
-          price: '每小时 {price:50}',
+          price: '每小时 {price:40|400}',
           access: '一对一实时辅导',
           support: '为每位学生量身定制',
           note: '公共论坛辩论仅通过一对一实时辅导授课。由Cooper亲自辅导，NHSDLC（全国中学生辩论联赛）前全国冠军。',
@@ -894,7 +894,7 @@ export const translations = {
         epq: {
           title: 'EPQ（扩展项目资格）',
           subtitle: '一对一个性化辅导，贯穿独立研究项目的每个阶段。',
-          price: '每小时 {price:50}',
+          price: '每小时 {price:40|400}',
           access: '一对一实时辅导',
           support: '全天候导师支持（24/7）',
           note: 'EPQ是一项独立研究项目，最高可获得28个UCAS分数——相当于半门A-Level——深受英国大学青睐。我们提供一对一辅导，从选题到最终5000字报告及展示，帮助你培养研究、学术写作和项目管理能力，让你在申请中脱颖而出。',
@@ -921,7 +921,7 @@ export const translations = {
         {
           id: 'standard',
           name: 'AiXiom学院',
-          price: '{price:5000}',
+          price: '{price:4000|38888}',
           tagline: '为期两年的完整一对一辅导课程包。',
           features: [
             '为期两年的辅导项目，覆盖申请前的整个备战周期',
@@ -936,7 +936,7 @@ export const translations = {
         {
           id: 'guarantee',
           name: 'AiXiom学院 + 全额退款保障',
-          price: '{price:8000}',
+          price: '{price:6000|58888}',
           tagline: '完整两年辅导项目；未录取梦校，全额退款。',
           featured: true,
           features: [
@@ -1003,7 +1003,7 @@ export const translations = {
           description2:
             '我们的导师亲身经历过UCAS申请流程，成功收到牛津、剑桥、伦敦政治经济学院、帝国理工等顶尖英国大学的录取通知。他们深知招生官的评判标准，将帮助您打磨出色的个人陈述，并在面试中脱颖而出。',
           description3:
-            '无论您正在就读A-Level、IB还是DSE，AiXiom学院都覆盖个人陈述写作、牛剑笔试备考、面试技巧、科目选择及大学筛选等各个环节，为您量身定制战略性、个性化的辅导，助您进入梦想大学。',
+            '无论您正在就读A-Level还是IB，AiXiom学院都覆盖个人陈述写作、牛剑笔试备考、面试技巧、科目选择及大学筛选等各个环节，为您量身定制战略性、个性化的辅导，助您进入梦想大学。',
           sessionItems: [
             {
               label: '签到（5分钟）',

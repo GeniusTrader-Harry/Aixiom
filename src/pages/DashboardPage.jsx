@@ -1,70 +1,77 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
-  FaChartLine,
-  FaGlobe,
-  FaLanguage,
-  FaComments,
-  FaLightbulb,
-  FaBookOpen,
   FaExternalLinkAlt,
   FaGoogleDrive,
   FaFileAlt,
   FaCalendarAlt,
-  FaLock,
   FaSignOutAlt,
   FaUserGraduate,
   FaTrashAlt,
   FaEnvelope,
+  FaCommentDots,
+  FaCloudUploadAlt,
+  FaChalkboardTeacher,
 } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 import Section from '../components/ui/Section'
 import Card from '../components/ui/Card'
 import Button from '../components/ui/Button'
+import PortalLogin from '../components/portal/PortalLogin'
+import PortalNotice from '../components/portal/PortalNotice'
 import { useLanguage } from '../context/LanguageContext'
-import { ACCESS_CODES, courseMaterials, mentors, sessionTypes } from '../utils/dashboardData'
+import { useAuth } from '../context/AuthContext'
+import { mentors, sessionTypes } from '../utils/dashboardData'
+import {
+  listMyMaterials,
+  listMyFeedback,
+  listMySubmissions,
+  listSubjects,
+  submitWork,
+  getSignedUrl,
+} from '../utils/portalApi'
 import { siteConfig } from '../utils/constants'
 
-const STUDENT_KEY = 'aixiom_student'
 const SESSIONS_KEY = 'aixiom_sessions'
 
-const subjectIcons = {
-  FaChartLine,
-  FaGlobe,
-  FaLanguage,
-  FaComments,
-  FaLightbulb,
-}
-
-const materialTypeIcons = {
-  link: FaExternalLinkAlt,
-  drive: FaGoogleDrive,
-  file: FaFileAlt,
-}
+const materialTypeIcons = { link: FaExternalLinkAlt, drive: FaGoogleDrive, file: FaFileAlt }
 
 const strings = {
   en: {
     gateTitle: 'Student Portal',
-    gateSubtitle: 'Enter your name and the access code from your tutor to open the dashboard.',
-    nameLabel: 'Your name',
-    namePlaceholder: 'e.g. Alex Chen',
-    codeLabel: 'Access code',
-    codePlaceholder: 'Provided by your tutor',
-    enter: 'Enter Dashboard',
-    wrongCode: 'That access code isn\'t valid. Please check with your tutor.',
-    needCode: 'Don\'t have a code yet?',
-    contactUs: 'Contact us',
+    gateSubtitle: 'Sign in with the email your tutor set up for you.',
+    notConfigured: 'The portal isn\'t connected yet. Please check back soon.',
+    loading: 'Loading…',
     welcome: 'Welcome back',
     signOut: 'Sign out',
-    tabs: { materials: 'Course Materials', booking: 'Book a Session' },
+    teacherLink: 'Open Teacher Portal',
+    tabs: { materials: 'Materials', feedback: 'My Feedback', submit: 'Submit Work', booking: 'Book a Session' },
     materialsHeading: 'Your Course Materials',
-    materialsSub: 'Everything your tutors have shared, organised by subject.',
-    comingSoon: 'Materials coming soon — check back after your next session.',
+    materialsSub: 'Everything your tutors have shared with you.',
+    noMaterials: 'No materials yet — your tutor will share them here.',
+    feedbackHeading: 'Feedback & Grades',
+    feedbackSub: 'Comments and grades from your tutors.',
+    noFeedback: 'No feedback yet.',
+    grade: 'Grade',
+    submitHeading: 'Submit Your Work',
+    submitSub: 'Upload your work for your tutor to review.',
+    titleLabel: 'Title',
+    subjectLabel: 'Subject',
+    fileLabel: 'File',
+    noteLabel: 'Note (optional)',
+    upload: 'Upload',
+    uploading: 'Uploading…',
+    uploaded: 'Uploaded! Your tutor will review it.',
+    mySubmissions: 'My Submissions',
+    noSubmissions: 'Nothing submitted yet.',
+    statusSubmitted: 'Submitted',
+    statusReviewed: 'Reviewed',
     bookingHeading: 'Book a Session with a Mentor',
     bookingSub: 'Pick a mentor and book directly, or send us a session request.',
     bookCalendly: 'Book via Calendly',
     requestByEmail: 'Request by Email',
     requestHeading: 'Request a Session',
-    requestSub: 'Tell us when you\'d like to meet — we\'ll confirm by email and it\'ll appear in your upcoming sessions below.',
+    requestSub: 'Tell us when you\'d like to meet — we\'ll confirm by email.',
     mentorLabel: 'Mentor',
     sessionTypeLabel: 'Session type',
     dateLabel: 'Date',
@@ -76,31 +83,43 @@ const strings = {
     noSessions: 'No sessions yet — book one above to get started.',
     requested: 'Requested',
     cancel: 'Remove',
-    note: 'Session requests open your email app with the details pre-filled — your booking is confirmed once we reply.',
+    chooseSubject: '— Select —',
   },
   zh: {
     gateTitle: '学生中心',
-    gateSubtitle: '输入您的姓名和导师提供的访问码即可进入学习面板。',
-    nameLabel: '您的姓名',
-    namePlaceholder: '例如：陈同学',
-    codeLabel: '访问码',
-    codePlaceholder: '由您的导师提供',
-    enter: '进入学生中心',
-    wrongCode: '访问码无效，请与您的导师确认。',
-    needCode: '还没有访问码？',
-    contactUs: '联系我们',
+    gateSubtitle: '使用导师为您创建的邮箱登录。',
+    notConfigured: '学生中心尚未连接，请稍后再来查看。',
+    loading: '加载中……',
     welcome: '欢迎回来',
     signOut: '退出',
-    tabs: { materials: '课程资料', booking: '预约课程' },
+    teacherLink: '进入教师中心',
+    tabs: { materials: '课程资料', feedback: '我的反馈', submit: '提交作业', booking: '预约课程' },
     materialsHeading: '您的课程资料',
-    materialsSub: '导师分享的全部资料，按学科分类整理。',
-    comingSoon: '资料即将上线——请在下次课后再来查看。',
+    materialsSub: '导师与您分享的全部资料。',
+    noMaterials: '暂无资料——导师会在此处分享。',
+    feedbackHeading: '反馈与成绩',
+    feedbackSub: '导师给您的评语与成绩。',
+    noFeedback: '暂无反馈。',
+    grade: '成绩',
+    submitHeading: '提交您的作业',
+    submitSub: '上传作业供导师批阅。',
+    titleLabel: '标题',
+    subjectLabel: '科目',
+    fileLabel: '文件',
+    noteLabel: '备注（选填）',
+    upload: '上传',
+    uploading: '上传中……',
+    uploaded: '已上传！导师会进行批阅。',
+    mySubmissions: '我的提交',
+    noSubmissions: '暂无提交。',
+    statusSubmitted: '已提交',
+    statusReviewed: '已批阅',
     bookingHeading: '预约导师课程',
     bookingSub: '选择导师直接预约，或向我们发送预约申请。',
     bookCalendly: '通过 Calendly 预约',
     requestByEmail: '邮件预约',
     requestHeading: '发送预约申请',
-    requestSub: '告诉我们您方便的时间——我们会通过邮件确认，申请会显示在下方的课程列表中。',
+    requestSub: '告诉我们您方便的时间——我们会通过邮件确认。',
     mentorLabel: '导师',
     sessionTypeLabel: '课程类型',
     dateLabel: '日期',
@@ -112,11 +131,12 @@ const strings = {
     noSessions: '暂无课程安排——在上方预约即可开始。',
     requested: '已申请',
     cancel: '移除',
-    note: '发送预约申请会打开您的邮件应用并自动填写详情——我们回复后即确认预约。',
+    chooseSubject: '— 请选择 —',
   },
 }
 
 function pick(value, lang) {
+  if (!value) return ''
   if (typeof value === 'string') return value
   return value[lang] ?? value.en
 }
@@ -130,20 +150,21 @@ function loadJSON(key, fallback) {
   }
 }
 
+const inputClasses =
+  'w-full bg-gray-950 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-white/60 transition-colors'
+
 export default function DashboardPage() {
   const { lang } = useLanguage()
   const t = strings[lang] ?? strings.en
+  const { user, profile, role, loading, isSupabaseConfigured, signOut } = useAuth()
 
-  const [student, setStudent] = useState(() => loadJSON(STUDENT_KEY, null))
-  const [sessions, setSessions] = useState(() => loadJSON(SESSIONS_KEY, []))
   const [activeTab, setActiveTab] = useState('materials')
+  const [materials, setMaterials] = useState([])
+  const [feedback, setFeedback] = useState([])
+  const [submissions, setSubmissions] = useState([])
+  const [subjects, setSubjects] = useState([])
 
-  // Gate form state
-  const [name, setName] = useState('')
-  const [code, setCode] = useState('')
-  const [gateError, setGateError] = useState(false)
-
-  // Booking form state
+  const [sessions, setSessions] = useState(() => loadJSON(SESSIONS_KEY, []))
   const [form, setForm] = useState({
     mentorId: mentors[0].id,
     sessionType: sessionTypes[0].en,
@@ -151,28 +172,65 @@ export default function DashboardPage() {
     time: '',
     topic: '',
   })
+  const [upload, setUpload] = useState({ title: '', subjectId: '', note: '', file: null })
+  const [uploadState, setUploadState] = useState('idle') // idle | busy | done
+
+  // Load the student's data once signed in.
+  useEffect(() => {
+    if (!user) return
+    let active = true
+    Promise.all([listMyMaterials(), listMyFeedback(), listMySubmissions(), listSubjects()])
+      .then(([m, f, s, subj]) => {
+        if (!active) return
+        setMaterials(m)
+        setFeedback(f)
+        setSubmissions(s)
+        setSubjects(subj)
+      })
+      .catch(() => {})
+    return () => {
+      active = false
+    }
+  }, [user])
 
   useEffect(() => {
     localStorage.setItem(SESSIONS_KEY, JSON.stringify(sessions))
   }, [sessions])
 
-  const handleEnter = (e) => {
-    e.preventDefault()
-    if (!ACCESS_CODES.includes(code.trim().toUpperCase())) {
-      setGateError(true)
-      return
+  const studentName = profile?.full_name || user?.email || 'Student'
+
+  const openMaterial = async (m) => {
+    if (m.kind === 'link' && m.url) {
+      window.open(m.url, '_blank', 'noopener')
+    } else if (m.kind === 'file' && m.storage_path) {
+      try {
+        const url = await getSignedUrl('materials', m.storage_path)
+        window.open(url, '_blank', 'noopener')
+      } catch {
+        /* ignore */
+      }
     }
-    const s = { name: name.trim() || 'Student' }
-    localStorage.setItem(STUDENT_KEY, JSON.stringify(s))
-    setStudent(s)
-    setGateError(false)
   }
 
-  const handleSignOut = () => {
-    localStorage.removeItem(STUDENT_KEY)
-    setStudent(null)
-    setName('')
-    setCode('')
+  const handleUpload = async (e) => {
+    e.preventDefault()
+    if (!upload.file || !upload.title) return
+    setUploadState('busy')
+    try {
+      await submitWork({
+        userId: user.id,
+        title: upload.title,
+        subjectId: upload.subjectId,
+        note: upload.note,
+        file: upload.file,
+      })
+      const fresh = await listMySubmissions()
+      setSubmissions(fresh)
+      setUpload({ title: '', subjectId: '', note: '', file: null })
+      setUploadState('done')
+    } catch {
+      setUploadState('idle')
+    }
   }
 
   const handleRequest = (e) => {
@@ -188,99 +246,32 @@ export default function DashboardPage() {
       time: form.time,
       topic: form.topic,
     }
-    setSessions((prev) => [...prev, session].sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time)))
-
+    setSessions((prev) =>
+      [...prev, session].sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time))
+    )
     const subject = encodeURIComponent(
-      `${form.sessionType} session request — ${student.name} with ${mentorName}`
+      `${form.sessionType} session request — ${studentName} with ${mentorName}`
     )
     const body = encodeURIComponent(
-      `Hi AiXiom team,\n\nI'd like to book a session.\n\nStudent: ${student.name}\nMentor: ${mentorName}\nSession type: ${form.sessionType}\nDate: ${form.date}\nTime: ${form.time}\nTopic: ${form.topic || '—'}\n\nThanks!`
+      `Hi AiXiom team,\n\nI'd like to book a session.\n\nStudent: ${studentName}\nMentor: ${mentorName}\nSession type: ${form.sessionType}\nDate: ${form.date}\nTime: ${form.time}\nTopic: ${form.topic || '—'}\n\nThanks!`
     )
     window.location.href = `mailto:${siteConfig.contact.email}?subject=${subject}&body=${body}`
     setForm((prev) => ({ ...prev, date: '', time: '', topic: '' }))
   }
 
-  const removeSession = (id) => {
-    setSessions((prev) => prev.filter((s) => s.id !== id))
+  const removeSession = (id) => setSessions((prev) => prev.filter((s) => s.id !== id))
+
+  // ---------- Gate states ----------
+  if (!isSupabaseConfigured) {
+    return <PortalNotice title={t.gateTitle} message={t.notConfigured} />
+  }
+  if (loading) {
+    return <PortalNotice title={t.gateTitle} message={t.loading} />
+  }
+  if (!user) {
+    return <PortalLogin title={t.gateTitle} subtitle={t.gateSubtitle} crossTo="teacher" />
   }
 
-  const inputClasses =
-    'w-full bg-gray-950 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-white/60 transition-colors'
-
-  // ---------- Access gate ----------
-  if (!student) {
-    return (
-      <div className="pt-24">
-        <Section background="gray" className="min-h-[70vh]">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-md mx-auto"
-          >
-            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 md:p-10">
-              <div className="inline-flex items-center justify-center w-14 h-14 bg-white/10 border border-white/20 text-white rounded-full mb-6">
-                <FaLock className="text-xl" />
-              </div>
-              <h1 className="text-3xl font-bold text-white mb-3">{t.gateTitle}</h1>
-              <p className="text-gray-400 mb-8">{t.gateSubtitle}</p>
-
-              <form onSubmit={handleEnter} className="space-y-5">
-                <div>
-                  <label htmlFor="student-name" className="block text-sm font-medium text-gray-300 mb-2">
-                    {t.nameLabel}
-                  </label>
-                  <input
-                    id="student-name"
-                    type="text"
-                    required
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder={t.namePlaceholder}
-                    className={inputClasses}
-                  />
-                </div>
-                <div>
-                  <label htmlFor="access-code" className="block text-sm font-medium text-gray-300 mb-2">
-                    {t.codeLabel}
-                  </label>
-                  <input
-                    id="access-code"
-                    type="password"
-                    required
-                    value={code}
-                    onChange={(e) => {
-                      setCode(e.target.value)
-                      setGateError(false)
-                    }}
-                    placeholder={t.codePlaceholder}
-                    className={inputClasses}
-                  />
-                  {gateError && (
-                    <p className="text-red-400 text-sm mt-2" role="alert">
-                      {t.wrongCode}
-                    </p>
-                  )}
-                </div>
-                <Button type="submit" className="w-full">
-                  {t.enter}
-                </Button>
-              </form>
-
-              <p className="text-sm text-gray-500 mt-6">
-                {t.needCode}{' '}
-                <a href={`mailto:${siteConfig.contact.email}`} className="text-white underline hover:text-gray-300">
-                  {t.contactUs}
-                </a>
-              </p>
-            </div>
-          </motion.div>
-        </Section>
-      </div>
-    )
-  }
-
-  // ---------- Dashboard ----------
   return (
     <div className="pt-24">
       <Section background="gray">
@@ -291,28 +282,36 @@ export default function DashboardPage() {
           transition={{ duration: 0.6 }}
           className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-10"
         >
-          <div>
-            <h1 className="text-3xl md:text-4xl font-bold text-white">
-              {t.welcome}, {student.name} 👋
-            </h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-white">
+            {t.welcome}, {studentName} 👋
+          </h1>
+          <div className="flex items-center gap-3">
+            {role === 'teacher' && (
+              <Link
+                to="/teacher"
+                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-lg border border-white/40 text-white hover:bg-white/10 transition-colors"
+              >
+                <FaChalkboardTeacher /> {t.teacherLink}
+              </Link>
+            )}
+            <button
+              onClick={signOut}
+              className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-lg border border-white/40 text-white hover:bg-white/10 transition-colors"
+            >
+              <FaSignOutAlt /> {t.signOut}
+            </button>
           </div>
-          <button
-            onClick={handleSignOut}
-            className="inline-flex items-center gap-2 self-start sm:self-auto px-4 py-2 text-sm font-semibold rounded-lg border border-white/40 text-white hover:bg-white/10 transition-colors"
-          >
-            <FaSignOutAlt /> {t.signOut}
-          </button>
         </motion.div>
 
         {/* Tabs */}
-        <div className="flex mb-12">
+        <div className="flex mb-12 overflow-x-auto">
           <div className="inline-flex rounded-xl border border-gray-700 p-1 bg-gray-900/60">
             {Object.entries(t.tabs).map(([key, label]) => (
               <button
                 key={key}
                 type="button"
                 onClick={() => setActiveTab(key)}
-                className={`px-6 sm:px-8 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 ${
+                className={`px-5 sm:px-6 py-2.5 rounded-lg text-sm font-semibold whitespace-nowrap transition-all duration-200 ${
                   activeTab === key ? 'bg-white text-black' : 'text-gray-400 hover:text-white'
                 }`}
               >
@@ -323,83 +322,145 @@ export default function DashboardPage() {
         </div>
 
         <AnimatePresence mode="wait">
-          {activeTab === 'materials' ? (
-            <motion.div
-              key={'materials-' + lang}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -16 }}
-              transition={{ duration: 0.35 }}
-            >
+          {/* ---- Materials ---- */}
+          {activeTab === 'materials' && (
+            <motion.div key={'materials-' + lang} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -16 }} transition={{ duration: 0.35 }}>
               <div className="mb-8">
                 <h2 className="text-2xl font-bold text-white mb-2">{t.materialsHeading}</h2>
                 <p className="text-gray-400">{t.materialsSub}</p>
               </div>
+              {materials.length === 0 ? (
+                <p className="text-gray-500">{t.noMaterials}</p>
+              ) : (
+                <ul className="space-y-3 max-w-3xl">
+                  {materials.map((m) => {
+                    const TypeIcon = materialTypeIcons[m.kind] ?? FaFileAlt
+                    return (
+                      <li key={m.id}>
+                        <button
+                          onClick={() => openMaterial(m)}
+                          className="w-full flex items-center gap-3 px-4 py-3 rounded-lg bg-gray-950 border border-gray-800 text-gray-200 hover:border-gray-500 hover:text-white transition-colors group text-left"
+                        >
+                          <TypeIcon className="text-gray-500 group-hover:text-white transition-colors flex-shrink-0" />
+                          <span className="flex-1">
+                            {lang === 'zh' ? m.title_zh || m.title_en : m.title_en}
+                            {m.subjects && (
+                              <span className="text-gray-500 text-sm ml-2">· {pick({ en: m.subjects.name_en, zh: m.subjects.name_zh }, lang)}</span>
+                            )}
+                          </span>
+                          <FaExternalLinkAlt className="text-xs text-gray-600 group-hover:text-white transition-colors" />
+                        </button>
+                      </li>
+                    )
+                  })}
+                </ul>
+              )}
+            </motion.div>
+          )}
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {courseMaterials.map((course, i) => {
-                  const Icon = subjectIcons[course.icon] ?? FaBookOpen
-                  return (
-                    <Card key={course.id} delay={i * 0.08} className="p-6">
-                      <div className="flex items-start gap-4 mb-4">
-                        <div className="p-3 rounded-xl bg-white/10 border border-white/20 text-white">
-                          <Icon className="text-xl" />
-                        </div>
-                        <div>
-                          <h3 className="text-xl font-semibold text-white">{pick(course.subject, lang)}</h3>
-                          <p className="text-gray-400 text-sm mt-1">{pick(course.description, lang)}</p>
-                        </div>
+          {/* ---- Feedback ---- */}
+          {activeTab === 'feedback' && (
+            <motion.div key={'feedback-' + lang} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -16 }} transition={{ duration: 0.35 }}>
+              <div className="mb-8">
+                <h2 className="text-2xl font-bold text-white mb-2">{t.feedbackHeading}</h2>
+                <p className="text-gray-400">{t.feedbackSub}</p>
+              </div>
+              {feedback.length === 0 ? (
+                <div className="flex flex-col items-center justify-center text-center py-12 text-gray-500">
+                  <FaCommentDots className="text-3xl mb-4" />
+                  <p>{t.noFeedback}</p>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {feedback.map((f, i) => (
+                    <Card key={f.id} delay={i * 0.06} className="p-6">
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="text-sm font-semibold text-gray-400">
+                          {f.subjects ? pick({ en: f.subjects.name_en, zh: f.subjects.name_zh }, lang) : ''}
+                        </span>
+                        {f.grade && (
+                          <span className="px-2.5 py-0.5 text-xs font-bold rounded-full bg-white text-black">
+                            {t.grade}: {f.grade}
+                          </span>
+                        )}
                       </div>
-                      <ul className="space-y-2">
-                        {course.materials.map((m) => {
-                          const TypeIcon = materialTypeIcons[m.type] ?? FaFileAlt
-                          const ready = m.url && m.url !== '#'
-                          return (
-                            <li key={pick(m.title, 'en')}>
-                              {ready ? (
-                                <a
-                                  href={m.url}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="flex items-center gap-3 px-4 py-3 rounded-lg bg-gray-950 border border-gray-800 text-gray-200 hover:border-gray-500 hover:text-white transition-colors group"
-                                >
-                                  <TypeIcon className="text-gray-500 group-hover:text-white transition-colors flex-shrink-0" />
-                                  <span className="flex-1">{pick(m.title, lang)}</span>
-                                  <FaExternalLinkAlt className="text-xs text-gray-600 group-hover:text-white transition-colors" />
-                                </a>
-                              ) : (
-                                <div
-                                  className="flex items-center gap-3 px-4 py-3 rounded-lg bg-gray-950/50 border border-gray-800/60 text-gray-500 cursor-not-allowed"
-                                  title={t.comingSoon}
-                                >
-                                  <TypeIcon className="flex-shrink-0" />
-                                  <span className="flex-1">{pick(m.title, lang)}</span>
-                                  <span className="text-xs uppercase tracking-wide">{lang === 'zh' ? '即将上线' : 'Soon'}</span>
-                                </div>
-                              )}
-                            </li>
-                          )
-                        })}
-                      </ul>
+                      <p className="text-gray-200 whitespace-pre-wrap">{f.body}</p>
+                      <p className="text-xs text-gray-600 mt-3">{(f.created_at || '').slice(0, 10)}</p>
                     </Card>
-                  )
-                })}
+                  ))}
+                </div>
+              )}
+            </motion.div>
+          )}
+
+          {/* ---- Submit Work ---- */}
+          {activeTab === 'submit' && (
+            <motion.div key={'submit-' + lang} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -16 }} transition={{ duration: 0.35 }}>
+              <div className="mb-8">
+                <h2 className="text-2xl font-bold text-white mb-2">{t.submitHeading}</h2>
+                <p className="text-gray-400">{t.submitSub}</p>
+              </div>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <form onSubmit={handleUpload} className="bg-gray-900 border border-gray-800 rounded-2xl p-8 space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">{t.titleLabel}</label>
+                    <input type="text" required value={upload.title} onChange={(e) => setUpload((p) => ({ ...p, title: e.target.value }))} className={inputClasses} />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">{t.subjectLabel}</label>
+                    <select value={upload.subjectId} onChange={(e) => setUpload((p) => ({ ...p, subjectId: e.target.value }))} className={inputClasses}>
+                      <option value="">{t.chooseSubject}</option>
+                      {subjects.map((s) => (
+                        <option key={s.id} value={s.id}>{pick({ en: s.name_en, zh: s.name_zh }, lang)}</option>
+                      ))}
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">{t.fileLabel}</label>
+                    <input type="file" required onChange={(e) => setUpload((p) => ({ ...p, file: e.target.files[0] }))} className="block w-full text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-white file:text-black file:font-semibold hover:file:bg-gray-200" />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">{t.noteLabel}</label>
+                    <textarea rows={3} value={upload.note} onChange={(e) => setUpload((p) => ({ ...p, note: e.target.value }))} className={inputClasses} />
+                  </div>
+                  <Button type="submit" className="w-full" disabled={uploadState === 'busy'}>
+                    <FaCloudUploadAlt className="mr-2" /> {uploadState === 'busy' ? t.uploading : t.upload}
+                  </Button>
+                  {uploadState === 'done' && <p className="text-green-400 text-sm">{t.uploaded}</p>}
+                </form>
+
+                <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+                  <h3 className="text-xl font-bold text-white mb-6">{t.mySubmissions}</h3>
+                  {submissions.length === 0 ? (
+                    <p className="text-gray-500">{t.noSubmissions}</p>
+                  ) : (
+                    <ul className="space-y-3">
+                      {submissions.map((s) => (
+                        <li key={s.id} className="flex items-start gap-3 px-4 py-3 rounded-lg bg-gray-950 border border-gray-800">
+                          <FaFileAlt className="text-gray-500 mt-1 flex-shrink-0" />
+                          <div className="flex-1 min-w-0">
+                            <p className="text-white font-semibold">{s.title}</p>
+                            <p className="text-xs text-gray-500">{(s.created_at || '').slice(0, 10)}</p>
+                          </div>
+                          <span className={`px-2 py-0.5 text-xs font-semibold rounded-full border ${s.status === 'reviewed' ? 'bg-white text-black border-white' : 'bg-white/10 text-gray-300 border-white/20'}`}>
+                            {s.status === 'reviewed' ? t.statusReviewed : t.statusSubmitted}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
               </div>
             </motion.div>
-          ) : (
-            <motion.div
-              key={'booking-' + lang}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -16 }}
-              transition={{ duration: 0.35 }}
-            >
+          )}
+
+          {/* ---- Booking ---- */}
+          {activeTab === 'booking' && (
+            <motion.div key={'booking-' + lang} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -16 }} transition={{ duration: 0.35 }}>
               <div className="mb-8">
                 <h2 className="text-2xl font-bold text-white mb-2">{t.bookingHeading}</h2>
                 <p className="text-gray-400">{t.bookingSub}</p>
               </div>
-
-              {/* Mentor cards */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14 max-w-3xl mx-auto">
                 {mentors.map((mentor, i) => (
                   <Card key={mentor.id} delay={i * 0.08} className="p-6 flex flex-col text-center">
@@ -412,15 +473,7 @@ export default function DashboardPage() {
                         <FaCalendarAlt className="mr-2" /> {t.bookCalendly}
                       </Button>
                     ) : (
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="w-full"
-                        onClick={() => {
-                          setForm((prev) => ({ ...prev, mentorId: mentor.id }))
-                          document.getElementById('session-request')?.scrollIntoView({ behavior: 'smooth' })
-                        }}
-                      >
+                      <Button variant="outline" size="sm" className="w-full" onClick={() => { setForm((prev) => ({ ...prev, mentorId: mentor.id })); document.getElementById('session-request')?.scrollIntoView({ behavior: 'smooth' }) }}>
                         <FaEnvelope className="mr-2" /> {t.requestByEmail}
                       </Button>
                     )}
@@ -428,92 +481,38 @@ export default function DashboardPage() {
                 ))}
               </div>
 
-              {/* Request form + upcoming sessions */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div id="session-request" className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
                   <h3 className="text-xl font-bold text-white mb-2">{t.requestHeading}</h3>
                   <p className="text-gray-400 text-sm mb-6">{t.requestSub}</p>
                   <form onSubmit={handleRequest} className="space-y-4">
                     <div>
-                      <label htmlFor="req-mentor" className="block text-sm font-medium text-gray-300 mb-2">
-                        {t.mentorLabel}
-                      </label>
-                      <select
-                        id="req-mentor"
-                        value={form.mentorId}
-                        onChange={(e) => setForm((prev) => ({ ...prev, mentorId: e.target.value }))}
-                        className={inputClasses}
-                      >
-                        {mentors.map((m) => (
-                          <option key={m.id} value={m.id}>
-                            {pick(m.name, lang)}
-                          </option>
-                        ))}
+                      <label className="block text-sm font-medium text-gray-300 mb-2">{t.mentorLabel}</label>
+                      <select value={form.mentorId} onChange={(e) => setForm((prev) => ({ ...prev, mentorId: e.target.value }))} className={inputClasses}>
+                        {mentors.map((m) => (<option key={m.id} value={m.id}>{pick(m.name, lang)}</option>))}
                       </select>
                     </div>
                     <div>
-                      <label htmlFor="req-type" className="block text-sm font-medium text-gray-300 mb-2">
-                        {t.sessionTypeLabel}
-                      </label>
-                      <select
-                        id="req-type"
-                        value={form.sessionType}
-                        onChange={(e) => setForm((prev) => ({ ...prev, sessionType: e.target.value }))}
-                        className={inputClasses}
-                      >
-                        {sessionTypes.map((type) => (
-                          <option key={type.en} value={type.en}>
-                            {pick(type, lang)}
-                          </option>
-                        ))}
+                      <label className="block text-sm font-medium text-gray-300 mb-2">{t.sessionTypeLabel}</label>
+                      <select value={form.sessionType} onChange={(e) => setForm((prev) => ({ ...prev, sessionType: e.target.value }))} className={inputClasses}>
+                        {sessionTypes.map((type) => (<option key={type.en} value={type.en}>{pick(type, lang)}</option>))}
                       </select>
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <label htmlFor="req-date" className="block text-sm font-medium text-gray-300 mb-2">
-                          {t.dateLabel}
-                        </label>
-                        <input
-                          id="req-date"
-                          type="date"
-                          required
-                          value={form.date}
-                          min={new Date().toISOString().split('T')[0]}
-                          onChange={(e) => setForm((prev) => ({ ...prev, date: e.target.value }))}
-                          className={inputClasses}
-                        />
+                        <label className="block text-sm font-medium text-gray-300 mb-2">{t.dateLabel}</label>
+                        <input type="date" required value={form.date} min={new Date().toISOString().split('T')[0]} onChange={(e) => setForm((prev) => ({ ...prev, date: e.target.value }))} className={inputClasses} />
                       </div>
                       <div>
-                        <label htmlFor="req-time" className="block text-sm font-medium text-gray-300 mb-2">
-                          {t.timeLabel}
-                        </label>
-                        <input
-                          id="req-time"
-                          type="time"
-                          required
-                          value={form.time}
-                          onChange={(e) => setForm((prev) => ({ ...prev, time: e.target.value }))}
-                          className={inputClasses}
-                        />
+                        <label className="block text-sm font-medium text-gray-300 mb-2">{t.timeLabel}</label>
+                        <input type="time" required value={form.time} onChange={(e) => setForm((prev) => ({ ...prev, time: e.target.value }))} className={inputClasses} />
                       </div>
                     </div>
                     <div>
-                      <label htmlFor="req-topic" className="block text-sm font-medium text-gray-300 mb-2">
-                        {t.topicLabel}
-                      </label>
-                      <textarea
-                        id="req-topic"
-                        rows={3}
-                        value={form.topic}
-                        onChange={(e) => setForm((prev) => ({ ...prev, topic: e.target.value }))}
-                        placeholder={t.topicPlaceholder}
-                        className={inputClasses}
-                      />
+                      <label className="block text-sm font-medium text-gray-300 mb-2">{t.topicLabel}</label>
+                      <textarea rows={3} value={form.topic} onChange={(e) => setForm((prev) => ({ ...prev, topic: e.target.value }))} placeholder={t.topicPlaceholder} className={inputClasses} />
                     </div>
-                    <Button type="submit" className="w-full">
-                      <FaEnvelope className="mr-2" /> {t.sendRequest}
-                    </Button>
-                    <p className="text-xs text-gray-500">{t.note}</p>
+                    <Button type="submit" className="w-full"><FaEnvelope className="mr-2" /> {t.sendRequest}</Button>
                   </form>
                 </div>
 
@@ -527,32 +526,14 @@ export default function DashboardPage() {
                   ) : (
                     <ul className="space-y-3">
                       {sessions.map((s) => (
-                        <li
-                          key={s.id}
-                          className="flex items-start gap-4 px-4 py-3 rounded-lg bg-gray-950 border border-gray-800"
-                        >
-                          <div className="p-2.5 rounded-lg bg-white/10 text-white flex-shrink-0">
-                            <FaCalendarAlt />
-                          </div>
+                        <li key={s.id} className="flex items-start gap-4 px-4 py-3 rounded-lg bg-gray-950 border border-gray-800">
+                          <div className="p-2.5 rounded-lg bg-white/10 text-white flex-shrink-0"><FaCalendarAlt /></div>
                           <div className="flex-1 min-w-0">
                             <p className="text-white font-semibold">{s.mentorName}</p>
-                            <p className="text-sm text-gray-400">
-                              {s.date} · {s.time}
-                              {s.sessionType ? ` · ${s.sessionType}` : ''}
-                              {s.topic ? ` — ${s.topic}` : ''}
-                            </p>
-                            <span className="inline-block mt-1 px-2 py-0.5 text-xs font-semibold rounded-full bg-white/10 text-gray-300 border border-white/20">
-                              {t.requested}
-                            </span>
+                            <p className="text-sm text-gray-400">{s.date} · {s.time}{s.sessionType ? ` · ${s.sessionType}` : ''}{s.topic ? ` — ${s.topic}` : ''}</p>
+                            <span className="inline-block mt-1 px-2 py-0.5 text-xs font-semibold rounded-full bg-white/10 text-gray-300 border border-white/20">{t.requested}</span>
                           </div>
-                          <button
-                            onClick={() => removeSession(s.id)}
-                            className="text-gray-600 hover:text-red-400 transition-colors p-1"
-                            aria-label={t.cancel}
-                            title={t.cancel}
-                          >
-                            <FaTrashAlt />
-                          </button>
+                          <button onClick={() => removeSession(s.id)} className="text-gray-600 hover:text-red-400 transition-colors p-1" aria-label={t.cancel} title={t.cancel}><FaTrashAlt /></button>
                         </li>
                       ))}
                     </ul>

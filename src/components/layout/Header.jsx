@@ -97,7 +97,7 @@ export default function Header() {
               to="/dashboard"
               className="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold rounded-lg border border-white/40 text-white hover:bg-white/10 transition-colors whitespace-nowrap"
             >
-              {lang === 'en' ? 'Student Portal' : '学生中心'}
+              {lang === 'en' ? 'Portal' : '门户'}
             </Link>
             {/* Currency Selector */}
             <CurrencySelector />
@@ -153,7 +153,7 @@ export default function Header() {
               onClick={() => setIsMobileMenuOpen(false)}
               className="block text-white bg-white/10 border border-white/20 rounded-lg px-4 py-2 font-semibold"
             >
-              {lang === 'en' ? 'Student Portal' : '学生中心'}
+              {lang === 'en' ? 'Portal' : '门户'}
             </Link>
             {t.nav.links.map((link) => (
               <a

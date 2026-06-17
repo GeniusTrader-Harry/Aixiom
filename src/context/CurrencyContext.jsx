@@ -5,17 +5,17 @@ import { useLanguage } from './LanguageContext'
 const CurrencyContext = createContext()
 
 // Default currency per language.
-const LANG_DEFAULT_CURRENCY = { en: 'USD', zh: 'RMB' }
+const LANG_DEFAULT_CURRENCY = { en: 'GBP', zh: 'RMB' }
 
 export function CurrencyProvider({ children }) {
   const { lang } = useLanguage()
-  const [currency, setCurrency] = useState(LANG_DEFAULT_CURRENCY[lang] ?? 'USD')
+  const [currency, setCurrency] = useState(LANG_DEFAULT_CURRENCY[lang] ?? 'GBP')
 
   // Whenever the language changes, switch to that language's default currency.
   // (The user can still manually pick a different currency afterwards, until
   // the next language change.)
   useEffect(() => {
-    setCurrency(LANG_DEFAULT_CURRENCY[lang] ?? 'USD')
+    setCurrency(LANG_DEFAULT_CURRENCY[lang] ?? 'GBP')
   }, [lang])
 
   const cycleCurrency = () =>

@@ -128,6 +128,7 @@ export const mentors = [
       zh: '伦敦大学学院PPE专业。负责A-Level经济学辅导与英国/牛剑申请指导。',
     },
     emoji: '🎓',
+    avatar: '/avatar-cooper.png',
     calendly: 'https://calendly.com/wucooper464/new-meeting',
   },
   {
@@ -139,7 +140,24 @@ export const mentors = [
       zh: '帝国理工学院经济、金融与数据科学专业。专注于货币与行为经济学、数学辅导及英国申请指导。',
     },
     emoji: '📈',
+    avatar: '/avatar-harry.png',
     calendly: 'https://calendly.com/harry-w-zhu/1v1-mentor-session',
+  },
+  {
+    id: 'minseok-kim',
+    name: 'Minseok Kim',
+    role: { en: 'US Admissions Mentor · PPE & Economics', zh: '美国大学申请导师 · PPE与经济学' },
+    bio: {
+      en: 'PPE with Social Data Science at UCL. Teaches AP Economics, Government & Politics, Calculus and Statistics, with an interdisciplinary lens on philosophy, politics, economics, and data.',
+      zh: '伦敦大学学院PPE（含社会数据科学）专业。教授AP经济学、政府与政治、微积分与统计学，并以哲学、政治、经济与数据的跨学科视角授课。',
+    },
+    emoji: '🏛️',
+    avatar: '/avatar-minseok.png',
+    email: 'minseok.phil.kim@gmail.com',
+    highlightOffers: {
+      en: 'Offers: U-Michigan (Ann Arbor) · Georgetown',
+      zh: '录取：密歇根大学安娜堡 · 乔治城大学',
+    },
   },
 ]
 

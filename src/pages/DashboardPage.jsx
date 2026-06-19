@@ -302,7 +302,8 @@ export default function DashboardPage() {
     const body = encodeURIComponent(
       `Hi AiXiom team,\n\nI'd like to book a session.\n\nStudent: ${studentName}\nMentor: ${mentorName}\nSession type: ${form.sessionType}\nDate: ${form.date}\nTime: ${form.time}\nTopic: ${form.topic || '—'}\n\nThanks!`
     )
-    window.location.href = `mailto:${siteConfig.contact.email}?subject=${subject}&body=${body}`
+    const cc = mentor.email ? `&cc=${encodeURIComponent(mentor.email)}` : ''
+    window.location.href = `mailto:${siteConfig.contact.email}?subject=${subject}${cc}&body=${body}`
     setForm((prev) => ({ ...prev, date: '', time: '', topic: '' }))
   }
 
@@ -558,9 +559,22 @@ export default function DashboardPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14 max-w-3xl mx-auto">
                 {mentors.map((mentor, i) => (
                   <Card key={mentor.id} delay={i * 0.08} className="p-6 flex flex-col text-center">
-                    <div className="text-4xl mb-4">{mentor.emoji}</div>
+                    {mentor.avatar ? (
+                      <img
+                        src={mentor.avatar}
+                        alt={pick(mentor.name, lang)}
+                        className="w-20 h-20 rounded-full object-cover object-top border-2 border-white shadow-lg mx-auto mb-4"
+                      />
+                    ) : (
+                      <div className="text-4xl mb-4">{mentor.emoji}</div>
+                    )}
                     <h3 className="text-lg font-bold text-white mb-1">{pick(mentor.name, lang)}</h3>
                     <p className="text-sm font-medium text-gray-400 mb-3">{pick(mentor.role, lang)}</p>
+                    {mentor.highlightOffers && (
+                      <p className="inline-flex items-center justify-center gap-1.5 self-center mb-3 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-semibold text-white">
+                        🏅 {pick(mentor.highlightOffers, lang)}
+                      </p>
+                    )}
                     <p className="text-gray-400 text-sm mb-6 flex-1">{pick(mentor.bio, lang)}</p>
                     {mentor.calendly ? (
                       <Button href={mentor.calendly} target="_blank" size="sm" className="w-full">

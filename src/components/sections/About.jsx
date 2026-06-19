@@ -16,6 +16,10 @@ const team = [
     image: '/avatar-cooper.png',
     linkedin: 'https://www.linkedin.com/in/yuzhelun-cooper-wu-7022b1377/',
   },
+  {
+    name: 'Minseok Kim',
+    image: '/avatar-minseok.png',
+  },
 ]
 
 export default function About() {
@@ -94,7 +98,9 @@ export default function About() {
                 />
               </div>
               <p className="text-xl font-semibold text-white">{member.name}</p>
-              <p className="text-sm text-gray-400 mt-1">{t.role}</p>
+              <p className="text-sm text-gray-400 mt-1">
+                {tAbout.teamMembers.find((m) => m.name === member.name)?.role ?? t.role}
+              </p>
               <div className="mt-3 flex flex-col items-center gap-2">
                 {member.linkedin && (
                   <a
@@ -126,6 +132,9 @@ export default function About() {
           close: tAbout.closeLabel,
           education: tAbout.educationLabel,
           academicExperience: tAbout.academicExperienceLabel,
+          awards: tAbout.awardsLabel,
+          offers: tAbout.offersLabel,
+          teaches: tAbout.teachesLabel,
         }}
         onClose={() => setActiveBio(null)}
       />

@@ -59,6 +59,21 @@ export default function BioModal({ member, image, labels, onClose }) {
               <p className="text-2xl font-bold text-white">{member.name}</p>
               <p className="text-sm text-gray-400">{member.role}</p>
             </div>
+            {(member.offersTop || member.offers) && (
+              <div className="mb-6">
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  {labels.offers}
+                </h3>
+                {member.offersTop && (
+                  <p className="inline-flex items-center gap-2 mb-2 px-3 py-1.5 rounded-lg bg-white/10 border border-white/20 text-white font-semibold leading-relaxed">
+                    🏅 {member.offersTop}
+                  </p>
+                )}
+                {member.offers && (
+                  <p className="text-gray-300 leading-relaxed">{member.offers}</p>
+                )}
+              </div>
+            )}
             <p className="text-gray-300 leading-relaxed mb-6">{member.bio}</p>
             <div className="mb-5">
               <h3 className="text-lg font-semibold text-white mb-2">
@@ -74,6 +89,22 @@ export default function BioModal({ member, image, labels, onClose }) {
                 {member.academicExperience}
               </p>
             </div>
+            {member.awards && (
+              <div className="mt-5">
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  {labels.awards}
+                </h3>
+                <p className="text-gray-300 leading-relaxed">{member.awards}</p>
+              </div>
+            )}
+            {member.teaches && (
+              <div className="mt-5">
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  {labels.teaches}
+                </h3>
+                <p className="text-gray-300 leading-relaxed">{member.teaches}</p>
+              </div>
+            )}
           </motion.div>
         </motion.div>
       )}

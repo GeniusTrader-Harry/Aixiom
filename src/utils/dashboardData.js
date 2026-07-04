@@ -124,8 +124,8 @@ export const mentors = [
     name: 'Cooper Wu',
     role: { en: 'Head Mentor · Economics & UK Admissions', zh: '首席导师 · 经济学与英国申请' },
     bio: {
-      en: 'PPE at UCL. Leads A-Level Economics tutoring and UK/Oxbridge application mentoring.',
-      zh: '伦敦大学学院PPE专业。负责A-Level经济学辅导与英国/牛剑申请指导。',
+      en: 'PPE at UCL and a Don Lavoie Fellow at the Mercatus Center, George Mason University. Leads A-Level Economics tutoring and UK/Oxbridge application mentoring.',
+      zh: '伦敦大学学院PPE专业，美国乔治梅森大学Mercatus中心Don Lavoie Fellow。负责A-Level经济学辅导与英国/牛剑申请指导。',
     },
     emoji: '🎓',
     avatar: '/avatar-cooper.png',

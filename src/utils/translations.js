@@ -184,9 +184,10 @@ export const translations = {
         {
           name: 'Cooper Wu',
           role: 'Head Mentor',
-          bio: 'Cooper is a Head Mentor at AiXiom specializing in Austrian Economics and Public Choice theory — the schools that ask how markets coordinate dispersed knowledge and what actually happens when political actors face real incentives. He pairs this theoretical depth with a structured, exam-focused teaching style that consistently moves students to their target grades.',
+          bio: 'Cooper is a Head Mentor at AiXiom and a Don Lavoie Fellow at the Mercatus Center, George Mason University, specializing in Austrian Economics and Public Choice theory — the schools that ask how markets coordinate dispersed knowledge and what actually happens when political actors face real incentives. He pairs this theoretical depth with a structured, exam-focused teaching style that consistently moves students to their target grades.',
           education: 'BSc Philosophy, Politics, and Economics (PPE) — University College London (UCL).',
           academicExperience: 'PPE at UCL anchors Cooper\'s interdisciplinary approach, drawing together political philosophy, microeconomic theory, and constitutional economics. His reading centers on the Austrian tradition — Hayek on the knowledge problem and spontaneous order, Mises on economic calculation — alongside Public Choice in the Buchanan–Tullock tradition, with particular attention to rent-seeking and the incentives facing political actors.',
+          awards: 'Don Lavoie Fellow at the Mercatus Center, George Mason University. Former NHSDLC national champion in US-style (Public Forum) debate. MUNUC Outstanding Delegate Award.',
           linkedin: 'https://www.linkedin.com/in/yuzhelun-cooper-wu-7022b1377/',
         },
         {
@@ -733,9 +734,10 @@ export const translations = {
         {
           name: 'Cooper Wu',
           role: '首席导师',
-          bio: 'Cooper是爱科思摩的首席导师，专注于奥地利学派经济学与公共选择理论——前者追问市场如何协调分散的知识，后者则关注政治行为者在真实激励下会做出什么选择。他将这份理论深度与结构化、考试导向的教学风格相结合，持续帮助学生达到目标成绩。',
+          bio: 'Cooper是爱科思摩的首席导师，也是美国乔治梅森大学Mercatus中心的Don Lavoie Fellow，专注于奥地利学派经济学与公共选择理论——前者追问市场如何协调分散的知识，后者则关注政治行为者在真实激励下会做出什么选择。他将这份理论深度与结构化、考试导向的教学风格相结合，持续帮助学生达到目标成绩。',
           education: '哲学、政治与经济学士（PPE）——伦敦大学学院（UCL）。',
           academicExperience: 'UCL的PPE课程奠定了Cooper跨学科的研究路径，贯穿政治哲学、微观经济理论与宪政经济学。他的阅读聚焦于奥地利学派传统——哈耶克的知识分散论与自生秩序、米塞斯的经济计算论——以及布坎南与塔洛克所代表的公共选择学派，尤其关注寻租行为及政治行为者所面对的激励结构。',
+          awards: '美国乔治梅森大学Mercatus中心 Don Lavoie Fellow；前NHSDLC全国美式辩论（Public Forum）国赛冠军；芝加哥大学模拟联合国（MUNUC）杰出代表奖。',
           linkedin: 'https://www.linkedin.com/in/yuzhelun-cooper-wu-7022b1377/',
         },
         {

@@ -130,7 +130,7 @@ export default function AboutPage() {
         image={activeMember ? teamImages[activeMember.name] : null}
         labels={{
           close: t.closeLabel,
-          education: t.educationLabel,
+          profile: t.profileLabel,
           academicExperience: t.academicExperienceLabel,
           awards: t.awardsLabel,
           offers: t.offersLabel,

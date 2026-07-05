@@ -130,7 +130,7 @@ export default function About() {
         image={activeImage}
         labels={{
           close: tAbout.closeLabel,
-          education: tAbout.educationLabel,
+          profile: tAbout.profileLabel,
           academicExperience: tAbout.academicExperienceLabel,
           awards: tAbout.awardsLabel,
           offers: tAbout.offersLabel,

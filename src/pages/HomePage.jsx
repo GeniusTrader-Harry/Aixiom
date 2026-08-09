@@ -1,4 +1,5 @@
 import Hero from '../components/sections/Hero'
+import SampleTutorials from '../components/sections/SampleTutorials'
 import Academy from '../components/sections/Academy'
 import Features from '../components/sections/Features'
 import Services from '../components/sections/Services'
@@ -10,6 +11,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <SampleTutorials />
       <About />
       <Academy />
       <Services />

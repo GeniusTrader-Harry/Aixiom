@@ -101,6 +101,16 @@ export const translations = {
       ],
     },
 
+    tutorials: {
+      badge: 'Watch & Learn',
+      title: 'Sample Tutorials',
+      tagline: 'Get a feel for how we teach — watch a couple of our lessons.',
+      videos: [
+        { id: '7Z1AXs2jEUs', title: 'Sample Tutorial 1' },
+        { id: 'iCdtMyltB6o', start: 361, title: 'Sample Tutorial 2' },
+      ],
+    },
+
     academy: {
       badge: 'Exclusive Program',
       title: 'AiXiom Academy',
@@ -659,6 +669,16 @@ export const translations = {
           description: '公共论坛辩论指导，涵盖论点构建、反驳策略及演讲技巧。',
           icon: 'FaComments',
         },
+      ],
+    },
+
+    tutorials: {
+      badge: '观看学习',
+      title: '示范教学',
+      tagline: '观看几节课，感受我们的教学方式。',
+      videos: [
+        { id: '7Z1AXs2jEUs', title: '示范教学 1' },
+        { id: 'iCdtMyltB6o', start: 361, title: '示范教学 2' },
       ],
     },
 

@@ -7,7 +7,7 @@ export default function SampleTutorials() {
   const t = translations[lang].tutorials
 
   return (
-    <section className="py-24 bg-black relative overflow-hidden">
+    <section id="tutorials" className="py-24 bg-black relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <motion.div

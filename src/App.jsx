@@ -11,6 +11,7 @@ import ArticleDetailPage from './pages/ArticleDetailPage'
 import NotFoundPage from './pages/NotFoundPage'
 import AiChatPage from './pages/AiChatPage'
 import ResourcesPage from './pages/ResourcesPage'
+import TutorialsPage from './pages/TutorialsPage'
 import DashboardPage from './pages/DashboardPage'
 import TeacherPage from './pages/TeacherPage'
 import { LanguageProvider } from './context/LanguageContext'
@@ -34,6 +35,7 @@ function App() {
           <Route path="/articles" element={<ArticlesPage />} />
           <Route path="/articles/:id" element={<ArticleDetailPage />} />
           <Route path="/resources" element={<ResourcesPage />} />
+          <Route path="/tutorials" element={<TutorialsPage />} />
           <Route path="/ai-chat" element={<AiChatPage />} />
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/teacher" element={<TeacherPage />} />

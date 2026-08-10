@@ -5,7 +5,7 @@ export const translations = {
         { name: 'Home', href: '/', type: 'route' },
         { name: 'About Us', href: '/about', type: 'route' },
         { name: 'Courses', href: '/courses', type: 'route' },
-        { name: 'Sample Tutorials', href: '#tutorials', type: 'scroll' },
+        { name: 'Sample Tutorials', href: '/tutorials', type: 'route' },
         { name: 'AiXiom Academy', href: '/aixiomeducation', type: 'route' },
         { name: 'Resources', href: '/resources', type: 'route' },
         { name: 'Articles', href: '/articles', type: 'route' },
@@ -106,6 +106,7 @@ export const translations = {
       badge: 'Watch & Learn',
       title: 'Sample Tutorials',
       tagline: 'Get a feel for how we teach — watch a couple of our lessons.',
+      viewAll: 'View All Tutorials',
       videos: [
         { id: '7Z1AXs2jEUs', title: 'Sample Tutorial 1' },
         { id: 'iCdtMyltB6o', start: 361, title: 'Sample Tutorial 2' },
@@ -590,7 +591,7 @@ export const translations = {
         { name: '主页', href: '/', type: 'route' },
         { name: '关于我们', href: '/about', type: 'route' },
         { name: '课程', href: '/courses', type: 'route' },
-        { name: '示范教学', href: '#tutorials', type: 'scroll' },
+        { name: '示范教学', href: '/tutorials', type: 'route' },
         { name: 'AiXiom学院', href: '/aixiomeducation', type: 'route' },
         { name: '学习资源', href: '/resources', type: 'route' },
         { name: '文章', href: '/articles', type: 'route' },
@@ -678,6 +679,7 @@ export const translations = {
       badge: '观看学习',
       title: '示范教学',
       tagline: '观看几节课，感受我们的教学方式。',
+      viewAll: '查看全部教学',
       videos: [
         { id: '7Z1AXs2jEUs', title: '示范教学 1' },
         { id: 'iCdtMyltB6o', start: 361, title: '示范教学 2' },

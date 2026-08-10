@@ -1,10 +1,16 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
 import { translations } from '../../utils/translations'
+import TutorialGrid from '../ui/TutorialGrid'
 
 export default function SampleTutorials() {
   const { lang } = useLanguage()
   const t = translations[lang].tutorials
+
+  // The homepage only previews the first two tutorials — the rest live on
+  // the dedicated Sample Tutorials page.
+  const preview = t.videos.slice(0, 2)
 
   return (
     <section id="tutorials" className="py-24 bg-black relative overflow-hidden">
@@ -24,29 +30,17 @@ export default function SampleTutorials() {
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">{t.tagline}</p>
         </motion.div>
 
-        {/* Videos */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {t.videos.map((video, i) => (
-            <motion.div
-              key={video.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="rounded-2xl border border-gray-800 bg-gray-900/60 overflow-hidden"
-            >
-              <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
-                <iframe
-                  className="absolute inset-0 w-full h-full"
-                  src={`https://www.youtube.com/embed/${video.id}${video.start ? `?start=${video.start}` : ''}`}
-                  title={video.title}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                />
-              </div>
-              <div className="px-6 py-4 text-white font-semibold">{video.title}</div>
-            </motion.div>
-          ))}
+        {/* Preview videos */}
+        <TutorialGrid videos={preview} />
+
+        {/* Link to the full tutorials page */}
+        <div className="text-center mt-12">
+          <Link
+            to="/tutorials"
+            className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold rounded-lg bg-white text-black hover:bg-gray-200 transition-colors"
+          >
+            {t.viewAll}
+          </Link>
         </div>
       </div>
     </section>

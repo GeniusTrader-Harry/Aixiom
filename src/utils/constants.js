@@ -115,6 +115,15 @@ export const siteConfig = {
 
 export const articles = [
   {
+    id: 2,
+    title: "Imperial EFDS: Five Questions Applicants Ask Most",
+    date: "2026-08-13",
+    author: "Harry Zhu",
+    category: "University Guidance",
+    summary: "An Imperial EFDS student's practical answers on personal statements, interviews, assessment, workload and learning to code from scratch.",
+    readTime: "5 min read",
+  },
+  {
     id: 1,
     title: "What Are The Best Universities in Austrian Economics?",
     date: "2026-03-10",

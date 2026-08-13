@@ -28,6 +28,9 @@ export default function ArticleDetailPage() {
     }
     return article
   })()
+  const byline = localizedArticle?.author
+    ? `${t.by}\u00A0${localizedArticle.author}`
+    : ''
 
   if (!localizedArticle) {
     return (
@@ -68,7 +71,7 @@ export default function ArticleDetailPage() {
             {localizedArticle.author && (
               <>
                 <span>•</span>
-                <span>{t.by}{localizedArticle.author}</span>
+                <span>{byline}</span>
               </>
             )}
           </div>
@@ -81,7 +84,117 @@ export default function ArticleDetailPage() {
             {localizedArticle.summary}
           </p>
 
-          {lang === 'zh' && localizedArticle.id === 1 ? (
+          {localizedArticle.id === 2 && lang === 'zh' ? (
+            <article className="prose prose-invert max-w-none">
+              <p className="text-gray-300 leading-relaxed mb-6">
+                在所有咨询中，我被问得最多的就是帝国理工学院的经济、金融与数据科学本科（BSc Economics, Finance and Data Science，简称EFDS）。下面是每次都会出现的五个问题，以及我的详细回答。
+              </p>
+              <p className="text-gray-300 leading-relaxed mb-6">
+                先介绍一下背景：EFDS隶属于帝国理工商学院，课程结合了经济学核心内容、金融和应用计算。这个专业开设时间相对较短，网上能找到的信息不多，这也是我写这篇文章的原因。
+              </p>
+
+              <h2 className="text-2xl font-bold text-white mt-10 mb-6">个人陈述需要围绕编程来写吗？</h2>
+              <p className="text-gray-300 leading-relaxed mb-6">
+                不需要。UCAS的五个志愿共用一篇个人陈述，所以如果你的另外四个选择都是传统经济学专业，就写一篇传统的经济学个人陈述。帝国理工不会因此对你扣分；为了显得与课程匹配而生硬加入机器学习，读起来往往恰恰会显得刻意。
+              </p>
+              <p className="text-gray-300 leading-relaxed mb-6">
+                真正有帮助的是让最后一个学术段落带有实证分析，但核心问题仍然应该是经济学问题。我写的是通胀预期：从自己的EPQ出发，研读Wooldridge，进行回归分析，然后如实讨论研究存在的问题，包括非平稳性、序列相关，以及调查数据中的无回应偏差。招生老师更在意你能否识别自己方法的局限，而不是你能列出多少种技术。
+              </p>
+
+              <h2 className="text-2xl font-bold text-white mt-10 mb-6">面试是什么样的？</h2>
+              <p className="text-gray-300 leading-relaxed mb-6">
+                面试只有一轮，在线进行，由一位面试官主持，时长约20至30分钟。
+              </p>
+              <p className="text-gray-300 leading-relaxed mb-6">
+                请分别准备好“为什么选择这个专业”和“为什么选择帝国理工”这两个问题，因为两者都会被问到。你也要熟悉自己的个人陈述，确保能够解释和捍卫其中写到的任何内容。
+              </p>
+              <p className="text-gray-300 leading-relaxed mb-6">
+                问题解决环节会从一个现实情境开始，然后围绕同一个设定逐层加入经济学、统计学和实验设计问题。我的题目围绕刑事判决展开，例如如何衡量威慑效应、如何设计研究来检验它。其他学生遇到的情境完全不同，所以试图预测自己的题目没有太大意义。
+              </p>
+              <p className="text-gray-300 leading-relaxed mb-6">
+                与剑桥经济学面试相比，帝国理工明显更注重应用，技术难度也相对较低。只埋头刷高难度数学题并不是有效的准备方式。更值得做的是复习基础统计学，包括抽样、偏差和假设检验，并排练常见问题。
+              </p>
+
+              <h2 className="text-2xl font-bold text-white mt-10 mb-6">课程如何考核？</h2>
+              <p className="text-gray-300 leading-relaxed mb-6">
+                与许多主要依靠夏季期末考试的英国经济学专业不同，EFDS全年都有期中考试。一个具有代表性的模块可能由20%的项目、20%的期中考试和60%的期末考试构成，具体比例会因模块而异。项目通常以小组形式完成，最终成果可能是演示、报告或视频。
+              </p>
+
+              <h2 className="text-2xl font-bold text-white mt-10 mb-6">课程有多难？</h2>
+              <p className="text-gray-300 leading-relaxed mb-6">
+                如果你学过A-Level经济学和进阶数学，一年级的经济学与统计学应该比较容易应对。最让人意外的是Mathematical Foundations：它会进入实分析和证明题，思维方式与A-Level阶段直接计算答案有明显差异。预计自己需要几周时间适应。
+              </p>
+              <p className="text-gray-300 leading-relaxed mb-6">
+                从每周安排来看，课业之外仍有充足时间。真正明显变忙的通常只是小组作业截止前的两周。
+              </p>
+
+              <h2 className="text-2xl font-bold text-white mt-10 mb-6">没有编程基础会跟不上吗？</h2>
+              <p className="text-gray-300 leading-relaxed mb-6">
+                第一学期学R，第二学期学Python，两者都从零开始教。完全从零起步的前几周会觉得负担较重，但这更多是因为需要转换思维方式，而不是课程材料本身过难。
+              </p>
+              <p className="text-gray-300 leading-relaxed mb-6">
+                暑假稍微学一点Python就足够了。掌握变量、循环和函数，让自己在开学第一天对编程逻辑不感到陌生即可。
+              </p>
+              <p className="text-gray-300 leading-relaxed mt-10">
+                如果你还有其他问题，欢迎在评论区留言。
+              </p>
+            </article>
+          ) : localizedArticle.id === 2 ? (
+            <article className="prose prose-invert max-w-none">
+              <p className="text-gray-300 leading-relaxed mb-6">
+                I get asked about Imperial's BSc Economics, Finance and Data Science more than any other topic. Here are the five questions that come up every time, answered properly.
+              </p>
+              <p className="text-gray-300 leading-relaxed mb-6">
+                For context: EFDS sits within Imperial College Business School, and it combines core economics with finance and applied computing. It's a relatively new course, so there isn't much written about it — hence this post.
+              </p>
+
+              <h2 className="text-2xl font-bold text-white mt-10 mb-6">Does the personal statement need to be about coding?</h2>
+              <p className="text-gray-300 leading-relaxed mb-6">
+                No. UCAS gives you one personal statement across all five choices, so if your other four are traditional economics degrees, write a traditional economics statement. Imperial won't penalise you for it, and forcing in machine learning to seem like a fit tends to read as exactly that.
+              </p>
+              <p className="text-gray-300 leading-relaxed mb-6">
+                What does help is making your final academic section empirical, provided the question underneath it is still economic. Mine covered inflation expectations: I built on my EPQ, worked through Wooldridge, ran regressions, then wrote honestly about where the analysis fell down — non-stationarity, serial correlation, and non-response bias in my survey data. Admissions tutors care far more about whether you can identify the limits of your own method than about how many techniques you can name.
+              </p>
+
+              <h2 className="text-2xl font-bold text-white mt-10 mb-6">What is the interview like?</h2>
+              <p className="text-gray-300 leading-relaxed mb-6">
+                One online round, a single interviewer, 20 to 30 minutes.
+              </p>
+              <p className="text-gray-300 leading-relaxed mb-6">
+                Prepare “why this course” and “why Imperial” as two separate answers, because you will be asked both. Know your statement well enough to defend anything in it.
+              </p>
+              <p className="text-gray-300 leading-relaxed mb-6">
+                The problem-solving section starts with a real-world scenario and then layers economics, statistics and experimental design questions on top of that same setup. Mine was built around prison sentencing — how you'd measure deterrence, how you'd design a study to test it. Other students got entirely different scenarios, so there's little value in trying to predict yours.
+              </p>
+              <p className="text-gray-300 leading-relaxed mb-6">
+                Compared with Cambridge Economics, Imperial is noticeably more applied and less technically demanding. Grinding difficult maths problems alone is poor preparation. Revisit your basic statistics — sampling, bias, hypothesis testing — and rehearse the general questions.
+              </p>
+
+              <h2 className="text-2xl font-bold text-white mt-10 mb-6">How is the course assessed?</h2>
+              <p className="text-gray-300 leading-relaxed mb-6">
+                Unlike many UK economics degrees where everything rests on summer exams, EFDS runs midterms through the year. A representative module is 20% project, 20% midterm, 60% final, though this varies. Projects are usually group-based, with a presentation, report or video as the deliverable.
+              </p>
+
+              <h2 className="text-2xl font-bold text-white mt-10 mb-6">How difficult is it?</h2>
+              <p className="text-gray-300 leading-relaxed mb-6">
+                With A-Level Economics and Further Maths behind you, first-year economics and statistics should feel manageable. Mathematical Foundations is the module that surprises people: it moves into real analysis and proof-based work, which is a genuine shift from computing answers at A-Level. Expect a few weeks of adjustment.
+              </p>
+              <p className="text-gray-300 leading-relaxed mb-6">
+                Week to week, the workload leaves plenty of room for everything else. It only intensifies in the fortnight before group deadlines.
+              </p>
+
+              <h2 className="text-2xl font-bold text-white mt-10 mb-6">Will I struggle with no programming background?</h2>
+              <p className="text-gray-300 leading-relaxed mb-6">
+                R in term one, Python in term two, both taught from the ground up. Starting from zero feels heavy for the first few weeks, but that's the shift in thinking rather than the material itself.
+              </p>
+              <p className="text-gray-300 leading-relaxed mb-6">
+                A little Python over the summer is ample preparation. Variables, loops and functions — enough that the logic isn't unfamiliar on day one.
+              </p>
+              <p className="text-gray-300 leading-relaxed mt-10">
+                Happy to answer anything else in the comments.
+              </p>
+            </article>
+          ) : lang === 'zh' && localizedArticle.id === 1 ? (
             <article className="prose prose-invert max-w-none">
               <h2 className="text-2xl font-bold text-white mb-6">为有意深入研究奥地利经济学的准学生提供院校清单</h2>
 

@@ -1141,6 +1141,13 @@ export const translations = {
       articleNotFound: '文章未找到',
       articles: [
         {
+          id: 2,
+          title: '帝国理工EFDS：申请者最常问的五个问题',
+          category: '院校指南',
+          summary: '帝国理工EFDS在读学生详解个人陈述、面试、考核方式、课程难度，以及零编程基础如何准备。',
+          readTime: '5分钟阅读',
+        },
+        {
           id: 1,
           title: '奥地利经济学派最佳院校有哪些？',
           category: '院校指南',
